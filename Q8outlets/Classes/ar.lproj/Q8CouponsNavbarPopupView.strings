@@ -1,0 +1,27 @@
+
+/* Class = "UILabel"; text = "Used"; ObjectID = "32n-92-ZiK"; */
+"32n-92-ZiK.text" = "مستخدم";
+
+/* Class = "UILabel"; text = "Active"; ObjectID = "3kF-CI-rz7"; */
+"3kF-CI-rz7.text" = "جاري";
+
+/* Class = "UILabel"; text = "Archived"; ObjectID = "ZRt-tN-Mvt"; */
+"ZRt-tN-Mvt.text" = "مؤرشف";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "gbY-B7-68G"; */
+//"gbY-B7-68G.text" = "0";
+
+/* Class = "UILabel"; text = "23"; ObjectID = "jxV-2h-6nb"; */
+//"jxV-2h-6nb.text" = "23";
+
+/* Class = "UILabel"; text = "SHOW COUPONS"; ObjectID = "v1v-Wb-XQL"; */
+"v1v-Wb-XQL.text" = "اظهار الكوبون";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "vGk-Fd-60u"; */
+//"vGk-Fd-60u.text" = "1";
+
+/* Class = "UILabel"; text = "Expired"; ObjectID = "yTX-q1-0et"; */
+"yTX-q1-0et.text" = "منتهي الصلاحية";
+
+/* Class = "UILabel"; text = "8"; ObjectID = "zdE-fK-co5"; */
+//"zdE-fK-co5.text" = "8";

@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "Spam"; ObjectID = "4rY-vl-vBa"; */
+"4rY-vl-vBa.text" = "رسائل غير مرغوب فيها";
+
+///* Class = "UILabel"; text = "REPORT THIS OFFER"; ObjectID = "cKE-e0-ftU"; */
+//"cKE-e0-ftU.text" = "REPORT THIS OFFER";
+
+/* Class = "UILabel"; text = "Offensive content"; ObjectID = "e3W-ff-3jo"; */
+"e3W-ff-3jo.text" = "محتوى مسئ";
+
+/* Class = "UILabel"; text = "Cheating"; ObjectID = "lfC-Cy-mJE"; */
+"lfC-Cy-mJE.text" = "غش";

@@ -1,0 +1,132 @@
+
+/* Class = "UINavigationItem"; title = "Take a Tour"; ObjectID = "21Y-vU-NvN"; */
+"21Y-vU-NvN.title" = "أخذ جولة";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "2VV-9x-1HG"; */
+"2VV-9x-1HG.placeholder" = "البريد الإلكتروني";
+
+/* Class = "UILabel"; text = "Already have an account?"; ObjectID = "2jj-ca-wYD"; */
+"2jj-ca-wYD.text" = "لدي حساب";
+
+/* Class = "UIButton"; normalTitle = "NEXT"; ObjectID = "5jF-wf-fnn"; */
+"5jF-wf-fnn.normalTitle" = "التالي";
+
+/* Class = "UILabel"; text = "Q8Outlets"; ObjectID = "6cp-3Z-l3F"; */
+"6cp-3Z-l3F.text" = "كويت اوتليتس";
+
+/* Class = "UILabel"; text = "AUTHORIZE WITH SOCIAL NETWORK"; ObjectID = "71n-n2-bOV"; */
+"71n-n2-bOV.text" = "تسجيل الدخول من خلال شبكات التواصل الاجتماعي";
+
+/* Class = "UILabel"; text = "Already have an account?"; ObjectID = "AAD-Q7-fab"; */
+"AAD-Q7-fab.text" = "لدي حساب";
+
+/* Class = "UINavigationItem"; title = "VIP Code"; ObjectID = "CMs-Zt-cwZ"; */
+"CMs-Zt-cwZ.title" = "كود VIP";
+
+/* Class = "UIButton"; normalTitle = "BACK"; ObjectID = "D4B-2J-Oa3"; */
+"D4B-2J-Oa3.normalTitle" = "السابق";
+
+/* Class = "UILabel"; text = "Browse and choose from many special offers available to you."; ObjectID = "D5O-vk-Pjg"; */
+"D5O-vk-Pjg.text" = "Browse and choose from many special offers available to you.";
+
+/* Class = "UIButton"; normalTitle = "RESET PASSWORD"; ObjectID = "IfW-RK-U8q"; */
+"IfW-RK-U8q.normalTitle" = "إعادة ضبط كلمة السر";
+
+/* Class = "UINavigationItem"; title = "Q8Outlets"; ObjectID = "JVg-QA-3d6"; */
+"JVg-QA-3d6.title" = "كويت اوتليتس";
+
+/* Class = "UIButton"; normalTitle = "SIGN IN"; ObjectID = "LmM-uG-9RZ"; */
+"LmM-uG-9RZ.normalTitle" = "تسجيل الدخول";
+
+/* Class = "UIButton"; normalTitle = "Sign In"; ObjectID = "N3Y-i3-pHr"; */
+"N3Y-i3-pHr.normalTitle" = "تسجيل الدخول";
+
+/* Class = "UITextField"; placeholder = "Confirm password"; ObjectID = "N4s-Es-uhm"; */
+"N4s-Es-uhm.placeholder" = "تأكيد كلمة السر";
+
+/* Class = "UIButton"; normalTitle = "TAKE A TOUR"; ObjectID = "OC9-vd-sSi"; */
+"OC9-vd-sSi.normalTitle" = "أخذ جولة";
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "PYh-ce-RYI"; */
+"PYh-ce-RYI.placeholder" = "الإسم";
+
+/* Class = "UIButton"; normalTitle = "I am a store owner"; ObjectID = "PzI-k5-qPQ"; */
+"PzI-k5-qPQ.normalTitle" = "أنا صاحب متجر";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "Q3u-YK-QOg"; */
+"Q3u-YK-QOg.title" = " ";
+
+/* Class = "UILabel"; text = "To get full access to app features you need a VIP code. If you don't have the code you may skip this step and try demo functionality."; ObjectID = "TBR-tX-RWa"; */
+"TBR-tX-RWa.text" = "للحصول على جميع ميزات التطبيق تحتاج إلى كود VIP. إذا لم يكن لديك كود يمكنك تخطي هذه الخطوة و تجربة النسخة التجريبية.";
+
+/* Class = "UIButton"; normalTitle = "SIGN IN"; ObjectID = "WkG-wt-7du"; */
+"WkG-wt-7du.normalTitle" = "تسجيل الدخول";
+
+/* Class = "UIButton"; normalTitle = "REGISTER"; ObjectID = "WqL-LX-fyc"; */
+"WqL-LX-fyc.normalTitle" = "تسجيل الإشتراك";
+
+/* Class = "UILabel"; text = "We will send a message to the email address. This message contains instructions to reset your password. Open your email, and follow the instructions to change your password."; ObjectID = "Xed-Yx-e2v"; */
+"Xed-Yx-e2v.text" = "سوف نقوم بإرسال رسالة الى البريد الإلكتروني. تحتوي هذه الرسالة على ارشادات لاعادة ضبط كلمة السر الخاصة بك. قم بفتح البريد الالكتروني واتباع الإرشادات لتغيير كلمة السر.";
+
+///* Class = "UILabel"; text = "REGISTER WITH EMAIL"; ObjectID = "Y96-dJ-4uq"; */
+//"Y96-dJ-4uq.text" = "REGISTER WITH EMAIL";
+
+/* Class = "UILabel"; text = "I accept the End User License Agreement"; ObjectID = "YpI-Ti-2zo"; */
+"YpI-Ti-2zo.text" = "أوافق على اتفاقية ترخيص المستخدم النهائي";
+
+/* Class = "UILabel"; text = "If you don't have Q8Outlets merchant account yet, please open q8outlets.com in your browser and register."; ObjectID = "a0x-hN-JmH"; */
+"a0x-hN-JmH.text" = "اذا لم يكن لديك حساب بائع لدى كويت اوتليتس برجاء الدخول على موقع كويت اوتليتس التالي من المتصفح وتسجيل الاشتراك: q8outlets.com.";
+
+/* Class = "UIButton"; normalTitle = "Forgot password?"; ObjectID = "cBA-ps-P6d"; */
+"cBA-ps-P6d.normalTitle" = "نسيت كلمة السر؟";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "d5i-bv-gJY"; */
+"d5i-bv-gJY.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "GET FULL ACCESS"; ObjectID = "eCl-f9-Sib"; */
+"eCl-f9-Sib.normalTitle" = "احصل على جميع ميزات التطبيق";
+
+/* Class = "UILabel"; text = "EXPLORE"; ObjectID = "hQS-XH-agY"; */
+//"hQS-XH-agY.text" = "EXPLORE";
+
+/* Class = "UILabel"; text = "This code is invalid"; ObjectID = "mq6-L2-B7v"; */
+"mq6-L2-B7v.text" = "هذا الكود غير صالح";
+
+/* Class = "UITextField"; placeholder = "VIP Code"; ObjectID = "niZ-zf-em9"; */
+"niZ-zf-em9.placeholder" = "كود VIP";
+
+/* Class = "UIButton"; normalTitle = "REGISTER"; ObjectID = "ptF-Lv-2q0"; */
+"ptF-Lv-2q0.normalTitle" = "تسجيل الإشتراك";
+
+/* Class = "UIButton"; normalTitle = "SKIP AND TRY DEMO"; ObjectID = "qQo-jU-STP"; */
+"qQo-jU-STP.normalTitle" = "تجاوز و جرب النسخة التجريبية.";
+
+/* Class = "UILabel"; text = "App is working in test mode"; ObjectID = "rW1-3M-DDI"; */
+"rW1-3M-DDI.text" = "التطبيق يعمل في وضع الاختبار";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "sAb-s6-7BJ"; */
+"sAb-s6-7BJ.placeholder" = "كلمة السر";
+
+/* Class = "UIButton"; normalTitle = "REGISTER"; ObjectID = "uT7-9H-jYE"; */
+"uT7-9H-jYE.normalTitle" = "تسجيل الإشتراك";
+
+/* Class = "UIButton"; normalTitle = "Register"; ObjectID = "wg5-6O-sDX"; */
+"wg5-6O-sDX.normalTitle" = "تسجيل الإشتراك";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "xos-2V-Nce"; */
+"xos-2V-Nce.placeholder" = "البريد الإلكتروني";
+
+/* Class = "UINavigationItem"; title = "Forgot Password"; ObjectID = "zR8-Lr-o3F"; */
+"zR8-Lr-o3F.title" = "نسيت كلمة السر";
+
+/* Class = "UINavigationItem"; title = "Password Reset"; ObjectID = "1g7-wd-Aki"; */
+"1g7-wd-Aki.title" = "اعادة ضبط كلمة السر";
+
+/* Class = "UILabel"; title = "We received your password"; ObjectID = "4Rb-Hl-IYH"; */
+"4Rb-Hl-IYH.title" = "لقد تلقينا طلب اعادة ضبط كلمة السر. الرجاء ادخال كلمة السر الجديدة هنا:";
+
+/* Class = "UIButton"; title = "SAVE"; ObjectID = "dO9-Xq-jyX"; */
+"dO9-Xq-jyX.title" = "حفظ";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "ELe-iq-whu"; */
+"ELe-iq-whu.placeholder" = "كلمة السر";
