@@ -1,0 +1,397 @@
+{
+    "1" : {
+        "reason" : "Q8ReasonServerFailure",
+        "title" : "Server error",
+        "body" : "There was a server error processing your request. Please try again later. (%@)"
+    },
+    "2": {
+        "reason" : "Q8ReasonNoInternet",
+        "title": "Network error",
+        "body": "Application is unable to reach the internet. Please check your connection and try again."
+    },
+    "3": {
+        "reason" : "Q8ReasonSessionExpired",
+        "title" : "Session expired",
+        "body" : "Your session has expired. Please log into your account again."
+    },
+    "4": {
+        "reason" : "Q8ReasonNameRequired",
+        "title" : "Name required",
+        "body" : "Please enter your name in the field below."
+    },
+    "5": {
+        "reason" : "Q8ReasonEmailRequired",
+        "title" : "Email required",
+        "body" : "Please enter your email in the field below."
+    },
+    "6": {
+        "reason" : "Q8ReasonPasswordRequired",
+        "title" : "Password required",
+        "body" : "Please enter a password in the field below."
+    },
+    "7": {
+        "reason" : "Q8ReasonPasswordConfirmationInvalid",
+        "title" : "Wrong password confirmation",
+        "body" : "Please enter the same password in both fields."
+    },
+    "8": {
+        "reason" : "Q8ReasonInvalidCredentials",
+        "title" : "Invalid credentials",
+        "body" : "User with provided credentials was not found. Please check your email and password and try again."
+    },
+    "9": {
+        "reason" : "Q8ReasonEmailTaken",
+        "title" : "Email already taken",
+        "body" : "This email address is already registered with Q8Outlets."
+    },
+    "10": {
+        "reason" : "Q8ReasonEmailInvalid",
+        "title" : "Invalid email",
+        "body" : "Please enter a valid email address. Mail format example: mail@example.com"
+    },
+    "11": {
+        "reason" : "Q8ReasonAcceptTerms",
+        "title" : "License Agreement",
+        "body" : "Please accept End User License Agreement in order to use the app."
+    },
+    "12": {
+        "reason" : "Q8ReasonCodeRequired",
+        "title" : "Code required",
+        "body" : "Please enter your VIP code in the field below. You can tap the skip button at the bottom if you don't have the code."
+    },
+    "13": {
+        "reason" : "Q8ReasonCodeInvalid",
+        "title" : "Invalid code",
+        "body" : "This VIP code is invalid. You can skip this step if you don't have the code."
+    },
+    "14": {
+        "reason" : "Q8ReasonPasswordResetSuccess",
+        "title" : "Password restoration sent",
+        "body" : "Please check your email for instructions to reset your password."
+    },
+    "15": {
+        "reason" : "Q8ReasonConfirmLogout",
+        "title" : "Log out?",
+        "body" : "Are you sure you wish to log out?",
+        "action_titles" : ["Log out"],
+        "cancel_title" : "Cancel"
+    },
+    "16": {
+        "reason" : "Q8ReasonVIPSuccess",
+        "title" : "VIP code redeemed",
+        "body" : "Congratulations, your VIP code has been redeemed and app's VIP functionality has been unlocked."
+    },
+    "17": {
+        "reason" : "Q8ReasonCameraAccessRequired",
+        "title" : "Camera access required",
+        "body" : "To scan QR codes please grant this app access to camera from settings.",
+        "action_titles" : ["Settings"],
+        "cancel_title" : "Cancel"
+    },
+    "18": {
+        "reason" : "Q8ReasonEmailNotFound",
+        "title" : "Email not found",
+        "body" : "Looks like this email is not registered with Q8Outlets."
+    },
+    "19": {
+        "reason" : "Q8ReasonConfitmCouponDelete",
+        "title" : "Delete coupon?",
+        "body" : "Are you sure you wish to delete this coupon? You can apply to this offer again if you change your mind.",
+        "delete_title" : "Delete",
+        "cancel_title" : "Cancel"
+    },
+    "20": {
+        "reason" : "Q8ReasonVIPNeeded",
+        "title" : "VIP only",
+        "body" : "This feature is only available to VIP users. Would you like to unlock VIP functionality?",
+        "action_titles" : ["Enter VIP code"],
+        "cancel_title" : "Cancel"
+    },
+    "21": {
+        "reason" : "Q8ReasonPasswordTooShort",
+        "title" : "Password is too short",
+        "body" : "Please enter a password that is at least 6 characters long"
+    },
+    "22": {
+        "reason" : "Q8ReasonLoginRoleIsMerchant",
+        "title" : "Business account",
+        "body" : "The account you have logged into is a business account."
+    },
+    "23": {
+        "reason" : "Q8ReasonLoginRoleIsClient",
+        "title" : "Not a business account",
+        "body" : "The account you have logged into is a not business account. To become a store owner, please visit q8outlets.com website."
+    },
+    "24": {
+        "reason" : "Q8ReasonCantUnlinkNoEmail",
+        "title" : "Can't unlink without an email",
+        "body" : "Can't unlink your only authorization method. Please add an email first."
+    },
+    "25": {
+        "reason" : "Q8ReasonCantUnlinkNoPass",
+        "title" : "Can't unlink without a password",
+        "body" : "Can't unlink your only authorization method. Please add a password first."
+    },
+    "26": {
+        "reason" : "Q8ReasonSocialNetworkEmailTaken",
+        "title" : "Email already taken",
+        "body" : "The email address associated with this account is already registered with Q8Outlets. If this is your account, please login and link this social network from Profile Settings page."
+    },
+    "27": {
+        "reason" : "Q8ReasonCouponExpired",
+        "title" : "Expired",
+        "body" : "Unfortunately this coupon has expired."
+    },
+    "28": {
+        "reason" : "Q8ReasonReportSuccess",
+        "title" : "Thank you",
+        "body" : "Yor report has been saved. We will look into the issue as soon as possible."
+    },
+    "29": {
+        "reason" : "Q8ReasonSearchNoResults",
+        "title" : "",
+        "body" : "There are no offers nearby."
+    },
+    "30": {
+        "reason" : "Q8ReasonOfferReachedMaxAmountCoupons",
+        "title" : "",
+        "body" : "Sorry, there are no more coupons left for this offer."
+    },
+    "31": {
+        "reason" : "Q8ReasonSocialAccountUsed",
+        "title" : "",
+        "body" : "This social account is used by another user."
+    },
+    "32": {
+        "reason" : "Q8ReasonShareOption",
+        "title" : "",
+        "body" : "Select share action",
+        "action_titles" : ["Facebook", "Other"],
+        "cancel_title" : "Cancel"
+    },
+    "33": {
+        "reason" : "Q8ReasonCouponInvalidCredentials",
+        "title" : "Invalid Credentials",
+        "body" : "Please login with correct credentials."
+    },
+	"34": {
+		"reason" : "Q8ReasonPasswordDidReset",
+		"title" : "Success!",
+		"body" : "Your password has been reset successfully!"
+	},
+    
+    "101": {
+        "reason" : "Q8ReasonServerFailure_ar",
+        "title" : "خطأ خادم",
+        "body" : "حدث خطأ في الخادم أثناء معالجة طلبك، الرجاء إعادة المحاولة لاحقا. (٪ @)"
+    },
+    
+    "102": {
+        "reason" : "Q8ReasonNoInternet_ar",
+        "title" : "خطأ الشبكة",
+        "body" : "التطبيق غير قادر على الوصول إلى الإنترنت الرجاء التحقق من اتصالك بالإنترنت وحاول مرة أخرى."
+    },
+    
+    "103": {
+        "reason" : "Q8ReasonSessionExpired_ar",
+        "title" : "انتهت الجلسة",
+        "body" : "انتهت صلاحية جلستك يرجى تسجيل الدخول إلى الحساب الخاص بك مرة أخرى."
+    },
+    
+    "104": {
+        "reason" : "Q8ReasonNameRequired_ar",
+        "title" : "الاسم مطلوب",
+        "body" : "الرجاء إدخال اسمك في الحقل أدناه"
+    },
+    
+    "105": {
+        "reason" : "Q8ReasonEmailRequired_ar",
+        "title" : "البريد الإلكتروني مطلوب",
+        "body" : "الرجاء إدخال بريدك الإلكتروني في الحقل أدناه"
+    },
+    
+    "106": {
+        "reason" : "Q8ReasonPasswordRequired_ar",
+        "title" : "كلمة السر مطلوبة",
+        "body" : "الرجاء إدخال كلمة السر في الحقل أدناه"
+    },
+    
+    "107": {
+        "reason" : "Q8ReasonPasswordConfirmationInvalid_ar",
+        "title" : "تأكيدا كلمة السر خاطئ",
+        "body" : "الرجاء إدخال نفس كلمة السر في الحقلين"
+    },
+    
+    "108": {
+        "reason" : "Q8ReasonInvalidCredentials_ar",
+        "title" : "بيانات غير صالحة",
+        "body" : "لم يتم العثور على عضو بهذه البيانات يرجى التحقق من البريد الإلكتروني الخاص بك وكلمة المرور وحاول مرة أخرى."
+    },
+    
+    "109": {
+        "reason" : "Q8ReasonEmailTaken_ar",
+        "title" : "البريد الالكتروني اخذ من قبل",
+        "body" : "تم تسجيل عنوان البريد الإلكتروني هذا بالفعل مع كويت اوتليتس"
+    },
+    
+    "110": {
+        "reason" : "Q8ReasonEmailInvalid_ar",
+        "title" : "البريد الإلكتروني غير صالح",
+        "body" : "الرجاء إدخال عنوان بريد إلكتروني صالح. على سبيل المثال: mail@example.com"
+    },
+    
+    "111": {
+        "reason" : "Q8ReasonAcceptTerms_ar",
+        "title" : "اتفاقية الترخيص",
+        "body" : "الرجاء قبول اتفاقية ترخيص المستخدم حتى يمكنك استخدام التطبيق"
+    },
+    
+    "112": {
+        "reason" : "Q8ReasonCodeRequired_ar",
+        "title" : " كود مطلوب",
+        "body" : "الرجاء إدخال VIP كود في الحقل أدناه. يمكنك الضغط على زر تخطي في الأسفل إذا لم يكن لديك رمز"
+    },
+
+    
+    "113": {
+        "reason" : "Q8ReasonCodeInvalid_ar",
+        "title" : "كود غير صالح",
+        "body" : " VIP كود غير صالح. يمكنك تخطي هذه الخطوة إذا لم يكن لديك رمز"
+    },
+    
+    "114": {
+        "reason" : "Q8ReasonPasswordResetSuccess_ar",
+        "title" : "استعادة كلمة السر ارسلت",
+        "body" : "الرجاء التحقق من بريدك الالكتروني للحصول على تعليمات لإعادة ضبط كلمة السر الخاصة بك."
+    },
+
+    "115": {
+        "reason" : "Q8ReasonConfirmLogout_ar",
+        "title" : "تسجيل الخروج؟",
+        "body" : "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+        "action_titles" : ["تسجيل الخروج"],
+        "cancel_title" : "الغاء"
+    },
+    
+    "116": {
+        "reason" : "Q8ReasonVIPSuccess_ar",
+        "title" :  "استخدام VIP كود",
+        "body" : "تهانينا، لقد تم استخدام كود VIP وتم فتح وظائف ال VIP  في التطبيق"
+    },
+    
+    "117": {
+        "reason" : "Q8ReasonCameraAccessRequired_ar",
+        "title" : "استخدام الكاميرا مطلوب",
+        "body" : "لمسح رموز QR يرجى منح هذا التطبيق حق استخدام الكاميرا من الإعدادات.",
+        "action_titles": [ "إعدادات"],
+        "cancel_title": "إلغاء"
+    },
+    
+    "118": {
+        "reason" : "Q8ReasonEmailNotFound_ar",
+        "title" : "البريد الإلكتروني غير موجود",
+        "body" : "يبدو وكأنه لم يتم تسجيل هذا البريد الإلكتروني مع كويت اوتليتس"
+    },
+
+    "119": {
+        "reason" : "Q8ReasonConfitmCouponDelete_ar",
+        "title" : "هل تريد محو الكوبون؟",
+        "body" : "هل أنت متأكد من أنك تريد محو هذا الكوبون؟ يمكنك التقديم للإستفادة من هذا العرض مرة أخرى اذا قمت بتغيير رأيك.",
+        "delete_title" : "محو",
+        "cancel_title" : "الغاء"
+    },
+    
+    "120": {
+        "reason" : "Q8ReasonVIPNeeded_ar",
+        "title" : "VIP فقط",
+        "body" : "هذه الميزة متوفرة فقط للمستخدمين VIP هل ترغب في فتح وظائف VIP؟",
+        "action_titles": [ "أدخل كود VIP"],
+        "cancel_title": "إلغاء"
+    },
+    
+    "121": {
+        "reason" : "Q8ReasonPasswordTooShort_ar",
+        "title" : "كلمة المرور قصيرة جدا",
+        "body" : "الرجاء إدخال كلمة مرور  لا تقل عن 6 أحرف"
+    },
+
+    "122": {
+        "reason" : "Q8ReasonLoginRoleIsMerchant_ar",
+        "title" : "حساب مشاريع",
+        "body" : "الحساب الذي قمت بالدخول عليه هو حساب مشاريع"
+    },
+    
+    "123": {
+        "reason" : "Q8ReasonLoginRoleIsClient_ar",
+        "title" : "ليس حساب مشاريع",
+        "body" : "الحساب الذي قمت بالدخول عليه ليس حساب مشاريع. حتى تصبح صاحب محل برجاء الدخول على موقع q8outlets.com"
+    },
+    
+    "124": {
+        "reason" : "Q8ReasonCantUnlinkNoEmail_ar",
+        "title" : "لا يمكن فك ارتباط دون البريد الإلكتروني",
+        "body" : "لا يمكن إلغاء ارتباط طريقة التفويض الوحيده لديك. يرجى إدراج البريد الإلكتروني أولا."
+    },
+    
+    "125": {
+        "reason" : "Q8ReasonCantUnlinkNoPass_ar",
+        "title" : "لا يمكن فك ارتباط بدون كلمة مرور",
+        "body" : "لا يمكن إلغاء ارتباط من طريقة التفويض الوحيد الرجاء إضافة كلمة مرور لأول مرة"
+    },
+    
+    "126": {
+        "reason" : "Q8ReasonSocialNetworkEmailTaken_ar",
+        "title" : "البريد الالكتروني مسجل مسبقا",
+        "body" : "عنوان البريد الإلكتروني المرتبط مع هذا الحساب مسجل مسبقا مع كويت اوتليتس إذا كان هذا هو حسابك، يرجى تسجيل الدخول وربط هذه الشبكة الاجتماعية من صفحة إعدادات الملف الشخصي"
+    },
+    
+    "127": {
+        "reason" : "Q8ReasonCouponExpired_ar",
+        "title" : "منتهي الصلاحية",
+        "body" : "لسوء الحظ انتهت صلاحية هذه القسيمة."
+    },
+
+    "128": {
+        "reason" : "Q8ReasonReportSuccess_ar",
+        "title" : "شكراً",
+        "body" : "تم حفظ الشكوى. سوف نقوم بالنظر فيها في أقرب وقت"
+    },
+    
+    "129": {
+        "reason" : "Q8ReasonSearchNoResults_ar",
+        "title" : "",
+        "body" : "لا توجد عروض قريبة منك."
+    },
+   
+    "130": {
+        "reason" : "Q8ReasonOfferReachedMaxAmountCoupons_ar",
+        "title" : "",
+        "body" : "عفوا، لا توجد المزيد من القسائم لهذا العرض."
+    },
+    
+    "131": {
+        "reason" : "Q8ReasonSocialAccountUsed_ar",
+        "title" : "",
+        "body" : "يتم استخدام هذا الحساب الاجتماعي من قبل مستخدم آخر."
+    },
+
+    "132": {
+        "reason" : "Q8ReasonShareOption_ar",
+        "title" : "",
+        "body" : "اختر اداة المشاركة",
+        "action_titles" : ["فيسبوك", "غيره"],
+        "cancel_title" : "الغاء"
+    },
+    
+    "133": {
+        "reason" : "Q8ReasonCouponInvalidCredentials_ar",
+        "title" : "بيانات غير صالحة",
+        "body" : "يرجى تسجيل الدخول باستخدام البيانات الصحيحة."
+    },
+	"134": {
+		"reason" : "Q8ReasonPasswordDidReset_ar",
+		"title" : "تم بنجاح!",
+		"body" : "تم اعادة ضبط كلمة السر بنجاح!"
+	},
+	
+}

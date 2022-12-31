@@ -1,0 +1,29 @@
+//
+//  Q8PrefixHeader.pch
+//  Q8outlets
+//
+//  Created by Lesya Verbina on 1/31/17.
+//  Copyright © 2017 Lesya Verbina. All rights reserved.
+//
+
+#ifndef Q8PrefixHeader_pch
+#define Q8PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import <WLHelpers/WLUtilityHelper.h>
+#import <WLHelpers/WLVisualHelper.h>
+#import <WLHelpers/WLAlertHelper.h>
+#import <WLHelpers/WLLogHelper.h>
+#import <WLHelpers/WLLocationHelper.h>
+#import "Q8CurrentUser.h"
+#import "Q8ServerAPIHelper.h"
+#import "Q8Constants.h"
+#import "Q8ActivityIndicator.h"
+#import "Q8ImageHelper.h"
+#import "Q8NavigationManager.h"
+#import "Q8NotificationHelper.h"
+#import "Q8AlertHelper.h"
+
+#endif /* Q8PrefixHeader_pch */

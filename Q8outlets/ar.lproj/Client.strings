@@ -1,0 +1,230 @@
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "06m-Wb-bVA"; */
+"06m-Wb-bVA.title" = " ";
+
+/* Class = "UINavigationItem"; title = "Notification Settings"; ObjectID = "08S-tF-o4d"; */
+"08S-tF-o4d.title" = "إعدادات الإخطارات";
+
+/* Class = "UILabel"; text = "coupons"; ObjectID = "0NE-EB-HvL"; */
+//"0NE-EB-HvL.text" = "coupons";
+
+/* Class = "UILabel"; text = "Notification settings"; ObjectID = "0QP-b0-kGW"; */
+"0QP-b0-kGW.text" = "إعدادات الإخطارات";
+
+/* Class = "UILabel"; text = "The search has produced no results. Please select fewer keywords and filters and try again."; ObjectID = "1E5-kZ-c9L"; */
+"1E5-kZ-c9L.text" = "لم نجد أي عروض قريبة منك";
+
+/* Class = "UINavigationItem"; title = "Map"; ObjectID = "1II-VF-tiz"; */
+"1II-VF-tiz.title" = "خريطة";
+
+/* Class = "UILabel"; text = "Church street 34, Lnondn Avenu"; ObjectID = "1TD-Yp-ezn"; */
+//"1TD-Yp-ezn.text" = "Church street 34, Lnondn Avenu";
+
+/* Class = "UILabel"; text = "13 km"; ObjectID = "1V8-d8-43R"; */
+"1V8-d8-43R.text" = "13 km";
+
+/* Class = "UILabel"; text = "NOTIFY ME ABOUT"; ObjectID = "27I-vF-6g7"; */
+"27I-vF-6g7.text" = "اخطرني ب";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "2r3-rJ-mnS"; */
+"2r3-rJ-mnS.title" = " ";
+
+/* Class = "UILabel"; text = "Leisure"; ObjectID = "3Sy-6o-A0o"; */
+"3Sy-6o-A0o.text" = "الاسترخاء";
+
+/* Class = "UIButton"; normalTitle = "Merchants"; ObjectID = "3aE-M4-Xxt"; */
+"3aE-M4-Xxt.normalTitle" = "بائعين";
+
+/* Class = "UILabel"; text = "This merchant doesn't have
+any active offers"; ObjectID = "4wS-Kr-fsj"; */
+"4wS-Kr-fsj.text" = "هذا البائع ليس لديه أي عروض جارية";
+
+/* Class = "UILabel"; text = "Coffee Tree"; ObjectID = "5Zl-wm-s7v"; */
+//"5Zl-wm-s7v.text" = "Coffee Tree";
+
+/* Class = "UINavigationItem"; title = "Personal details"; ObjectID = "6Ls-WA-apy"; */
+"6Ls-WA-apy.title" = "التفاصيل الشخصية";
+
+/* Class = "UILabel"; text = "Pesonal details"; ObjectID = "89e-wk-lJS"; */
+"89e-wk-lJS.text" = "التفاصيل الشخصية";
+
+/* Class = "UILabel"; text = "Food & Drinks"; ObjectID = "8Yc-GY-s9x"; */
+"8Yc-GY-s9x.text" = "Food & Drinks";
+
+/* Class = "UILabel"; text = "You are not following any merchants yet"; ObjectID = "8pz-2X-Dsd"; */
+"8pz-2X-Dsd.text" = "أنت لا تتابع أي أحد";
+
+/* Class = "UILabel"; text = "10"; ObjectID = "8w4-u8-dTP"; */
+"8w4-u8-dTP.text" = "10";
+
+/* Class = "UILabel"; text = "EMAIL"; ObjectID = "8wC-7E-bdI"; */
+"8wC-7E-bdI.text" = "بريد الكتروني";
+
+/* Class = "UILabel"; text = "Merchant you follow has a new offer"; ObjectID = "9cC-fW-d15"; */
+"9cC-fW-d15.text" = "البائع الذي تتابعه لديه عرض جديد";
+
+/* Class = "UINavigationItem"; title = "Following"; ObjectID = "BVR-x7-zgi"; */
+"BVR-x7-zgi.title" = "تتابع";
+
+/* Class = "UILabel"; text = "Church street 34, Lnondn Avenu"; ObjectID = "CcH-uw-scO"; */
+//"CcH-uw-scO.text" = "Church street 34, Lnondn Avenu";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "DvD-Y2-v7L"; */
+"DvD-Y2-v7L.title" = " ";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "FVA-76-309"; */
+"FVA-76-309.title" = " ";
+
+/* Class = "UILabel"; text = "Retail"; ObjectID = "Fx7-wQ-N8o"; */
+"Fx7-wQ-N8o.text" = "البيع";
+
+/* Class = "UINavigationItem"; title = "Search"; ObjectID = "G81-3T-huT"; */
+"G81-3T-huT.title" = "بحث";
+
+/* Class = "UILabel"; text = "Church street 34, Lnondn Avenu"; ObjectID = "HWr-pv-wMH"; */
+//"HWr-pv-wMH.text" = "Church street 34, Lnondn Avenu";
+
+/* Class = "UILabel"; text = "Coffee Tree"; ObjectID = "I4T-1G-q3P"; */
+//"I4T-1G-q3P.text" = "Coffee Tree";
+
+/* Class = "UILabel"; text = "If you follow a merchant we will notify you about their new offers"; ObjectID = "I4g-cG-r8N"; */
+//"I4g-cG-r8N.text" = "If you follow a merchant we will notify you about their new offers";
+
+/* Class = "UILabel"; text = "CHANGE PASSWORD"; ObjectID = "IDr-SP-N7W"; */
+"IDr-SP-N7W.text" = "ضبط كلمة السر";
+
+/* Class = "UILabel"; text = "Facebook"; ObjectID = "K0M-L4-OSx"; */
+"K0M-L4-OSx.text" = "فيسبوك";
+
+/* Class = "UILabel"; text = "Welcome to Coffee Republic, where we don't actually have any description"; ObjectID = "LNR-WF-CF3"; */
+"LNR-WF-CF3.text" = "Welcome to Coffee Republic, where we don't actually have any description";
+
+/* Class = "UINavigationItem"; title = "Account"; ObjectID = "Lsq-Sb-PC3"; */
+"Lsq-Sb-PC3.title" = "حساب";
+
+/* Class = "UINavigationItem"; title = "Coupons"; ObjectID = "Nlk-hK-Gba"; */
+"Nlk-hK-Gba.title" = "كوبونات";
+
+/* Class = "UIButton"; normalTitle = "Offers"; ObjectID = "OPK-Tc-8EJ"; */
+"OPK-Tc-8EJ.normalTitle" = "عروض";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "SWX-fP-oSX"; */
+"SWX-fP-oSX.title" = " ";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "T0E-EX-PZG"; */
+"T0E-EX-PZG.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "SAVE FOR LATER"; ObjectID = "T5h-S4-gbm"; */
+"T5h-S4-gbm.normalTitle" = "الحفظ للاستخدام لاحقاً";
+
+/* Class = "UILabel"; text = "@johnstsodfnteee1"; ObjectID = "TAv-Es-LC7"; */
+"TAv-Es-LC7.text" = "@johnstsodfnteee1";
+
+/* Class = "UILabel"; text = " "; ObjectID = "TdW-2z-Deh"; */
+"TdW-2z-Deh.text" = " ";
+
+/* Class = "UILabel"; text = "13 km"; ObjectID = "VBJ-9m-OPf"; */
+"VBJ-9m-OPf.text" = "13 km";
+
+/* Class = "UITextField"; placeholder = "Your email"; ObjectID = "Vjz-6X-QB9"; */
+"Vjz-6X-QB9.placeholder" = "البريد الإلكتروني";
+
+/* Class = "UILabel"; text = "Add:"; ObjectID = "XSN-fC-MpU"; */
+"XSN-fC-MpU.text" = "أضف:";
+
+/* Class = "UILabel"; text = "Food & Drinks"; ObjectID = "XjG-He-DcJ"; */
+"XjG-He-DcJ.text" = "المأكولات والمشروبات";
+
+/* Class = "UINavigationItem"; title = "Merchant"; ObjectID = "Xuj-Qx-dnF"; */
+"Xuj-Qx-dnF.title" = "بائعين";
+
+/* Class = "UITextField"; placeholder = "Search for merchants and offers"; ObjectID = "YFJ-vz-T7v"; */
+"YFJ-vz-T7v.placeholder" = "البحث عن البائعين والعروض";
+
+/* Class = "UITextField"; placeholder = "New password"; ObjectID = "aG8-Jc-tbP"; */
+"aG8-Jc-tbP.placeholder" = "كلمة السر";
+
+/* Class = "UILabel"; text = "Other"; ObjectID = "aMe-CP-xnh"; */
+"aMe-CP-xnh.text" = "غيره";
+
+/* Class = "UILabel"; text = "LINKED ACCOUNT"; ObjectID = "bwX-pp-NvK"; */
+"bwX-pp-NvK.text" = "الحساب المتصل";
+
+/* Class = "UILabel"; text = "See what's interesting near you"; ObjectID = "dT2-4S-MBE"; */
+"dT2-4S-MBE.text" = "عروض تهمك قريبة منك";
+
+/* Class = "UIButton"; normalTitle = "ARCHIVE"; ObjectID = "dlk-cp-6ZQ"; */
+//"dlk-cp-6ZQ.normalTitle" = "ARCHIVE";
+
+/* Class = "UILabel"; text = "Code"; ObjectID = "egr-hG-IzT"; */
+"egr-hG-IzT.text" = "الكود";
+
+/* Class = "UILabel"; text = "100+"; ObjectID = "giz-Lt-dzU"; */
+//"giz-Lt-dzU.text" = "100+";
+
+/* Class = "UILabel"; text = "23:44:15"; ObjectID = "goJ-R2-mGI"; */
+"goJ-R2-mGI.text" = "23:44:15";
+
+/* Class = "UILabel"; text = "You don't have any active coupons"; ObjectID = "gpo-U2-rmX"; */
+"gpo-U2-rmX.text" = "ليس لديك جاري كوبونات";
+
+/* Class = "UIButton"; normalTitle = "Merchants"; ObjectID = "hI6-c4-s6f"; */
+"hI6-c4-s6f.normalTitle" = "بائعين";
+
+/* Class = "UILabel"; text = "New coupons are available for an offer you follow"; ObjectID = "ijk-hL-9pV"; */
+"ijk-hL-9pV.text" = "العرض الذي تتابعه لديه كوبونات متاحة";
+
+/* Class = "UILabel"; text = "Fashion"; ObjectID = "iuM-zG-CSI"; */
+"iuM-zG-CSI.text" = "الأزياء";
+
+/* Class = "UITextField"; placeholder = "Search"; ObjectID = "jeZ-0c-RDe"; */
+"jeZ-0c-RDe.placeholder" = "البحث";
+
+/* Class = "UINavigationItem"; title = "Offer"; ObjectID = "k16-e2-kxe"; */
+"k16-e2-kxe.title" = "عرض";
+
+/* Class = "UIButton"; normalTitle = "APPLY FOR THIS OFFER"; ObjectID = "kBv-n1-08G"; */
+//"kBv-n1-08G.normalTitle" = "APPLY FOR THIS OFFER";
+
+/* Class = "UILabel"; text = "PUSH"; ObjectID = "kgu-qH-XBI"; */
+"kgu-qH-XBI.text" = "ادفع";
+
+/* Class = "UIButton"; normalTitle = "Offers"; ObjectID = "kud-o3-5DA"; */
+"kud-o3-5DA.normalTitle" = "عروض";
+
+/* Class = "UILabel"; text = "Beauty & Fitness"; ObjectID = "lE3-ZQ-nES"; */
+"lE3-ZQ-nES.text" = "الجمال واللياقة";
+
+/* Class = "UITextField"; placeholder = "Confirm password"; ObjectID = "lgZ-8l-bEB"; */
+"lgZ-8l-bEB.placeholder" = "تأكيد كلمة السر";
+
+/* Class = "UILabel"; text = "Details"; ObjectID = "nvE-HG-MON"; */
+"nvE-HG-MON.text" = "تفاصيل";
+
+/* Class = "UILabel"; text = "Buy one of our featured items and receive 50% discount on chicken soup on Fridays!"; ObjectID = "o7I-In-VO0"; */
+//"o7I-In-VO0.text" = "Buy one of our featured items and receive 50% discount on chicken soup on Fridays!";
+
+/* Class = "UILabel"; text = "Show this code to the merchant to get your gift. Coupon expires in:"; ObjectID = "pmr-fw-ZWg"; */
+"pmr-fw-ZWg.text" = "قم بتقديم هذا الكوبون للبائع للاستفادةمن العرض. تنتهي صلاحية الكوبون في:";
+
+/* Class = "UITextField"; placeholder = "Your name"; ObjectID = "slf-zd-Hwy"; */
+"slf-zd-Hwy.placeholder" = "الإسم";
+
+/* Class = "UITextField"; placeholder = "Search for merchants and offers"; ObjectID = "tHG-f1-fzC"; */
+"tHG-f1-fzC.placeholder" = "البحث عن بائعين وعروض";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "vFo-bk-xE8"; */
+"vFo-bk-xE8.title" = " ";
+
+/* Class = "UILabel"; text = "Offer detected near you"; ObjectID = "wTJ-pl-zuD"; */
+"wTJ-pl-zuD.text" = "تم العثور على عرض قريب منك";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "xZR-FZ-3bO"; */
+"xZR-FZ-3bO.title" = " ";
+
+/* Class = "UILabel"; text = "There are no coupons for
+this offer"; ObjectID = "zTa-R1-dwZ"; */
+"zTa-R1-dwZ.text" = "لا توجد كوبونات لهذا العرض";
+
+/* Class = "UINavigationItem"; title = "Coupon"; ObjectID = "zUS-OC-TPO"; */
+"zUS-OC-TPO.title" = "كوبون";

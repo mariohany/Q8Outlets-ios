@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Raleway-Regular.ttf">
+            <string>Raleway-Regular</string>
+        </array>
+        <array key="RobotoSlab-Regular_0.ttf">
+            <string>RobotoSlab-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Q8MerchantCell" rowHeight="80" id="KGk-i7-Jjw" customClass="Q8MerchantTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JJ0-oD-hqX">
+                        <rect key="frame" x="4" y="5" width="70" height="70"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="W66-7G-ptx"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jornshfsant Caffee" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qh8-bp-kvf">
+                        <rect key="frame" x="82" y="8" width="176" height="20"/>
+                        <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food &amp; Drinks" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyo-oJ-5c0">
+                        <rect key="frame" x="82" y="28" width="176" height="17"/>
+                        <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="14"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.1 km" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Led-gW-zuB">
+                        <rect key="frame" x="82" y="55" width="176" height="17"/>
+                        <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="14"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="IZo-9k-FJn">
+                        <rect key="frame" x="258" y="13" width="42" height="33"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="42" id="S0G-Fb-8xY"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="Roboto Slab" pointSize="25"/>
+                        <color key="textColor" red="0.72549019609999998" green="0.0" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="offer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="piD-kn-Oa1">
+                        <rect key="frame" x="265.5" y="44" width="27.5" height="16"/>
+                        <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="13"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" alpha="0.20000000298023224" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="Nli-DY-K9d">
+                        <rect key="frame" x="295" y="28" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="24" id="05a-5U-UFI"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="JJ0-oD-hqX" firstAttribute="width" secondItem="JJ0-oD-hqX" secondAttribute="height" multiplier="1:1" id="8fH-ev-skR"/>
+                    <constraint firstItem="zyo-oJ-5c0" firstAttribute="leading" secondItem="qh8-bp-kvf" secondAttribute="leading" id="UPh-fM-jxe"/>
+                    <constraint firstAttribute="trailing" secondItem="IZo-9k-FJn" secondAttribute="trailing" constant="20" id="VQ9-oc-qgz"/>
+                    <constraint firstItem="zyo-oJ-5c0" firstAttribute="trailing" secondItem="qh8-bp-kvf" secondAttribute="trailing" id="WeL-mh-9n3"/>
+                    <constraint firstAttribute="trailing" secondItem="Nli-DY-K9d" secondAttribute="trailing" constant="1" id="XgD-CR-VUl"/>
+                    <constraint firstItem="JJ0-oD-hqX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="ZNp-JW-dnL"/>
+                    <constraint firstItem="IZo-9k-FJn" firstAttribute="leading" secondItem="qh8-bp-kvf" secondAttribute="trailing" id="a7V-cx-fYO"/>
+                    <constraint firstItem="piD-kn-Oa1" firstAttribute="top" secondItem="IZo-9k-FJn" secondAttribute="bottom" constant="-2" id="cTH-fW-YBO"/>
+                    <constraint firstItem="piD-kn-Oa1" firstAttribute="centerX" secondItem="IZo-9k-FJn" secondAttribute="centerX" id="dNi-CE-MmP"/>
+                    <constraint firstItem="Led-gW-zuB" firstAttribute="leading" secondItem="qh8-bp-kvf" secondAttribute="leading" id="e9t-9o-TxD"/>
+                    <constraint firstItem="zyo-oJ-5c0" firstAttribute="top" secondItem="qh8-bp-kvf" secondAttribute="bottom" id="fSx-32-U24"/>
+                    <constraint firstItem="JJ0-oD-hqX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="fw3-1s-3cw"/>
+                    <constraint firstItem="Led-gW-zuB" firstAttribute="trailing" secondItem="qh8-bp-kvf" secondAttribute="trailing" id="lcC-C8-X8C"/>
+                    <constraint firstItem="Led-gW-zuB" firstAttribute="top" relation="greaterThanOrEqual" secondItem="zyo-oJ-5c0" secondAttribute="bottom" constant="2" id="nxu-Dv-VQc"/>
+                    <constraint firstItem="IZo-9k-FJn" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-11" id="q89-tc-RLA"/>
+                    <constraint firstItem="qh8-bp-kvf" firstAttribute="leading" secondItem="JJ0-oD-hqX" secondAttribute="trailing" constant="8" id="rhL-lM-zLP"/>
+                    <constraint firstItem="qh8-bp-kvf" firstAttribute="top" secondItem="JJ0-oD-hqX" secondAttribute="top" constant="3" id="t9o-19-POR"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="JJ0-oD-hqX" secondAttribute="bottom" constant="4" id="zEr-ye-hvg"/>
+                    <constraint firstItem="Nli-DY-K9d" firstAttribute="width" secondItem="Nli-DY-K9d" secondAttribute="height" multiplier="1:1" id="zMW-1P-GZ1"/>
+                    <constraint firstItem="Nli-DY-K9d" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="zPD-m8-x45"/>
+                    <constraint firstAttribute="bottom" secondItem="Led-gW-zuB" secondAttribute="bottom" constant="7" id="zwh-gn-PI9"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="arrowImageView" destination="Nli-DY-K9d" id="wQJ-rj-oTz"/>
+                <outlet property="categoryNameLabel" destination="zyo-oJ-5c0" id="Hrc-Fh-fR2"/>
+                <outlet property="distanceLabel" destination="Led-gW-zuB" id="4h5-wZ-Idw"/>
+                <outlet property="merchantLogoImageView" destination="JJ0-oD-hqX" id="Qyb-E2-bKN"/>
+                <outlet property="offersCountLabel" destination="IZo-9k-FJn" id="UCu-g2-aoZ"/>
+                <outlet property="offersTextLabel" destination="piD-kn-Oa1" id="78X-TP-ksg"/>
+                <outlet property="titleLabel" destination="qh8-bp-kvf" id="fDw-br-IwH"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon_arrow_right" width="36" height="36"/>
+    </resources>
+</document>

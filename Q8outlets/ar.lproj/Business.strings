@@ -1,0 +1,176 @@
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "03P-4r-ab9"; */
+"03P-4r-ab9.title" = " ";
+
+/* Class = "UILabel"; text = "You don't have any notifications yet"; ObjectID = "1kd-CQ-of5"; */
+"1kd-CQ-of5.text" = "ليس لديك اي اشعارات";
+
+/* Class = "UILabel"; text = "Free complementary food"; ObjectID = "30I-dd-pbd"; */
+"30I-dd-pbd.text" = "Free complementary food";
+
+/* Class = "UILabel"; text = "Valid Code"; ObjectID = "4hn-gR-mTS"; */
+//"4hn-gR-mTS.text" = "Valid Code";
+
+/* Class = "UILabel"; text = "34 Church Street, London avenue park"; ObjectID = "5Dk-ou-aXC"; */
+"5Dk-ou-aXC.text" = "34 Church Street, London avenue park";
+
+/* Class = "UILabel"; text = "100"; ObjectID = "6zB-f7-DNA"; */
+"6zB-f7-DNA.text" = "100";
+
+/* Class = "UINavigationItem"; title = "Redeem coupon"; ObjectID = "7Rn-2i-yLr"; */
+"7Rn-2i-yLr.title" = "استخدام الكوبون";
+
+/* Class = "UINavigationItem"; title = "Current Location"; ObjectID = "8eE-CD-W0D"; */
+"8eE-CD-W0D.title" = "الموقع الحالي";
+
+/* Class = "UILabel"; text = "100"; ObjectID = "9bW-Bw-aj9"; */
+"9bW-Bw-aj9.text" = "100";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "C8I-nb-7d2"; */
+"C8I-nb-7d2.text" = "---";
+
+/* Class = "UILabel"; text = "USED"; ObjectID = "Djg-RV-x8q"; */
+"Djg-RV-x8q.text" = "مستخدم";
+
+/* Class = "UILabel"; text = "Users applied for your offers"; ObjectID = "DoN-dp-bAW"; */
+"DoN-dp-bAW.text" = "تقدم مستخدمون بطلب للحصول على عروضك";
+
+/* Class = "UILabel"; text = "You don't have any active offers"; ObjectID = "GSg-ZJ-3nu"; */
+"GSg-ZJ-3nu.text" = "ليست لديك أية عروض قائمة";
+
+/* Class = "UILabel"; text = "200"; ObjectID = "Ggp-io-z4P"; */
+"Ggp-io-z4P.text" = "200";
+
+/* Class = "UILabel"; text = "STATISTICS"; ObjectID = "He8-iJ-Wk1"; */
+"He8-iJ-Wk1.text" = "احصائيات";
+
+/* Class = "UILabel"; text = "34 Church Street, London avenue park"; ObjectID = "HqD-pZ-dXO"; */
+"HqD-pZ-dXO.text" = "34 Church Street, London avenue park";
+
+/* Class = "UILabel"; text = "expired"; ObjectID = "Igb-eo-94H"; */
+"Igb-eo-94H.text" = "منتهي الصلاحية";
+
+/* Class = "UILabel"; text = "100"; ObjectID = "Kni-Kv-EAC"; */
+"Kni-Kv-EAC.text" = "100";
+
+/* Class = "UINavigationItem"; title = "Notifications"; ObjectID = "Llb-Ym-IoI"; */
+"Llb-Ym-IoI.title" = "إشعارات";
+
+/* Class = "UINavigationItem"; title = "Statistics"; ObjectID = "PwR-dB-uK5"; */
+"PwR-dB-uK5.title" = "احصائيات";
+
+/* Class = "UILabel"; text = "Coffee Republic"; ObjectID = "Qoz-DC-hV6"; */
+"Qoz-DC-hV6.text" = "Coffee Republic";
+
+/* Class = "UILabel"; text = "used"; ObjectID = "R4b-X9-lHm"; */
+"R4b-X9-lHm.text" = "مستخدم";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "Rk7-gW-iUf"; */
+"Rk7-gW-iUf.text" = "---";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "S4r-HD-VZs"; */
+"S4r-HD-VZs.title" = " ";
+
+/* Class = "UILabel"; text = "100"; ObjectID = "SNW-Jc-nFg"; */
+"SNW-Jc-nFg.text" = "100";
+
+/* Class = "UINavigationItem"; title = "Scan"; ObjectID = "SSG-LB-a4t"; */
+"SSG-LB-a4t.title" = "نسخ";
+
+/* Class = "UILabel"; text = "Coffee Tree"; ObjectID = "Ub6-pe-u0V"; */
+"Ub6-pe-u0V.text" = "Coffee Tree";
+
+/* Class = "UILabel"; text = "Scan"; ObjectID = "Wrh-u8-t4u"; */
+"Wrh-u8-t4u.text" = "نسخ";
+
+/* Class = "UILabel"; text = "2 more locations"; ObjectID = "Wta-Gm-S4h"; */
+"Wta-Gm-S4h.text" = "2 more locations";
+
+/* Class = "UILabel"; text = "100"; ObjectID = "X9m-Lf-STP"; */
+"X9m-Lf-STP.text" = "100";
+
+/* Class = "UILabel"; text = "Get free complementary dessert"; ObjectID = "Zx6-OE-h6L"; */
+//"Zx6-OE-h6L.text" = "Get free complementary dessert";
+
+/* Class = "UILabel"; text = "Clients used their coupons"; ObjectID = "aXU-RS-3bA"; */
+"aXU-RS-3bA.text" = "عملاء استخدموا الكوبونات الخاصة بهم";
+
+/* Class = "UILabel"; text = "STATISTICS"; ObjectID = "agz-1a-YDJ"; */
+"agz-1a-YDJ.text" = "احصائيات";
+
+/* Class = "UILabel"; text = "200"; ObjectID = "b4G-tS-ZHa"; */
+"b4G-tS-ZHa.text" = "200";
+
+/* Class = "UINavigationItem"; title = "Home"; ObjectID = "bOd-we-GrS"; */
+"bOd-we-GrS.title" = "الرئيسية";
+
+/* Class = "UILabel"; text = "200"; ObjectID = "d0o-dh-G6w"; */
+"d0o-dh-G6w.text" = "200";
+
+/* Class = "UILabel"; text = "400 users has applied"; ObjectID = "dj1-m4-6h7"; */
+"dj1-m4-6h7.text" = "400 users has applied";
+
+/* Class = "UILabel"; text = "\"Free complementary food\""; ObjectID = "fZ5-e7-oEZ"; */
+"fZ5-e7-oEZ.text" = "\"Free complementary food\"";
+
+/* Class = "UILabel"; text = "ACTIVE OFFERS"; ObjectID = "fd1-h7-2V0"; */
+"fd1-h7-2V0.text" = "العروض الجارية";
+
+/* Class = "UILabel"; text = "200"; ObjectID = "i2b-Lx-P2b"; */
+"i2b-Lx-P2b.text" = "200";
+
+/* Class = "UILabel"; text = "Coupons expired"; ObjectID = "iFn-Lv-kgz"; */
+"iFn-Lv-kgz.text" = "انتهت صلاحية الكوبونات
+";
+
+/* Class = "UILabel"; text = "PENDING"; ObjectID = "ikx-5X-gwS"; */
+"ikx-5X-gwS.text" = "في الانتظار";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "job-eV-PAi"; */
+"job-eV-PAi.text" = "---";
+
+/* Class = "UILabel"; text = "12:45 AM"; ObjectID = "jzN-PQ-wHb"; */
+//"jzN-PQ-wHb.text" = "12:45 AM";
+
+/* Class = "UINavigationItem"; title = "Offer"; ObjectID = "lUF-mU-45E"; */
+"lUF-mU-45E.title" = "عرض";
+
+/* Class = "UILabel"; text = "TOTAL SLOTS"; ObjectID = "mqT-Lp-unD"; */
+"mqT-Lp-unD.text" = "جميع الأمكان";
+
+/* Class = "UILabel"; text = "applied"; ObjectID = "o1q-N9-lDU"; */
+"o1q-N9-lDU.text" = "تم تطبيقه";
+
+/* Class = "UINavigationItem"; title = "Active offers"; ObjectID = "pHV-H8-RA0"; */
+"pHV-H8-RA0.title" = "العروض الجارية";
+
+/* Class = "UILabel"; text = "APPLICATIONS"; ObjectID = "pln-uT-UJ0"; */
+"pln-uT-UJ0.text" = "تطبيقات";
+
+/* Class = "UILabel"; text = "TODAY"; ObjectID = "q6f-oC-mfz"; */
+//"q6f-oC-mfz.text" = "TODAY";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "qVP-1v-rBX"; */
+"qVP-1v-rBX.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UILabel"; text = "100"; ObjectID = "rgn-Ul-ThJ"; */
+//"rgn-Ul-ThJ.text" = "100";
+
+/* Class = "UILabel"; text = "APPLIED"; ObjectID = "sjm-p9-Wla"; */
+"sjm-p9-Wla.text" = "تم تطبيقه";
+
+/* Class = "UILabel"; text = "available"; ObjectID = "tLx-7Z-zuz"; */
+"tLx-7Z-zuz.text" = "متاح";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "ucG-G3-MRf"; */
+"ucG-G3-MRf.title" = " ";
+
+/* Class = "UILabel"; text = "EXPIRED"; ObjectID = "wFd-IM-xup"; */
+"wFd-IM-xup.text" = "منتهي الصلاحية";
+
+/* Class = "UILabel"; text = "AVAILABLE"; ObjectID = "xmg-4m-WvE"; */
+"xmg-4m-WvE.text" = "متاح";
+
+/* Class = "UILabel"; text = "You don’t have
+ any locations"; ObjectID = "rVb-Wz-prv"; */
+"rVb-Wz-prv.text" = "ليست لديك أيه مواقع";

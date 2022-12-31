@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Raleway-Regular.ttf">
+            <string>Raleway-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="FQ4-MR-1jo" customClass="Q8SearchNavbarPopupView">
+            <rect key="frame" x="0.0" y="0.0" width="230" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WsX-j1-bvx">
+                    <rect key="frame" x="188" y="0.0" width="30" height="16"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="XFf-Rs-RHA"/>
+                        <constraint firstAttribute="width" constant="30" id="ds2-qi-CX1"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cRn-62-Y74">
+                    <rect key="frame" x="0.0" y="16" width="230" height="84"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHOW RESULTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKj-yK-GCG">
+                            <rect key="frame" x="20" y="12" width="202" height="17"/>
+                            <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="14"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Near me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0EL-Xn-WKb">
+                            <rect key="frame" x="20" y="44" width="164" height="24"/>
+                            <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4b-9U-eA3">
+                            <rect key="frame" x="145" y="0.0" width="85" height="85"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="85" id="r2O-MF-0gG"/>
+                            </constraints>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_checkmark_checked" translatesAutoresizingMaskIntoConstraints="NO" id="WIw-Be-scz">
+                            <rect key="frame" x="192" y="43" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="WIw-Be-scz" secondAttribute="height" multiplier="1:1" id="7Zi-Qb-SAv"/>
+                                <constraint firstAttribute="width" constant="25" id="gDK-Rt-DmU"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="0EL-Xn-WKb" firstAttribute="leading" secondItem="cRn-62-Y74" secondAttribute="leading" constant="20" id="7tV-lm-xZz"/>
+                        <constraint firstAttribute="trailing" secondItem="n4b-9U-eA3" secondAttribute="trailing" id="AYw-Fq-KZv"/>
+                        <constraint firstAttribute="trailing" secondItem="WIw-Be-scz" secondAttribute="trailing" constant="13" id="AhH-df-9aL"/>
+                        <constraint firstItem="WIw-Be-scz" firstAttribute="leading" secondItem="0EL-Xn-WKb" secondAttribute="trailing" constant="8" id="Ow4-q4-I4b"/>
+                        <constraint firstItem="WIw-Be-scz" firstAttribute="centerY" secondItem="0EL-Xn-WKb" secondAttribute="centerY" id="PcI-Ac-Hwa"/>
+                        <constraint firstItem="xKj-yK-GCG" firstAttribute="leading" secondItem="cRn-62-Y74" secondAttribute="leading" constant="20" id="Vc4-qQ-ujD"/>
+                        <constraint firstAttribute="bottom" secondItem="0EL-Xn-WKb" secondAttribute="bottom" constant="16.5" id="dZF-gq-Vo4"/>
+                        <constraint firstItem="xKj-yK-GCG" firstAttribute="top" secondItem="cRn-62-Y74" secondAttribute="top" constant="12" id="fNB-UU-56J"/>
+                        <constraint firstAttribute="trailing" secondItem="xKj-yK-GCG" secondAttribute="trailing" constant="8" id="lsI-xP-Y7A"/>
+                        <constraint firstItem="n4b-9U-eA3" firstAttribute="top" secondItem="cRn-62-Y74" secondAttribute="top" id="mXZ-t9-jsf"/>
+                        <constraint firstAttribute="bottom" secondItem="n4b-9U-eA3" secondAttribute="bottom" constant="-1" id="nru-aW-ABR"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="cRn-62-Y74" firstAttribute="leading" secondItem="FQ4-MR-1jo" secondAttribute="leading" id="BaA-Vz-2ec"/>
+                <constraint firstAttribute="bottom" secondItem="cRn-62-Y74" secondAttribute="bottom" id="G3Y-l1-fg1"/>
+                <constraint firstItem="WsX-j1-bvx" firstAttribute="top" secondItem="FQ4-MR-1jo" secondAttribute="top" id="Z43-iX-Fqy"/>
+                <constraint firstItem="cRn-62-Y74" firstAttribute="top" secondItem="WsX-j1-bvx" secondAttribute="bottom" id="ZZf-LG-hAF"/>
+                <constraint firstAttribute="trailing" secondItem="WsX-j1-bvx" secondAttribute="trailing" constant="12" id="nEc-Yy-0xp"/>
+                <constraint firstAttribute="trailing" secondItem="cRn-62-Y74" secondAttribute="trailing" id="smk-ys-cRg"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="checkboxButton" destination="n4b-9U-eA3" id="ugF-RE-aNo"/>
+                <outlet property="checkboxImageView" destination="WIw-Be-scz" id="VAF-vV-uft"/>
+                <outlet property="containerView" destination="cRn-62-Y74" id="gTj-qx-OoT"/>
+                <outlet property="triangleView" destination="WsX-j1-bvx" id="AtD-gp-SgB"/>
+            </connections>
+            <point key="canvasLocation" x="-35" y="-688"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_checkmark_checked" width="67" height="67"/>
+    </resources>
+</document>

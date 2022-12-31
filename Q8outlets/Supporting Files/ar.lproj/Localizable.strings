@@ -1,0 +1,171 @@
+/* 
+  File.strings
+  Q8outlets
+
+  Created by Alexander Bakuta on 15/08/2017.
+  Copyright © 2017 Lesya Verbina. All rights reserved.
+*/
+
+ // Tour Slide titles
+
+"DISCOVER"      = "اكتشف";
+"EXPLORE"       = "استكشف";
+"FOLLOW"        = "متابعة";
+"APPLY"         = "تطبيق";
+"REDEEM"        = "استخدام";
+"GET STARTED"   = "ابدأ";
+
+ // Tour Slide descriptions
+
+"Find outlets near you.\nUse quick search by merchant or offer name." = "اعثر على متاجر قريبة منك.\n استخدم خاصية البحث السريع باستخدام اسم البائع او اسم العرض";
+"Browse and choose from many special offers available to you." = "قم بالبحث والاختيار من  بين العديد من العروض الخاصة المتاحة لك.";
+"Follow merchants and offers and you will never miss available coupons." = "قم بمتابعة البائعين والعروض حتى لا تفوتك الكوبونات المتاحة.";
+"Apply for an offer and get your coupon code.\nHurry up and use it before it expires!" = "قم بالتقديم للاستفادة من نعرض احصل على كود الكوبون الخاص بك. اسرع وقم باستخدامه قبل ان تنتهي صلاحيته!";
+"To redeem your offer show your coupon code to a merchant and get your gift." = "للاستفادة من العرض قم باظهار كود الكوبون الخاص بك للبائع واحصل على هديتك.";
+
+ // Autorization/Registration screen
+
+"REGISTER"              = "تسجيل الإشتراك";
+"SIGN IN"               = "تسجيل الدخول";
+"REGISTER WITH EMAIL"   = "تسجيل الدخول باستخدام البريد الإلكتروني";
+"LOGIN WITH EMAIL"      = "تسجيل الإشتراك باستخدام البريد الإلكتروني";
+
+"Facebook"                      = "فيسبوك";
+"Twitter"                       = "تويتر";
+"Google"                        = "قوقل";
+"Instagram"                     = "انستاقرام";
+"End User License Agreement"    = "اتفاقية ترخيص المستخدم النهائي";
+
+"q8outlets.com" = "q8outlets.com";
+
+"Autorize with Facebook"    = "تسجيل الدخول من خلال شبكات التواصل الاجتماعي فيسبوك";
+"Autorize with Twitter"     = "تسجيل الدخول من خلال شبكات التواصل الاجتماعي تويتر";
+"Autorize with Google"      = "تسجيل الدخول من خلال شبكات التواصل الاجتماعي قوقل";
+"Autorize with Instagram"   = "تسجيل الدخول من خلال شبكات التواصل الاجتماعي انستاقرام";
+
+ // Search Screen
+
+"Food & Drinks"     = "المأكولات والمشروبات";
+"Fashion"           = "الأزياء";
+"Retail"            = "البيع";
+"Beauty & Fitness"  = "الجمال واللياقة";
+"Leisure"           = "الاسترخاء";
+"Category"          = "الفئة";
+
+"100+" =  "أكثر من 100";
+"offer"         = "عرض";
+"offers"        = "عروض";
+"coupon"        = "كوبون";
+"coupons"       = "كوبونات";
+
+"ALREADY APPLIED"       = "تم التقديم من قبل";
+"APPLY FOR THIS OFFER"  = "التقديم من اجل الاستفادة من هذا العرض";
+
+ // Report Popup
+
+"REPORT THIS OFFER"     = "الابلاغ عن هذا العرض";
+"REPORT THIS MERCHANT"  = "قم بالابلاغ عن هذا البائع";
+
+ // Q8Coupon
+
+"Expired"           = "منتهي الصلاحية";
+"Used"              = "مستخدم";
+"Archived"          = "مؤرشف";
+"Active"            = "جاري";
+"Status unknown"    = "الحالة غير معروفة";
+"Expires in:"       = "تنتهي صلاحيته في:";
+"Expired:"          = "منتهي الصلاحية:";
+"Used:"             = "مستخدم:";
+
+"You don't have any %@ coupons" = "ليس لديك @% كوبونات";
+
+ // Code
+
+"RESTORE" = "استعادة";
+"ARCHIVE" = "اضافة الى الارشيف";
+
+ // BusinessNotification
+
+"%ld users have applied for your offer" = "%d مستخدم قاموا بطلب عرضك";
+
+ // Merchant detail
+
+"Offers in %@" = "العروض في %@";
+
+ // Share
+
+"Check it here. %@" = "التحقق من ذلك هنا. %@";
+
+ // Following
+
+"You are not following any merchants yet" = "أنت لا تتابع أي أحد";
+"If you follow a merchant we will notify you about their new offers" = "اذا قمتم بمتابعة العرض سوف نقوم بإخطاركم عند توفر كوبونات جديدة";
+"You are not following any offers yet" = "أنت لا تتابع أي شئ";
+"If you follow an offer, we will notify you about available coupons" = "اذا قمتم بمتابعة العرض سوف نقوم بإخطاركم عند توفر كوبونات جديدة";
+
+ // Result Scan
+
+"Wrong location" = "موقع خاطئ";
+"Invalid code" = "كود غير صالح";
+"Valid code" = "كود صالح";
+"Expired code" = "كود منتهي الصلاحية";
+"Used code" = "كود مستخدم";
+
+ // Admin Notification
+
+"TODAY" = "اليوم";
+"YESTERDAY" = "أمس";
+"dd.MM.YYYY" = "dd\\MM\\yy";
+
+ // Admin Active Offers
+
+"No available locations" = "لا يوجد مواقع متاحة";
+"%ld more locations" = "%ld مواقع اكثر";
+
+ // Admin Location
+
+"Please, select your location" = "برجاء اختيار موقعك";
+"Please open q8outlets.com in your browser and add at least one business location" = "q8outlets.com يرجى فتح الرابط على المتصفح و إضافة موقع واحد على الأقل";
+
+ // Change image
+
+"icon_arrow_right" = "icon_arrow_left";
+"icon_arrow_left"  = "icon_arrow_right";
+"picture_scan"     = "picture_scan_ar";
+
+ // AlertKeys
+
+"1"  = "101";
+"2"  = "102";
+"3"  = "103";
+"4"  = "104";
+"5"  = "105";
+"6"  = "106";
+"7"  = "107";
+"8"  = "108";
+"9"  = "109";
+"10" = "110";
+"11" = "111";
+"12" = "112";
+"13" = "113";
+"14" = "114";
+"15" = "115";
+"16" = "116";
+"17" = "117";
+"18" = "118";
+"19" = "119";
+"20" = "120";
+"21" = "121";
+"22" = "122";
+"23" = "123";
+"24" = "124";
+"25" = "125";
+"26" = "126";
+"27" = "127";
+"28" = "128";
+"29" = "129";
+"30" = "130";
+"31" = "131";
+"32" = "132";
+"33" = "133";
+
