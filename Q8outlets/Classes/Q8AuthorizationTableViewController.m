@@ -49,12 +49,10 @@ enum {
     [WLVisualHelper templatizeImageViews:self.socialNetworkImageViews withColor:Q8RedDefaultColor];
     
     self.facebookLabel.text     = NSLocalizedString(@"Autorize with Facebook", nil);
-    self.twitterLabel.text      = NSLocalizedString(@"Autorize with Twitter", nil);
     self.googleLabel.text       = NSLocalizedString(@"Autorize with Google", nil);
     self.instagramLabel.text    = NSLocalizedString(@"Autorize with Instagram", nil);
 
     [WLVisualHelper makeTextBold:NSLocalizedString(@"Facebook", nil) inLabel:self.facebookLabel];
-    [WLVisualHelper makeTextBold:NSLocalizedString(@"Twitter", nil) inLabel:self.twitterLabel];
     [WLVisualHelper makeTextBold:NSLocalizedString(@"Google", nil) inLabel:self.googleLabel];
     [WLVisualHelper makeTextBold:NSLocalizedString(@"Instagram", nil) inLabel:self.instagramLabel];
     [WLVisualHelper makeTextBold:NSLocalizedString(@"End User License Agreement", nil) inLabel:self.termsLabel];
@@ -238,27 +236,7 @@ enum {
         }
     } sender:self];
 }
-- (IBAction)twitterButtonAction:(id)sender {
-    [Q8ActivityIndicator showHUDAddedTo:self.view animated:YES];
-    self.view.userInteractionEnabled = NO;
-    
-    [Q8SocialLoginHelper loginTwitterOnCompletion:^(BOOL success, NSString *twitterToken, NSString *twitterSecret) {
-        if (!success) {
-            [Q8ActivityIndicator hideHUDForView:self.view animated:YES];
-            self.view.userInteractionEnabled = YES;
-        } else {
-            [[Q8ServerAPIHelper sharedHelper] authorizeUserWithTwitterToken:twitterToken
-                                                              twitterSecret:twitterSecret
-                                                               onCompletion:^(BOOL success, BOOL isRegistration) {
-                                                                   [Q8ActivityIndicator hideHUDForView:self.view animated:YES];
-                                                                   self.view.userInteractionEnabled = YES;
-                                                                   if (success) {
-                                                                       [self moveToAuthorizedPart];
-                                                                   }
-                                                               } sender:self];
-        }
-    } sender:self];
-}
+
 - (IBAction)googleButtonAction:(id)sender {
     [Q8ActivityIndicator showHUDAddedTo:self.view animated:YES];
     self.view.userInteractionEnabled = NO;

@@ -15,22 +15,22 @@
 
 @implementation Q8ShareHelper
 
-+ (void)shareOfferToFacebook:(Q8Offer *)offer {
-    FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
-    content.contentURL = [NSURL URLWithString:offer.link.length ? offer.link : SHARE_LINK];
-    content.contentDescription = [Q8ShareHelper sharingTextByOffer:offer];
-    content.imageURL = [NSURL URLWithString:SHARE_IMAGE_LINK];
-    
-    FBSDKShareDialog *dialog = [[FBSDKShareDialog alloc] init];
-    
-    dialog.shareContent = content;
-    dialog.mode = FBSDKShareDialogModeNative; // if you don't set this before canShow call, canShow would always return YES
-    if (![dialog canShow]) {
-        // fallback presentation when there is no FB app
-        dialog.mode = FBSDKShareDialogModeFeedBrowser;
-    }
-    [dialog show];
-}
+//+ (void)shareOfferToFacebook:(Q8Offer *)offer {
+//    FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
+//    content.contentURL = [NSURL URLWithString:offer.link.length ? offer.link : SHARE_LINK];
+//    content.contentDescription = [Q8ShareHelper sharingTextByOffer:offer];
+//    content.imageURL = [NSURL URLWithString:SHARE_IMAGE_LINK];
+//    
+//    FBSDKShareDialog *dialog = [[FBSDKShareDialog alloc] init];
+//    
+//    dialog.shareContent = content;
+//    dialog.mode = FBSDKShareDialogModeNative; // if you don't set this before canShow call, canShow would always return YES
+//    if (![dialog canShow]) {
+//        // fallback presentation when there is no FB app
+//        dialog.mode = FBSDKShareDialogModeFeedBrowser;
+//    }
+//    [dialog show];
+//}
 
 + (void)shareOfferToOther:(Q8Offer *)offer {
     // Share offer title and description

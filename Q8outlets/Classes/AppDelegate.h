@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <AppAuth/AppAuth.h>
+#import <AppAuth/AppAuthCore.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -19,7 +19,6 @@
  incoming URL on UIApplicationDelegate.application:openURL:options:. This property will be
  nil, except when an authorization flow is in progress.
  */
-@property(nonatomic, strong, nullable) id<OIDAuthorizationFlowSession> currentAuthorizationFlow;
-
+@property(nonatomic, strong, nullable) id<OIDExternalUserAgentSession> currentAuthorizationFlow;
 @end
 

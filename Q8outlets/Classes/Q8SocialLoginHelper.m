@@ -48,7 +48,7 @@
 + (void)loginFacebookOnCompletion:(void (^)(BOOL success))completion
                            sender:(UIViewController *)sender {
     FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
-    [loginManager logInWithReadPermissions:@[@"public_profile", @"email"]
+    [loginManager logInWithPermissions:@[@"public_profile", @"email"]
                         fromViewController:nil
                                    handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
                                        if (error) {
@@ -105,7 +105,7 @@
         WLDebLog(@"Initiating authorization request with scope: %@", request.scope);
         
         appDelegate.currentAuthorizationFlow =
-        [OIDAuthState authStateByPresentingAuthorizationRequest:request
+        [OIDAuthState authStateByPresentingAuthorizationRequest :request
                                        presentingViewController:sender
                                                        callback:^(OIDAuthState *_Nullable authState,
                                                                   NSError *_Nullable error) {
@@ -182,22 +182,22 @@
 
 
 #pragma mark - Twitter
-
-+ (void)loginTwitterOnCompletion:(void (^)(BOOL, NSString *twitterToken, NSString *twitterSecret))completion
-                          sender:(UIViewController *)sender {
-    [[Twitter sharedInstance] logInWithCompletion:^(TWTRSession *session, NSError *error) {
-        if (session) {
-            WLDebLog(@"signed in as %@", session.userName);
-            completion(YES, session.authToken, session.authTokenSecret);
-        } else {
-            WLErrLog(@"Authorizaation error: %@ %ld", error, (long)error.code);
-            if (sender.isViewLoaded && sender.view.window && error.code!=1) {
-                [WLAlertHelper createAlertControllerForReason:[Q8AlertHelper convertToString:Q8ReasonServerFailure] titleArguments:nil bodyArguments:@[[error localizedDescription]] delegate:nil];
-            }
-            completion(NO, nil, nil);
-        }
-    }];
-}
+//
+//+ (void)loginTwitterOnCompletion:(void (^)(BOOL, NSString *twitterToken, NSString *twitterSecret))completion
+//                          sender:(UIViewController *)sender {
+//    [[Twitter sharedInstance] logInWithCompletion:^(TWTRSession *session, NSError *error) {
+//        if (session) {
+//            WLDebLog(@"signed in as %@", session.userName);
+//            completion(YES, session.authToken, session.authTokenSecret);
+//        } else {
+//            WLErrLog(@"Authorizaation error: %@ %ld", error, (long)error.code);
+//            if (sender.isViewLoaded && sender.view.window && error.code!=1) {
+//                [WLAlertHelper createAlertControllerForReason:[Q8AlertHelper convertToString:Q8ReasonServerFailure] titleArguments:nil bodyArguments:@[[error localizedDescription]] delegate:nil];
+//            }
+//            completion(NO, nil, nil);
+//        }
+//    }];
+//}
 
 + (void)logoutTwitter {
     NSURL *url = [NSURL URLWithString:@"https://api.twitter.com"];
@@ -205,9 +205,9 @@
     for (NSHTTPCookie *cookie in cookies) {
         [[NSHTTPCookieStorage sharedHTTPCookieStorage] deleteCookie:cookie];
     }
-    TWTRSessionStore *store = [[Twitter sharedInstance] sessionStore];
-    NSString *userID = store.session.userID;
-    [[[Twitter sharedInstance] sessionStore] logOutUserID:userID];
+//    TWTRSessionStore *store = [[Twitter sharedInstance] sessionStore];
+//    NSString *userID = store.session.userID;
+//    [[[Twitter sharedInstance] sessionStore] logOutUserID:userID];
 }
 
 #pragma mark - Instagram

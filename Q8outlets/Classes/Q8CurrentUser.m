@@ -8,7 +8,7 @@
 
 #import "Q8CurrentUser.h"
 #import "Q8SocialLoginHelper.h"
-#import <WLHelpers/WLKeychainHelper.h>
+#import "WLKeychainHelper.h"
 
 #define Q8_USER_SESSION_UDID    @"Q8_USER_SESSION_UDID"
 #define Q8_USER_DEVICE_TOKEN    @"Q8_USER_DEVICE_TOKEN"

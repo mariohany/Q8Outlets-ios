@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FDD2E422960936900C2ED95 /* WLAlertHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDD2E3F2960936500C2ED95 /* WLAlertHelper.m */; };
+		0FDD2E432960936900C2ED95 /* WLCoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDD2E412960936900C2ED95 /* WLCoreDataHelper.m */; };
+		0FDD2E492960937700C2ED95 /* WLVisualHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDD2E362960935200C2ED95 /* WLVisualHelper.m */; };
+		0FDD2E4A2960937700C2ED95 /* WLLogHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDD2E392960935800C2ED95 /* WLLogHelper.m */; };
+		0FDD2E4B2960937700C2ED95 /* WLLocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDD2E3A2960935A00C2ED95 /* WLLocationHelper.m */; };
+		0FDD2E4C2960937700C2ED95 /* WLStrokedOutsideLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDD2E402960936700C2ED95 /* WLStrokedOutsideLabel.m */; };
+		0FDD2E4E2960937700C2ED95 /* WLImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDD2E462960937300C2ED95 /* WLImageHelper.m */; };
+		0FDD2E4F2960937700C2ED95 /* WLKeychainHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDD2E482960937700C2ED95 /* WLKeychainHelper.m */; };
+		0FDD2E502960CDD600C2ED95 /* WLUtilityHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDD2E452960937000C2ED95 /* WLUtilityHelper.m */; };
 		2157E81D1E55C7A700437645 /* Q8TextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2157E81C1E55C7A700437645 /* Q8TextField.m */; };
 		2157E8211E55C7F400437645 /* Q8PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2157E8201E55C7F400437645 /* Q8PopupView.m */; };
 		215EE3331E6E9AD8001922B5 /* Q8ShareHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 215EE3321E6E9AD8001922B5 /* Q8ShareHelper.m */; };
@@ -115,7 +124,7 @@
 		58E350EA1E412A780023E24A /* Q8Offer.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E350E91E412A780023E24A /* Q8Offer.m */; };
 		58FA310E1E4B7778004D46D8 /* Q8InstagramLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FA310C1E4B7778004D46D8 /* Q8InstagramLoginViewController.m */; };
 		58FA310F1E4B7778004D46D8 /* Q8InstagramLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58FA310D1E4B7778004D46D8 /* Q8InstagramLoginViewController.xib */; };
-		90BA8EB2C98C02D0D79BB9D7 /* libPods-Q8outlets.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE803D8AAC4A1DBA57796C60 /* libPods-Q8outlets.a */; };
+		FD41C9E38EBE9E4AB165D062 /* Pods_Q8outlets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 204283428B1CB7B3F9588064 /* Pods_Q8outlets.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +145,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0FDD2E352960935000C2ED95 /* WLKeychainHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLKeychainHelper.h; sourceTree = "<group>"; };
+		0FDD2E362960935200C2ED95 /* WLVisualHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLVisualHelper.m; sourceTree = "<group>"; };
+		0FDD2E372960935400C2ED95 /* WLImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLImageHelper.h; sourceTree = "<group>"; };
+		0FDD2E382960935600C2ED95 /* WLLogHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLLogHelper.h; sourceTree = "<group>"; };
+		0FDD2E392960935800C2ED95 /* WLLogHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLLogHelper.m; sourceTree = "<group>"; };
+		0FDD2E3A2960935A00C2ED95 /* WLLocationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLLocationHelper.m; sourceTree = "<group>"; };
+		0FDD2E3B2960935D00C2ED95 /* WLCoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCoreDataHelper.h; sourceTree = "<group>"; };
+		0FDD2E3C2960935F00C2ED95 /* WLLocationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLLocationHelper.h; sourceTree = "<group>"; };
+		0FDD2E3D2960936100C2ED95 /* WLAlertHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLAlertHelper.h; sourceTree = "<group>"; };
+		0FDD2E3F2960936500C2ED95 /* WLAlertHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLAlertHelper.m; sourceTree = "<group>"; };
+		0FDD2E402960936700C2ED95 /* WLStrokedOutsideLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLStrokedOutsideLabel.m; sourceTree = "<group>"; };
+		0FDD2E412960936900C2ED95 /* WLCoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCoreDataHelper.m; sourceTree = "<group>"; };
+		0FDD2E442960936C00C2ED95 /* WLStrokedOutsideLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLStrokedOutsideLabel.h; sourceTree = "<group>"; };
+		0FDD2E452960937000C2ED95 /* WLUtilityHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLUtilityHelper.m; sourceTree = "<group>"; };
+		0FDD2E462960937300C2ED95 /* WLImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLImageHelper.m; sourceTree = "<group>"; };
+		0FDD2E472960937500C2ED95 /* WLVisualHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLVisualHelper.h; sourceTree = "<group>"; };
+		0FDD2E482960937700C2ED95 /* WLKeychainHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLKeychainHelper.m; sourceTree = "<group>"; };
+		0FDD2E522960CE7700C2ED95 /* WLUtilityHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLUtilityHelper.h; sourceTree = "<group>"; };
+		204283428B1CB7B3F9588064 /* Pods_Q8outlets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Q8outlets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2157E81B1E55C7A700437645 /* Q8TextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Q8TextField.h; sourceTree = "<group>"; };
 		2157E81C1E55C7A700437645 /* Q8TextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Q8TextField.m; sourceTree = "<group>"; };
 		2157E81F1E55C7F400437645 /* Q8PopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Q8PopupView.h; sourceTree = "<group>"; };
@@ -329,7 +357,6 @@
 		58FA310D1E4B7778004D46D8 /* Q8InstagramLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Q8InstagramLoginViewController.xib; sourceTree = "<group>"; };
 		6F457BA28B8999937335D468 /* Pods-Q8outlets.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Q8outlets.release.xcconfig"; path = "Pods/Target Support Files/Pods-Q8outlets/Pods-Q8outlets.release.xcconfig"; sourceTree = "<group>"; };
 		8BCFFC9DC4BA73A2E8C56E68 /* Pods-Q8outlets.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Q8outlets.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Q8outlets/Pods-Q8outlets.debug.xcconfig"; sourceTree = "<group>"; };
-		BE803D8AAC4A1DBA57796C60 /* libPods-Q8outlets.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Q8outlets.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,7 +364,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90BA8EB2C98C02D0D79BB9D7 /* libPods-Q8outlets.a in Frameworks */,
+				FD41C9E38EBE9E4AB165D062 /* Pods_Q8outlets.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +385,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0FDD2E342960934100C2ED95 /* WLHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				0FDD2E3D2960936100C2ED95 /* WLAlertHelper.h */,
+				0FDD2E3F2960936500C2ED95 /* WLAlertHelper.m */,
+				0FDD2E3B2960935D00C2ED95 /* WLCoreDataHelper.h */,
+				0FDD2E412960936900C2ED95 /* WLCoreDataHelper.m */,
+				0FDD2E372960935400C2ED95 /* WLImageHelper.h */,
+				0FDD2E462960937300C2ED95 /* WLImageHelper.m */,
+				0FDD2E352960935000C2ED95 /* WLKeychainHelper.h */,
+				0FDD2E482960937700C2ED95 /* WLKeychainHelper.m */,
+				0FDD2E3C2960935F00C2ED95 /* WLLocationHelper.h */,
+				0FDD2E3A2960935A00C2ED95 /* WLLocationHelper.m */,
+				0FDD2E382960935600C2ED95 /* WLLogHelper.h */,
+				0FDD2E392960935800C2ED95 /* WLLogHelper.m */,
+				0FDD2E442960936C00C2ED95 /* WLStrokedOutsideLabel.h */,
+				0FDD2E402960936700C2ED95 /* WLStrokedOutsideLabel.m */,
+				0FDD2E522960CE7700C2ED95 /* WLUtilityHelper.h */,
+				0FDD2E452960937000C2ED95 /* WLUtilityHelper.m */,
+				0FDD2E472960937500C2ED95 /* WLVisualHelper.h */,
+				0FDD2E362960935200C2ED95 /* WLVisualHelper.m */,
+			);
+			path = WLHelpers;
+			sourceTree = "<group>";
+		};
 		2157E8161E55BE7000437645 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -612,7 +664,7 @@
 				58C9436E1E40929900851C20 /* Q8outletsUITests */,
 				58C943481E40929900851C20 /* Products */,
 				707FBAF8E3C8CD311EB8D684 /* Pods */,
-				7AB1D90B5D011D910031B4D0 /* Frameworks */,
+				9DEEA76AC64EF8D250A8060F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -676,6 +728,7 @@
 		58C943851E40937B00851C20 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0FDD2E342960934100C2ED95 /* WLHelpers */,
 				58C9438A1E40938A00851C20 /* Helpers */,
 				58C943891E40938400851C20 /* Model */,
 				58C9438B1E40939000851C20 /* Controllers */,
@@ -903,10 +956,10 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		7AB1D90B5D011D910031B4D0 /* Frameworks */ = {
+		9DEEA76AC64EF8D250A8060F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BE803D8AAC4A1DBA57796C60 /* libPods-Q8outlets.a */,
+				204283428B1CB7B3F9588064 /* Pods_Q8outlets.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -978,12 +1031,12 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = Q8;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 1410;
 				ORGANIZATIONNAME = "Lesya Verbina";
 				TargetAttributes = {
 					58C943461E40929900851C20 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 3RF38P885K;
+						DevelopmentTeam = T5GA7DTMUP;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -1014,6 +1067,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 				ar,
@@ -1099,46 +1153,54 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Q8outlets/Pods-Q8outlets-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Q8outlets/Pods-Q8outlets-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/Branch/Branch.framework",
+				"${BUILT_PRODUCTS_DIR}/FBAEMKit/FBAEMKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit_Basics/FBSDKCoreKit_Basics.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseCore/FirebaseCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseCoreInternal/FirebaseCoreInternal.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseDynamicLinks/FirebaseDynamicLinks.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/InstagramKit/InstagramKit.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SWTableViewCell/SWTableViewCell.framework",
-				"${BUILT_PRODUCTS_DIR}/WLHelpers/WLHelpers.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppAuth.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Branch.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBAEMKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit_Basics.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCoreInternal.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseDynamicLinks.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMAppAuth.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InstagramKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SWTableViewCell.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WLHelpers.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Q8outlets/Pods-Q8outlets-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Q8outlets/Pods-Q8outlets-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3B32C37F5D89F196449A3EFE /* [CP] Copy Pods Resources */ = {
@@ -1147,18 +1209,16 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Q8outlets/Pods-Q8outlets-resources.sh",
-				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
-				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle",
-				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-Q8outlets/Pods-Q8outlets-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Q8outlets/Pods-Q8outlets-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Q8outlets/Pods-Q8outlets-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		58E350E01E409EC80023E24A /* ShellScript */ = {
@@ -1200,22 +1260,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				21CE45671E5B177600426A1E /* Q8CouponsCount.m in Sources */,
+				0FDD2E4E2960937700C2ED95 /* WLImageHelper.m in Sources */,
 				58E350E71E412A680023E24A /* Q8Merchant.m in Sources */,
 				58C94A501E437B5E001A953D /* Q8CategoriesViewController.m in Sources */,
+				0FDD2E502960CDD600C2ED95 /* WLUtilityHelper.m in Sources */,
 				580FC3FC1E4C737C00D55AE1 /* Q8SearchNavbarPopupView.m in Sources */,
 				58E350AA1E4094A80023E24A /* Q8ServerAPIHelper.m in Sources */,
 				58935C571E44857300AC146E /* Q8MerchantLocation.m in Sources */,
 				58BC1A1A1E48AB970064520A /* Q8OfferViewController.m in Sources */,
 				58C94A471E434C2C001A953D /* Q8Slide.m in Sources */,
 				58C94A4A1E4376BC001A953D /* Q8ActivityIndicator.m in Sources */,
+				0FDD2E4F2960937700C2ED95 /* WLKeychainHelper.m in Sources */,
 				58BA97011E42288E00B7842D /* Q8MerchantTableViewCell.m in Sources */,
 				5849ABD21E51FB5F001FE0A4 /* Q8DateHeaderTableViewCell.m in Sources */,
 				58C94A4D1E43776D001A953D /* Q8SearchViewController.m in Sources */,
 				585BF0841E4B2831005F68EE /* Q8SocialLoginHelper.m in Sources */,
+				0FDD2E492960937700C2ED95 /* WLVisualHelper.m in Sources */,
 				58E350A71E40949A0023E24A /* Q8CurrentUser.m in Sources */,
+				0FDD2E4A2960937700C2ED95 /* WLLogHelper.m in Sources */,
 				2157E8211E55C7F400437645 /* Q8PopupView.m in Sources */,
 				218A6DBE1E83BD050088BF67 /* Q8BusinessLocationViewController.m in Sources */,
 				58BB1D4E1E49CA6B00AD8B26 /* Q8EditProfileTableViewController.m in Sources */,
+				0FDD2E432960936900C2ED95 /* WLCoreDataHelper.m in Sources */,
 				580FC4031E4C9DE500D55AE1 /* Q8CouponsNavbarPopupView.m in Sources */,
 				218A6DBA1E83BC5B0088BF67 /* Q8MerchantLocationTableViewCell.m in Sources */,
 				58C94A611E439308001A953D /* Q8BusinessHomeViewController.m in Sources */,
@@ -1234,8 +1300,10 @@
 				58BC1A1D1E48D00B0064520A /* Q8MerchantViewController.m in Sources */,
 				5849ABC01E51E64D001FE0A4 /* Q8ScanCodeViewController.m in Sources */,
 				58BB1D5F1E4A052600AD8B26 /* Q8MerchantAnnotation.m in Sources */,
+				0FDD2E4B2960937700C2ED95 /* WLLocationHelper.m in Sources */,
 				215EE3331E6E9AD8001922B5 /* Q8ShareHelper.m in Sources */,
 				5849ABD61E521D75001FE0A4 /* Q8BusinessOffersViewController.m in Sources */,
+				0FDD2E4C2960937700C2ED95 /* WLStrokedOutsideLabel.m in Sources */,
 				58BA970D1E4285B000B7842D /* Q8CouponTableViewCell.m in Sources */,
 				58935C5A1E44A54100AC146E /* Q8ImageHelper.m in Sources */,
 				58C94A5E1E438F56001A953D /* Q8SettingsTableViewController.m in Sources */,
@@ -1243,6 +1311,7 @@
 				219AC7AA20A199F500C04489 /* Q8MerchantMapViewController.m in Sources */,
 				580A9B0E1E534F4600685A4A /* Q8BusinessStatsTableViewController.m in Sources */,
 				58BA97061E422A1000B7842D /* Q8ClientOfferTableViewCell.m in Sources */,
+				0FDD2E422960936900C2ED95 /* WLAlertHelper.m in Sources */,
 				5849ABC31E51EA2A001FE0A4 /* Q8ResultViewController.m in Sources */,
 				21A1914220AEF4E500D6B6CD /* Q8ResetPasswordTableViewController.m in Sources */,
 				58C94A561E437F8E001A953D /* Q8ForgotPasswordTableViewController.m in Sources */,
@@ -1380,20 +1449,30 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1417,7 +1496,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1428,20 +1507,30 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1459,7 +1548,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1476,13 +1565,19 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 3RF38P885K;
+				DEVELOPMENT_TEAM = T5GA7DTMUP;
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				INFOPLIST_FILE = "$(SRCROOT)/Q8outlets/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.greenetworks.q8outlets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.esraa.q8outlets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1496,13 +1591,18 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 3RF38P885K;
+				DEVELOPMENT_TEAM = T5GA7DTMUP;
 				INFOPLIST_FILE = "$(SRCROOT)/Q8outlets/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.greenetworks.q8outlets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.esraa.q8outlets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

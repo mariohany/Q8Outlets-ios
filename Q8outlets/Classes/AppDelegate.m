@@ -8,15 +8,16 @@
 
 #import "AppDelegate.h"
 #import <Fabric/Fabric.h>
-#import <Crashlytics/Crashlytics.h>
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <TwitterKit/TwitterKit.h>
+//#import <Crashlytics/Crashlytics.h>
+//#import <TwitterKit/TWTRKit.h>
 #import "Q8PushHelper.h"
 #import <Firebase/Firebase.h>
 #import "Q8DynamicLinkHelper.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import "Branch.h"
-
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKShareKit/FBSDKShareKit.h>
 // Dev
 //#define GOOLE_API_KEY   @"AIzaSyD09kX5yCUkgbeuqQaOCVyQ4oFt2s427Dg"
 
@@ -36,8 +37,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     // Setup Fabric
-    [Fabric with:@[[Crashlytics class], [Twitter class]]];
-    
+//    [Fabric with:@[[Crashlytics class], [Twitter class]]];
     // Setup Facebook
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
@@ -164,7 +164,7 @@ forRemoteNotification:(NSDictionary *)notification
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    [FBSDKAppEvents activateApp];
+//    [FBSDKAppEvents activateApp];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -175,7 +175,7 @@ forRemoteNotification:(NSDictionary *)notification
     
     // Sends the URL to the current authorization flow (if any) which will process it if it relates to
     // an authorization response.
-    if ([_currentAuthorizationFlow resumeAuthorizationFlowWithURL:url]) {
+    if ([_currentAuthorizationFlow resumeExternalUserAgentFlowWithURL :url]) {
         _currentAuthorizationFlow = nil;
         return YES;
     }

@@ -12,11 +12,11 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
-#import <WLHelpers/WLUtilityHelper.h>
-#import <WLHelpers/WLVisualHelper.h>
-#import <WLHelpers/WLAlertHelper.h>
-#import <WLHelpers/WLLogHelper.h>
-#import <WLHelpers/WLLocationHelper.h>
+#import "WLUtilityHelper.h"
+#import "WLVisualHelper.h"
+#import "WLAlertHelper.h"
+#import "WLLogHelper.h"
+#import "WLLocationHelper.h"
 #import "Q8CurrentUser.h"
 #import "Q8ServerAPIHelper.h"
 #import "Q8Constants.h"

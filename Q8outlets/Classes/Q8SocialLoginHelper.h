@@ -8,15 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import <AppAuth/AppAuth.h>
+//#import "AppAuth.h"
 #import <GTMAppAuth/GTMAppAuth.h>
 #import "AppDelegate.h"
 #import "GTMSessionFetcher.h"
 #import "GTMSessionFetcherService.h"
-#import <TwitterCore/TwitterCore.h>
-#import <Twitter/Twitter.h>
+//#import <TwitterCore/TwitterCore.h>
+//#import <Twitter/Twitter.h>
 @import Twitter;
-@import TwitterCore;
-@import TwitterKit;
+//@import TwitterCore;
+//@import TwitterKit;
 
 static NSString *const kIssuer = @"https://accounts.google.com";
 static NSString *const kExampleAuthorizerKey = @"authorization";

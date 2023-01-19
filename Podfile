@@ -1,27 +1,30 @@
-#use_frameworks!
-platform :ios, '9.0'
-target "Q8outlets" do
-    
-    # Essentials
-    pod 'AFNetworking', '~> 3'
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '11.0'
+
+target 'Q8outlets' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Q8outlets
+# Essentials
+    pod 'AFNetworking'
     pod 'SDWebImage'
     pod 'Fabric'
-    pod 'Crashlytics'
     pod 'Reachability'
-    pod 'WLHelpers'
     pod 'MBProgressHUD'
-    pod 'SWTableViewCell', '~> 0.3.7'
+    pod 'SWTableViewCell'
     pod 'Firebase/DynamicLinks'
     pod 'GoogleMaps'
 	pod 'Branch'
-    
+  pod 'AppAuth'
     # Social networks
-    pod 'FBSDKCoreKit', '~> 4'
-    pod 'FBSDKLoginKit', '~> 4'
-    pod 'FBSDKShareKit', '~> 4'
+    pod 'FBSDKCoreKit', '~> 11.1.0'
+   # pod 'FBSDKCoreKit_Basics', '~> 11.1.0'
+    pod 'FBSDKLoginKit', '~> 11.1.0'
+    pod 'FBSDKShareKit', '~> 11.1.0'
     pod 'GTMAppAuth'
-    pod 'TwitterKit'
-    pod 'TwitterCore'
+#    pod 'TwitterKit'
+#    pod 'TwitterCore'
     pod 'InstagramKit'
 
 end
