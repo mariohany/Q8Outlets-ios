@@ -1,94 +1,97 @@
 PODS:
-  - AFNetworking (3.1.0):
-    - AFNetworking/NSURLSession (= 3.1.0)
-    - AFNetworking/Reachability (= 3.1.0)
-    - AFNetworking/Security (= 3.1.0)
-    - AFNetworking/Serialization (= 3.1.0)
-    - AFNetworking/UIKit (= 3.1.0)
-  - AFNetworking/NSURLSession (3.1.0):
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (3.1.0)
-  - AFNetworking/Security (3.1.0)
-  - AFNetworking/Serialization (3.1.0)
-  - AFNetworking/UIKit (3.1.0):
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - AppAuth (0.7.1)
-  - Bolts (1.8.4):
-    - Bolts/AppLinks (= 1.8.4)
-    - Bolts/Tasks (= 1.8.4)
-  - Bolts/AppLinks (1.8.4):
-    - Bolts/Tasks
-  - Bolts/Tasks (1.8.4)
-  - Branch (0.22.5):
-    - Branch/Core (= 0.22.5)
-  - Branch/Core (0.22.5)
-  - Crashlytics (3.8.4):
-    - Fabric (~> 1.6.3)
-  - Fabric (1.6.11)
-  - FBSDKCoreKit (4.20.2):
-    - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.20.2):
-    - FBSDKCoreKit
-  - FBSDKShareKit (4.20.2):
-    - FBSDKCoreKit
-  - Firebase/Core (3.15.0):
-    - FirebaseAnalytics (= 3.7.0)
-    - FirebaseCore (= 3.5.2)
-  - Firebase/DynamicLinks (3.15.0):
-    - Firebase/Core
-    - FirebaseDynamicLinks (= 1.3.4)
-  - FirebaseAnalytics (3.7.0):
-    - FirebaseCore (~> 3.5)
-    - FirebaseInstanceID (~> 1.0)
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseCore (3.5.2):
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseDynamicLinks (1.3.4):
-    - FirebaseAnalytics (~> 3.7)
-  - FirebaseInstanceID (1.0.9)
-  - GoogleMaps (2.2.0):
-    - GoogleMaps/Maps (= 2.2.0)
-  - GoogleMaps/Base (2.2.0)
-  - GoogleMaps/Maps (2.2.0):
+  - AppAuth (1.6.0):
+    - AppAuth/Core (= 1.6.0)
+    - AppAuth/ExternalUserAgent (= 1.6.0)
+  - AppAuth/Core (1.6.0)
+  - AppAuth/ExternalUserAgent (1.6.0):
+    - AppAuth/Core
+  - Branch (1.45.2)
+  - Fabric (1.10.2)
+  - FBAEMKit (11.1.0):
+    - FBAEMKit/AEM (= 11.1.0)
+  - FBAEMKit/AEM (11.1.0):
+    - FBSDKCoreKit_Basics (~> 11.1.0)
+  - FBSDKCoreKit (11.1.0):
+    - FBSDKCoreKit/Core (= 11.1.0)
+  - FBSDKCoreKit/Core (11.1.0):
+    - FBAEMKit (~> 11.1.0)
+    - FBSDKCoreKit_Basics (~> 11.1.0)
+  - FBSDKCoreKit_Basics (11.1.0):
+    - FBSDKCoreKit_Basics/Basics (= 11.1.0)
+  - FBSDKCoreKit_Basics/Basics (11.1.0)
+  - FBSDKLoginKit (11.1.0):
+    - FBSDKLoginKit/Login (= 11.1.0)
+  - FBSDKLoginKit/Login (11.1.0):
+    - FBSDKCoreKit (~> 11.1.0)
+    - FBSDKCoreKit_Basics (~> 11.1.0)
+  - FBSDKShareKit (11.1.0):
+    - FBSDKShareKit/Share (= 11.1.0)
+  - FBSDKShareKit/Share (11.1.0):
+    - FBSDKCoreKit (~> 11.1.0)
+    - FBSDKCoreKit_Basics (~> 11.1.0)
+  - Firebase/CoreOnly (10.4.0):
+    - FirebaseCore (= 10.4.0)
+  - Firebase/DynamicLinks (10.4.0):
+    - Firebase/CoreOnly
+    - FirebaseDynamicLinks (~> 10.4.0)
+  - FirebaseCore (10.4.0):
+    - FirebaseCoreInternal (~> 10.0)
+    - GoogleUtilities/Environment (~> 7.8)
+    - GoogleUtilities/Logger (~> 7.8)
+  - FirebaseCoreInternal (10.4.0):
+    - "GoogleUtilities/NSData+zlib (~> 7.8)"
+  - FirebaseDynamicLinks (10.4.0):
+    - FirebaseCore (~> 10.0)
+  - GoogleMaps (6.2.1):
+    - GoogleMaps/Maps (= 6.2.1)
+  - GoogleMaps/Base (6.2.1)
+  - GoogleMaps/Maps (6.2.1):
     - GoogleMaps/Base
-  - GoogleToolboxForMac/Defines (2.1.1)
-  - GoogleToolboxForMac/NSData+zlib (2.1.1):
-    - GoogleToolboxForMac/Defines (= 2.1.1)
-  - GTMAppAuth (0.5.0):
-    - AppAuth (~> 0.7.0)
-    - GTMSessionFetcher (~> 1.1)
-  - GTMSessionFetcher (1.1.9):
-    - GTMSessionFetcher/Full (= 1.1.9)
-  - GTMSessionFetcher/Core (1.1.9)
-  - GTMSessionFetcher/Full (1.1.9):
-    - GTMSessionFetcher/Core (= 1.1.9)
-  - InstagramKit (3.8):
+  - GoogleUtilities/Environment (7.11.0):
+    - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleUtilities/Logger (7.11.0):
+    - GoogleUtilities/Environment
+  - "GoogleUtilities/NSData+zlib (7.11.0)"
+  - GTMAppAuth (2.0.0):
+    - AppAuth/Core (~> 1.6)
+    - GTMSessionFetcher/Core (< 4.0, >= 1.5)
+  - GTMSessionFetcher/Core (3.1.0)
+  - InstagramKit (4.1):
     - AFNetworking (~> 3.0)
-    - InstagramKit/Exclude-UICKeyChainStore (= 3.8)
-  - InstagramKit/Exclude-UICKeyChainStore (3.8):
+    - InstagramKit/InstagramKit-without-UICKeyChainStore (= 4.1)
+  - InstagramKit/InstagramKit-without-UICKeyChainStore (4.1):
     - AFNetworking (~> 3.0)
-  - MBProgressHUD (1.0.0)
+  - MBProgressHUD (1.2.0)
+  - PromisesObjC (2.1.1)
   - Reachability (3.2)
-  - SDWebImage (4.0.0):
-    - SDWebImage/Core (= 4.0.0)
-  - SDWebImage/Core (4.0.0)
+  - SDWebImage (5.15.0):
+    - SDWebImage/Core (= 5.15.0)
+  - SDWebImage/Core (5.15.0)
   - SWTableViewCell (0.3.7)
-  - TwitterCore (2.8.0):
-    - Fabric
-  - TwitterKit (2.8.1):
-    - TwitterCore (>= 2.8)
-  - WLHelpers (0.1.0.38)
 
 DEPENDENCIES:
-  - AFNetworking (~> 3)
+  - AFNetworking
+  - AppAuth
   - Branch
-  - Crashlytics
   - Fabric
-  - FBSDKCoreKit (~> 4)
-  - FBSDKLoginKit (~> 4)
-  - FBSDKShareKit (~> 4)
+  - FBSDKCoreKit (~> 11.1.0)
+  - FBSDKLoginKit (~> 11.1.0)
+  - FBSDKShareKit (~> 11.1.0)
   - Firebase/DynamicLinks
   - GoogleMaps
   - GTMAppAuth
@@ -96,39 +99,59 @@ DEPENDENCIES:
   - MBProgressHUD
   - Reachability
   - SDWebImage
-  - SWTableViewCell (~> 0.3.7)
-  - TwitterCore
-  - TwitterKit
-  - WLHelpers
+  - SWTableViewCell
+
+SPEC REPOS:
+  trunk:
+    - AFNetworking
+    - AppAuth
+    - Branch
+    - Fabric
+    - FBAEMKit
+    - FBSDKCoreKit
+    - FBSDKCoreKit_Basics
+    - FBSDKLoginKit
+    - FBSDKShareKit
+    - Firebase
+    - FirebaseCore
+    - FirebaseCoreInternal
+    - FirebaseDynamicLinks
+    - GoogleMaps
+    - GoogleUtilities
+    - GTMAppAuth
+    - GTMSessionFetcher
+    - InstagramKit
+    - MBProgressHUD
+    - PromisesObjC
+    - Reachability
+    - SDWebImage
+    - SWTableViewCell
 
 SPEC CHECKSUMS:
-  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  AppAuth: c56d352b0d50bb34dbb302d7ba50b20aa6b6ae89
-  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
-  Branch: 4f0482418d99e77d15b0e6065ef216c10e24797b
-  Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
-  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
-  FBSDKCoreKit: 82eac696eb6157da5f4266c3a241f00e9bd72471
-  FBSDKLoginKit: 2211bede07c83391349eacc1fd86cf6d9289ce38
-  FBSDKShareKit: ca9b22264ea49a896dafb2467c1a4f72aa41996f
-  Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
-  FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
-  FirebaseCore: a024587e43778508700af8c6b1209f7c4516ba02
-  FirebaseDynamicLinks: 30fb0856dd9ae6d8ba4da00972141a5c293a27b2
-  FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
-  GoogleMaps: 104c418d61ab8a05dff06ed0784c25ea9d37da45
-  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
-  GTMAppAuth: 4b7bdc1fefdf6a49f3d9fc1aa6123f0c7e9b6660
-  GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
-  InstagramKit: 402d6bba375357b548039de08eea19a1b8716354
-  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  AFNetworking: cb604b1c2bded0871f5f61f5d53653739e841d6b
+  AppAuth: 8fca6b5563a5baef2c04bee27538025e4ceb2add
+  Branch: 1fc81857f63403d4682305088b11270719dca8db
+  Fabric: ea977e3cd9c20425516d3dafd3bf8c941c51223f
+  FBAEMKit: 5c8a8d08e5b2c79628490784883e0fcc75b12615
+  FBSDKCoreKit: 7ccb8b4bb2b5ee2ad94327b774dc23f03509675d
+  FBSDKCoreKit_Basics: 8f978bce195845f609b0ec6b425949d0d24f525b
+  FBSDKLoginKit: d65eb587a9eaa89295338fb0bb3b358bde0b7ae4
+  FBSDKShareKit: b2142706d3f2410fb0ea76ad5a63238c71307117
+  Firebase: ba3501b5142a57747eac74d27c96d2b313bdec90
+  FirebaseCore: b8697a177690b69b0dbce9d612b69b893be70469
+  FirebaseCoreInternal: e301297f4c15a17489e48ed722d733b1578e0c02
+  FirebaseDynamicLinks: 497bdb5433a4a117d21d73c0349e6ebc1d56b4d9
+  GoogleMaps: 20d7b12be49a14287f797e88e0e31bc4156aaeb4
+  GoogleUtilities: c2bdc4cf2ce786c4d2e6b3bcfd599a25ca78f06f
+  GTMAppAuth: 99fb010047ba3973b7026e45393f51f27ab965ae
+  GTMSessionFetcher: c9e714f7eec91a55641e2bab9f45fd83a219b882
+  InstagramKit: fa2017d4fb5d0a4dde026eeebda641e6df61c714
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
-  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  SDWebImage: 9bec4c5cdd9579e1f57104735ee0c37df274d593
   SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
-  TwitterCore: e959987be23c767004d29eb7fab8d85d8585a2e5
-  TwitterKit: 3b6044a7320340326a4098f3e37aa1dbaeb94942
-  WLHelpers: cab4cf1fba83034e93632f613aac8d9510e1f3ae
 
-PODFILE CHECKSUM: a10e404964f7170db36e97aab663515fe0f1eb0f
+PODFILE CHECKSUM: e5c410d7c5cec6ded00d839928d0bdcccf3afaf1
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.11.3

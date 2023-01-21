@@ -18,37 +18,21 @@
 
 #import <Foundation/Foundation.h>
 
-#import <FBSDKCoreKit/FBSDKApplicationDelegate.h>
-#import <FBSDKCoreKit/FBSDKMacros.h>
-
-#import "FBSDKCoreKit+Internal.h"
-
-FBSDK_EXTERN NSString *const FBSDKApplicationDidBecomeActiveNotification;
-
-@class FBSDKApplicationCall;
-
-#if !TARGET_OS_TV
-typedef void(^FBSDKBridgeAPICallbackBlock)(FBSDKBridgeAPIResponse *response);
+#if SWIFT_PACKAGE
+ #import "FBSDKApplicationDelegate.h"
+#else
+ #import <FBSDKCoreKit/FBSDKApplicationDelegate.h>
 #endif
+
+#import "FBSDKApplicationObserving.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface FBSDKApplicationDelegate ()
-#if !TARGET_OS_TV
-<FBSDKContainerViewControllerDelegate>
 
-- (void)openBridgeAPIRequest:(FBSDKBridgeAPIRequest *)request
-     useSafariViewController:(BOOL)useSafariViewController
-          fromViewController:(UIViewController *)fromViewController
-             completionBlock:(FBSDKBridgeAPICallbackBlock)completionBlock;
-
-- (void)openURLWithSafariViewController:(NSURL *)url
-                                 sender:(id<FBSDKURLOpening>)sender
-                     fromViewController:(UIViewController *)fromViewController
-                                handler:(void(^)(BOOL))handler;
-
-- (void)openURL:(NSURL *)url sender:(id<FBSDKURLOpening>)sender handler:(void(^)(BOOL))handler;
-
-#endif
-
-@property (nonatomic, readonly, getter=isActive) BOOL active;
++ (BOOL)isSDKInitialized;
++ (UIApplicationState)applicationState;
 
 @end
+
+NS_ASSUME_NONNULL_END

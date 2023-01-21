@@ -18,19 +18,21 @@
 
 #import <Foundation/Foundation.h>
 
-#import <FBSDKCoreKit/FBSDKButton.h>
+#if SWIFT_PACKAGE
+ #import "FBSDKButton.h"
+ #import "FBSDKButtonImpressionTracking.h"
+#else
+ #import <FBSDKCoreKit/FBSDKButton.h>
+ #import <FBSDKCoreKit/FBSDKButtonImpressionTracking.h>
+#endif
 
 #import "FBSDKIcon.h"
 
-@protocol FBSDKButtonImpressionTracking <NSObject>
-
-- (NSDictionary *)analyticsParameters;
-- (NSString *)impressionTrackingEventName;
-- (NSString *)impressionTrackingIdentifier;
-
-@end
-
 @interface FBSDKButton ()
+
+@property (nonatomic, readonly, getter = isImplicitlyDisabled) BOOL implicitlyDisabled;
+
++ (void)setApplicationActivationNotifier:(id)notifier;
 
 - (void)logTapEventWithEventName:(NSString *)eventName
                       parameters:(NSDictionary *)parameters;
@@ -40,21 +42,20 @@
                     title:(NSString *)title
           backgroundColor:(UIColor *)backgroundColor
          highlightedColor:(UIColor *)highlightedColor;
-- (void)configureWithIcon:(FBSDKIcon *)icon
-                    title:(NSString *)title
-          backgroundColor:(UIColor *)backgroundColor
-         highlightedColor:(UIColor *)highlightedColor
-            selectedTitle:(NSString *)selectedTitle
-             selectedIcon:(FBSDKIcon *)selectedIcon
-            selectedColor:(UIColor *)selectedColor
- selectedHighlightedColor:(UIColor *)selectedHighlightedColor;
+- (void) configureWithIcon:(FBSDKIcon *)icon
+                     title:(NSString *)title
+           backgroundColor:(UIColor *)backgroundColor
+          highlightedColor:(UIColor *)highlightedColor
+             selectedTitle:(NSString *)selectedTitle
+              selectedIcon:(FBSDKIcon *)selectedIcon
+             selectedColor:(UIColor *)selectedColor
+  selectedHighlightedColor:(UIColor *)selectedHighlightedColor;
 - (UIColor *)defaultBackgroundColor;
 - (UIColor *)defaultDisabledColor;
 - (UIFont *)defaultFont;
 - (UIColor *)defaultHighlightedColor;
 - (FBSDKIcon *)defaultIcon;
 - (UIColor *)defaultSelectedColor;
-- (BOOL)isImplicitlyDisabled;
 - (CGSize)sizeThatFits:(CGSize)size title:(NSString *)title;
 
 @end

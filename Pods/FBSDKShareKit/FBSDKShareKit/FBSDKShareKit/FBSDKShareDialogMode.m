@@ -18,33 +18,40 @@
 
 #import "FBSDKShareDialogMode.h"
 
-#import "FBSDKCoreKit+Internal.h"
+NSString *const FBSDKAppEventsDialogShareModeAutomatic = @"Automatic";
+NSString *const FBSDKAppEventsDialogShareModeBrowser = @"Browser";
+NSString *const FBSDKAppEventsDialogShareModeNative = @"Native";
+NSString *const FBSDKAppEventsDialogShareModeShareSheet = @"ShareSheet";
+NSString *const FBSDKAppEventsDialogShareModeWeb = @"Web";
+NSString *const FBSDKAppEventsDialogShareModeFeedBrowser = @"FeedBrowser";
+NSString *const FBSDKAppEventsDialogShareModeFeedWeb = @"FeedWeb";
+NSString *const FBSDKAppEventsDialogShareModeUnknown = @"Unknown";
 
 NSString *NSStringFromFBSDKShareDialogMode(FBSDKShareDialogMode dialogMode)
 {
   switch (dialogMode) {
-    case FBSDKShareDialogModeAutomatic:{
+    case FBSDKShareDialogModeAutomatic: {
       return FBSDKAppEventsDialogShareModeAutomatic;
     }
-    case FBSDKShareDialogModeBrowser:{
+    case FBSDKShareDialogModeBrowser: {
       return FBSDKAppEventsDialogShareModeBrowser;
     }
-    case FBSDKShareDialogModeNative:{
+    case FBSDKShareDialogModeNative: {
       return FBSDKAppEventsDialogShareModeNative;
     }
-    case FBSDKShareDialogModeShareSheet:{
+    case FBSDKShareDialogModeShareSheet: {
       return FBSDKAppEventsDialogShareModeShareSheet;
     }
-    case FBSDKShareDialogModeWeb:{
+    case FBSDKShareDialogModeWeb: {
       return FBSDKAppEventsDialogShareModeWeb;
     }
     case FBSDKShareDialogModeFeedBrowser: {
       return FBSDKAppEventsDialogShareModeFeedBrowser;
     }
-    case FBSDKShareDialogModeFeedWeb:{
+    case FBSDKShareDialogModeFeedWeb: {
       return FBSDKAppEventsDialogShareModeFeedWeb;
     }
-    default:{
+    default: {
       return FBSDKAppEventsDialogShareModeUnknown;
     }
   }

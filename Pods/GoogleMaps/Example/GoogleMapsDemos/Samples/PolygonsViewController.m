@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Google Inc. All rights reserved.
+ * Copyright 2016 Google LLC. All rights reserved.
  *
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
@@ -13,10 +13,6 @@
  * permissions and limitations under the License.
  */
 
-#if !defined(__has_feature) || !__has_feature(objc_arc)
-#error "This file requires ARC support."
-#endif
-
 #import "GoogleMapsDemos/Samples/PolygonsViewController.h"
 
 #import <GoogleMaps/GoogleMaps.h>
@@ -29,7 +25,17 @@
                                                           longitude:-77.508545
                                                                zoom:4];
   GMSMapView *mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
-  mapView.delegate = self; // needed for didTapOverlay delegate method
+  mapView.delegate = self;  // needed for didTapOverlay delegate method
+
+  self.view = mapView;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+  [super viewDidAppear:animated];
+
+  // Create renderer related objects after view appears, so a renderer will be available;
+  // otherwise, behavior is undefined (may result in null ptr derefs).
+  GMSMapView *mapView = (GMSMapView *)self.view;
 
   // Create the first polygon.
   GMSPolygon *polygon = [[GMSPolygon alloc] init];
@@ -49,17 +55,14 @@
   polygon.path = [self pathOfNorthCarolina];
   polygon.fillColor = [UIColor colorWithRed:0 green:0.25 blue:0 alpha:0.5];
   polygon.map = mapView;
-
-  self.view = mapView;
 }
 
 - (void)mapView:(GMSMapView *)mapView didTapOverlay:(GMSOverlay *)overlay {
   // When a polygon is tapped, randomly change its fill color to a new hue.
   if ([overlay isKindOfClass:[GMSPolygon class]]) {
     GMSPolygon *polygon = (GMSPolygon *)overlay;
-    CGFloat hue = (((float)arc4random()/0x100000000)*1.0f);
-    polygon.fillColor =
-      [UIColor colorWithHue:hue saturation:1 brightness:1 alpha:0.5];
+    CGFloat hue = (((float)arc4random() / 0x100000000) * 1.0f);
+    polygon.fillColor = [UIColor colorWithHue:hue saturation:1 brightness:1 alpha:0.5];
   }
 }
 

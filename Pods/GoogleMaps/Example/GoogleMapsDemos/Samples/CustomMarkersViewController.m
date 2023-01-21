@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Google Inc. All rights reserved.
+ * Copyright 2016 Google LLC. All rights reserved.
  *
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
@@ -13,10 +13,6 @@
  * permissions and limitations under the License.
  */
 
-#if !defined(__has_feature) || !__has_feature(objc_arc)
-#error "This file requires ARC support."
-#endif
-
 #import "GoogleMapsDemos/Samples/CustomMarkersViewController.h"
 
 #import <GoogleMaps/GoogleMaps.h>
@@ -24,9 +20,7 @@
 static int kMarkerCount = 0;
 
 // Returns a random value from 0-1.0f.
-static CGFloat randf() {
-  return (((float)arc4random() / 0x100000000) * 1.0f);
-}
+static CGFloat randf() { return (((float)arc4random() / 0x100000000) * 1.0f); }
 
 @implementation CustomMarkersViewController {
   GMSMapView *_mapView;
@@ -34,8 +28,9 @@ static CGFloat randf() {
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  GMSCameraPosition *camera =
-      [GMSCameraPosition cameraWithLatitude:-37.81969 longitude:144.966085 zoom:4];
+  GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-37.81969
+                                                          longitude:144.966085
+                                                               zoom:4];
   _mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
   [self addDefaultMarkers];
 
@@ -77,10 +72,14 @@ static CGFloat randf() {
     double delayInSeconds = (i * 0.25);
     dispatch_time_t popTime =
         dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    __weak __typeof__(self) weakSelf = self;
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
-      GMSVisibleRegion region = [_mapView.projection visibleRegion];
-      GMSCoordinateBounds *bounds = [[GMSCoordinateBounds alloc] initWithRegion:region];
-      [self addMarkerInBounds:bounds];
+      __typeof__(self) strongSelf = weakSelf;
+      if (strongSelf) {
+        GMSVisibleRegion region = [strongSelf->_mapView.projection visibleRegion];
+        GMSCoordinateBounds *bounds = [[GMSCoordinateBounds alloc] initWithRegion:region];
+        [strongSelf addMarkerInBounds:bounds];
+      }
     });
   }
 }

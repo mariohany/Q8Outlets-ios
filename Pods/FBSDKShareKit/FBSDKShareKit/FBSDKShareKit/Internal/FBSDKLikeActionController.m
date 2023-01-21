@@ -16,65 +16,128 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "FBSDKLikeActionController.h"
+#import "TargetConditionals.h"
 
-#import <QuartzCore/QuartzCore.h>
+#if !TARGET_OS_TV
 
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
+ #import "FBSDKLikeActionController.h"
 
-#import "FBSDKCoreKit+Internal.h"
-#import "FBSDKLikeActionControllerCache.h"
-#import "FBSDKLikeButtonPopWAV.h"
-#import "FBSDKLikeDialog.h"
+ #import <QuartzCore/QuartzCore.h>
+
+ #if defined BUCK || defined FBSDKCOCOAPODS
+  #import <FBSDKCoreKit/FBSDKCoreKit.h>
+ #else
+@import FBSDKCoreKit;
+ #endif
+
+ #ifdef FBSDKCOCOAPODS
+  #import <FBSDKCoreKit/FBSDKCoreKit+Internal.h>
+ #else
+  #import "FBSDKCoreKit+Internal.h"
+ #endif
+
+ #import "FBSDKCoreKitBasicsImportForShareKit.h"
+ #import "FBSDKLikeActionControllerCache.h"
+ #import "FBSDKLikeDialog.h"
+
+FBSDKAppEventName FBSDKAppEventNameFBSDKLikeControlDidDisable = @"fb_like_control_did_disable";
+FBSDKAppEventName FBSDKAppEventNameFBSDKLikeControlDidLike = @"fb_like_control_did_like";
+FBSDKAppEventName FBSDKAppEventNameFBSDKLikeControlDidPresentDialog = @"fb_like_control_did_present_dialog";
+FBSDKAppEventName FBSDKAppEventNameFBSDKLikeControlDidUnlike = @"fb_like_control_did_unlike";
+FBSDKAppEventName FBSDKAppEventNameFBSDKLikeControlError = @"fb_like_control_error";
+FBSDKAppEventName FBSDKAppEventNameFBSDKLikeControlNetworkUnavailable = @"fb_like_control_network_unavailable";
+
+typedef NS_ENUM(NSInteger, FBSDKTriStateBOOL) {
+  FBSDKTriStateBOOLValueUnknown = -1,
+  FBSDKTriStateBOOLValueNO = 0,
+  FBSDKTriStateBOOLValueYES = 1,
+};
+
+FOUNDATION_EXPORT FBSDKTriStateBOOL FBSDKTriStateBOOLFromBOOL(BOOL value);
+FOUNDATION_EXPORT FBSDKTriStateBOOL FBSDKTriStateBOOLFromNSNumber(NSNumber *value);
+FOUNDATION_EXPORT BOOL BOOLFromFBSDKTriStateBOOL(FBSDKTriStateBOOL value, BOOL defaultValue);
+
+FBSDKTriStateBOOL FBSDKTriStateBOOLFromBOOL(BOOL value)
+{
+  return value ? FBSDKTriStateBOOLValueYES : FBSDKTriStateBOOLValueNO;
+}
+
+FBSDKTriStateBOOL FBSDKTriStateBOOLFromNSNumber(NSNumber *value)
+{
+  return ([value isKindOfClass:[NSNumber class]]
+    ? FBSDKTriStateBOOLFromBOOL(value.boolValue)
+    : FBSDKTriStateBOOLValueUnknown);
+}
+
+BOOL BOOLFromFBSDKTriStateBOOL(FBSDKTriStateBOOL value, BOOL defaultValue)
+{
+  switch (value) {
+    case FBSDKTriStateBOOLValueYES:
+      return YES;
+    case FBSDKTriStateBOOLValueNO:
+      return NO;
+    case FBSDKTriStateBOOLValueUnknown:
+      return defaultValue;
+  }
+}
+
+ #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
+
+NSNotificationName const FBSDKLikeActionControllerDidDisableNotification = @"FBSDKLikeActionControllerDidDisableNotification";
+NSNotificationName const FBSDKLikeActionControllerDidResetNotification = @"FBSDKLikeActionControllerDidResetNotification";
+NSNotificationName const FBSDKLikeActionControllerDidUpdateNotification = @"FBSDKLikeActionControllerDidUpdateNotification";
+
+ #else
 
 NSString *const FBSDKLikeActionControllerDidDisableNotification = @"FBSDKLikeActionControllerDidDisableNotification";
 NSString *const FBSDKLikeActionControllerDidResetNotification = @"FBSDKLikeActionControllerDidResetNotification";
 NSString *const FBSDKLikeActionControllerDidUpdateNotification = @"FBSDKLikeActionControllerDidUpdateNotification";
+
+ #endif
+
 NSString *const FBSDKLikeActionControllerAnimatedKey = @"animated";
 
-#define FBSDK_LIKE_ACTION_CONTROLLER_ANIMATION_DELAY 0.5
-#define FBSDK_LIKE_ACTION_CONTROLLER_SOUND_DELAY 0.15
-#define FBSDK_LIKE_ACTION_CONTROLLER_API_VERSION @"v2.1"
+ #define FBSDK_LIKE_ACTION_CONTROLLER_ANIMATION_DELAY 0.5
+ #define FBSDK_LIKE_ACTION_CONTROLLER_SOUND_DELAY 0.15
+ #define FBSDK_LIKE_ACTION_CONTROLLER_API_VERSION @"v2.1"
 
-#define FBSDK_LIKE_ACTION_CONTROLLER_LIKE_PROPERTY_KEY @"like"
-#define FBSDK_LIKE_ACTION_CONTROLLER_REFRESH_PROPERTY_KEY @"refresh"
+ #define FBSDK_LIKE_ACTION_CONTROLLER_LIKE_PROPERTY_KEY @"like"
+ #define FBSDK_LIKE_ACTION_CONTROLLER_REFRESH_PROPERTY_KEY @"refresh"
 
-#define FBSDK_LIKE_ACTION_CONTROLLER_LAST_UPDATE_TIME_KEY @"lastUpdateTime"
-#define FBSDK_LIKE_ACTION_CONTROLLER_LIKE_COUNT_STRING_WITH_LIKE_KEY @"likeCountStringWithLike"
-#define FBSDK_LIKE_ACTION_CONTROLLER_LIKE_COUNT_STRING_WITHOUT_LIKE_KEY @"likeCountStringWithoutLike"
-#define FBSDK_LIKE_ACTION_CONTROLLER_OBJECT_ID_KEY @"objectID"
-#define FBSDK_LIKE_ACTION_CONTROLLER_OBJECT_IS_LIKED_KEY @"objectIsLiked"
-#define FBSDK_LIKE_ACTION_CONTROLLER_OBJECT_TYPE_KEY @"objectType"
-#define FBSDK_LIKE_ACTION_CONTROLLER_SOCIAL_SENTENCE_WITH_LIKE_KEY @"socialSentenceWithLike"
-#define FBSDK_LIKE_ACTION_CONTROLLER_SOCIAL_SENTENCE_WITHOUT_LIKE_KEY @"socialSentenceWithoutLike"
-#define FBSDK_LIKE_ACTION_CONTROLLER_UNLIKE_TOKEN_KEY @"unlikeToken"
-#define FBSDK_LIKE_ACTION_CONTROLLER_VERSION_KEY @"version"
+ #define FBSDK_LIKE_ACTION_CONTROLLER_LAST_UPDATE_TIME_KEY @"lastUpdateTime"
+ #define FBSDK_LIKE_ACTION_CONTROLLER_LIKE_COUNT_STRING_WITH_LIKE_KEY @"likeCountStringWithLike"
+ #define FBSDK_LIKE_ACTION_CONTROLLER_LIKE_COUNT_STRING_WITHOUT_LIKE_KEY @"likeCountStringWithoutLike"
+ #define FBSDK_LIKE_ACTION_CONTROLLER_OBJECT_ID_KEY @"objectID"
+ #define FBSDK_LIKE_ACTION_CONTROLLER_OBJECT_IS_LIKED_KEY @"objectIsLiked"
+ #define FBSDK_LIKE_ACTION_CONTROLLER_OBJECT_TYPE_KEY @"objectType"
+ #define FBSDK_LIKE_ACTION_CONTROLLER_SOCIAL_SENTENCE_WITH_LIKE_KEY @"socialSentenceWithLike"
+ #define FBSDK_LIKE_ACTION_CONTROLLER_SOCIAL_SENTENCE_WITHOUT_LIKE_KEY @"socialSentenceWithoutLike"
+ #define FBSDK_LIKE_ACTION_CONTROLLER_UNLIKE_TOKEN_KEY @"unlikeToken"
+ #define FBSDK_LIKE_ACTION_CONTROLLER_VERSION_KEY @"version"
 
-#define FBSDK_LIKE_ACTION_CONTROLLER_VERSION 4
+ #define FBSDK_LIKE_ACTION_CONTROLLER_VERSION 4
 
-typedef NS_ENUM(NSUInteger, FBSDKLikeActionControllerRefreshMode)
-{
+typedef NS_ENUM(NSUInteger, FBSDKLikeActionControllerRefreshMode) {
   FBSDKLikeActionControllerRefreshModeInitial,
   FBSDKLikeActionControllerRefreshModeForce,
 };
 
-typedef NS_ENUM(NSUInteger, FBSDKLikeActionControllerRefreshState)
-{
+typedef NS_ENUM(NSUInteger, FBSDKLikeActionControllerRefreshState) {
   FBSDKLikeActionControllerRefreshStateNone,
   FBSDKLikeActionControllerRefreshStateActive,
   FBSDKLikeActionControllerRefreshStateComplete,
 };
 
-typedef void(^fbsdk_like_action_block)(FBSDKTriStateBOOL objectIsLiked,
-                                       NSString *likeCountStringWithLike,
-                                       NSString *likeCountStringWithoutLike,
-                                       NSString *socialSentenceWithLike,
-                                       NSString *socialSentenceWithoutLike,
-                                       NSString *unlikeToken,
-                                       BOOL likeStateChanged,
-                                       BOOL animated);
+typedef void (^fbsdk_like_action_block)(FBSDKTriStateBOOL objectIsLiked,
+                                        NSString *likeCountStringWithLike,
+                                        NSString *likeCountStringWithoutLike,
+                                        NSString *socialSentenceWithLike,
+                                        NSString *socialSentenceWithoutLike,
+                                        NSString *unlikeToken,
+                                        BOOL likeStateChanged,
+                                        BOOL animated);
 
-typedef void(^fbsdk_like_action_controller_ensure_verified_object_id_completion_block)(NSString *verifiedObjectID);
+typedef void (^fbsdk_like_action_controller_ensure_verified_object_id_completion_block)(NSString *verifiedObjectID);
 
 @interface FBSDKLikeActionController () <FBSDKLikeDialogDelegate>
 @end
@@ -98,9 +161,9 @@ typedef void(^fbsdk_like_action_controller_ensure_verified_object_id_completion_
   NSString *_verifiedObjectID;
 }
 
-#pragma mark - Class Methods
+ #pragma mark - Class Methods
 
-static BOOL _fbsdkLikeActionControllerDisabled = NO;
+static BOOL _fbsdkLikeActionControllerDisabled = YES;
 
 + (BOOL)isDisabled
 {
@@ -117,13 +180,16 @@ static FBSDKLikeActionControllerCache *_cache = nil;
       NSURL *fileURL = [self _cacheFileURL];
       NSData *data = [[NSData alloc] initWithContentsOfURL:fileURL];
       if (data) {
+      #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_11_0
+        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingFromData:data error:NULL];
+      #else
         NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+      #endif
         unarchiver.requiresSecureCoding = YES;
         @try {
           _cache = [unarchiver decodeObjectOfClass:[FBSDKLikeActionControllerCache class]
                                             forKey:NSKeyedArchiveRootObjectKey];
-        }
-        @catch (NSException *ex) {
+        } @catch (NSException *ex) {
           // ignore decoding exceptions from previous versions of the archive, etc
         }
         if (![_cache.accessTokenString isEqualToString:accessTokenString]) {
@@ -162,24 +228,27 @@ static FBSDKLikeActionControllerCache *_cache = nil;
   if (!fileURL) {
     return;
   }
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_11_0
+  NSData *data = [NSKeyedArchiver archivedDataWithRootObject:_cache requiringSecureCoding:YES error:NULL];
+#else
   NSData *data = [NSKeyedArchiver archivedDataWithRootObject:_cache];
+#endif
   if (data) {
     [data writeToURL:fileURL atomically:YES];
   } else {
-    [[[NSFileManager alloc] init] removeItemAtURL:fileURL error:NULL];
+    [[NSFileManager new] removeItemAtURL:fileURL error:NULL];
   }
 }
 
 + (NSURL *)_cacheFileURL
 {
-  NSURL *directoryURL = [[[NSFileManager alloc] init] URLForDirectory:NSLibraryDirectory
-                                                             inDomain:NSUserDomainMask
-                                                    appropriateForURL:nil
-                                                               create:YES
-                                                                error:NULL];
+  NSURL *directoryURL = [[NSFileManager new] URLForDirectory:NSLibraryDirectory
+                                                    inDomain:NSUserDomainMask
+                                           appropriateForURL:nil
+                                                      create:YES
+                                                       error:NULL];
   return [directoryURL URLByAppendingPathComponent:@"com-facebook-sdk-like-data"];
 }
-
 
 + (instancetype)likeActionControllerForObjectID:(NSString *)objectID objectType:(FBSDKLikeObjectType)objectType
 {
@@ -200,7 +269,7 @@ static FBSDKLikeActionControllerCache *_cache = nil;
   }
 }
 
-#pragma mark - Object Lifecycle
+ #pragma mark - Object Lifecycle
 
 - (instancetype)initWithObjectID:(NSString *)objectID
                       objectType:(FBSDKLikeObjectType)objectType
@@ -221,7 +290,7 @@ static FBSDKLikeActionControllerCache *_cache = nil;
   return [self initWithObjectID:nil objectType:FBSDKLikeObjectTypeUnknown accessToken:nil];
 }
 
-#pragma mark - NSCoding
+ #pragma mark - NSCoding
 
 + (BOOL)supportsSecureCoding
 {
@@ -276,7 +345,7 @@ static FBSDKLikeActionControllerCache *_cache = nil;
   [coder encodeInteger:FBSDK_LIKE_ACTION_CONTROLLER_VERSION forKey:FBSDK_LIKE_ACTION_CONTROLLER_VERSION_KEY];
 }
 
-#pragma mark - Properties
+ #pragma mark - Properties
 
 - (NSString *)likeCountString
 {
@@ -288,77 +357,14 @@ static FBSDKLikeActionControllerCache *_cache = nil;
   return (_objectIsLiked ? _socialSentenceWithLike : _socialSentenceWithoutLike);
 }
 
-#pragma mark - Public API
+ #pragma mark - Public API
 
 - (void)refresh
 {
   [self _refreshWithMode:FBSDKLikeActionControllerRefreshModeForce];
 }
 
-- (void)toggleLikeWithSoundEnabled:(BOOL)soundEnabled analyticsParameters:(NSDictionary *)analyticsParameters fromViewController:(UIViewController *)fromViewController
-{
-  [FBSDKAppEvents logImplicitEvent:FBSDKAppEventNameFBSDKLikeControlDidTap
-                        valueToSum:nil
-                        parameters:analyticsParameters
-                       accessToken:_accessToken];
-
-  [self _setExecuting:YES forKey:FBSDK_LIKE_ACTION_CONTROLLER_LIKE_PROPERTY_KEY];
-
-  BOOL useOGLike = [self _useOGLike];
-  BOOL deferred = !useOGLike;
-
-  fbsdk_like_action_block updateBlock = ^(FBSDKTriStateBOOL objectIsLiked,
-                                          NSString *likeCountStringWithLike,
-                                          NSString *likeCountStringWithoutLike,
-                                          NSString *socialSentenceWithLike,
-                                          NSString *socialSentenceWithoutLike,
-                                          NSString *unlikeToken,
-                                          BOOL likeStateChanged,
-                                          BOOL animated){
-    [self _updateWithObjectIsLiked:objectIsLiked
-           likeCountStringWithLike:likeCountStringWithLike
-        likeCountStringWithoutLike:likeCountStringWithoutLike
-            socialSentenceWithLike:socialSentenceWithLike
-         socialSentenceWithoutLike:socialSentenceWithoutLike
-                       unlikeToken:unlikeToken
-                      soundEnabled:soundEnabled && likeStateChanged
-                          animated:animated && likeStateChanged
-                          deferred:deferred];
-  };
-
-  BOOL objectIsLiked = !_objectIsLiked;
-
-  // optimistically update if using og.like (FAS will defer the update)
-  if (useOGLike) {
-    updateBlock(FBSDKTriStateBOOLFromBOOL(objectIsLiked),
-                _likeCountStringWithLike,
-                _likeCountStringWithoutLike,
-                _socialSentenceWithLike,
-                _socialSentenceWithoutLike,
-                _unlikeToken,
-                YES,
-                YES);
-    if (_objectIsLikedIsPending) {
-      return;
-    }
-  }
-
-  if (objectIsLiked) {
-    if (useOGLike) {
-      [self _publishLikeWithUpdateBlock:updateBlock analyticsParameters:analyticsParameters fromViewController:fromViewController];
-    } else {
-      [self _presentLikeDialogWithUpdateBlock:updateBlock analyticsParameters:analyticsParameters fromViewController:fromViewController];
-    }
-  } else {
-    if (useOGLike && _unlikeToken) {
-      [self _publishUnlikeWithUpdateBlock:updateBlock analyticsParameters:analyticsParameters fromViewController:fromViewController];
-    } else {
-      [self _presentLikeDialogWithUpdateBlock:updateBlock analyticsParameters:analyticsParameters fromViewController:fromViewController];
-    }
-  }
-}
-
-#pragma mark - NSDiscardableContent
+ #pragma mark - NSDiscardableContent
 
 - (BOOL)beginContentAccess
 {
@@ -384,43 +390,46 @@ static FBSDKLikeActionControllerCache *_cache = nil;
   return _contentDiscarded;
 }
 
-#pragma mark - FBSDKLikeDialogDelegate
+ #pragma mark - FBSDKLikeDialogDelegate
 
 - (void)likeDialog:(FBSDKLikeDialog *)likeDialog didCompleteWithResults:(NSDictionary *)results
 {
   FBSDKTriStateBOOL objectIsLiked = FBSDKTriStateBOOLFromNSNumber(results[@"object_is_liked"]);
-  NSString *likeCountString = [FBSDKTypeUtility stringValue:results[@"like_count_string"]];
-  NSString *socialSentence = [FBSDKTypeUtility stringValue:results[@"social_sentence"]];
-  NSString *unlikeToken = [FBSDKTypeUtility stringValue:results[@"unlike_token"]];
-  BOOL likeStateChanged = ![[FBSDKTypeUtility stringValue:results[@"completionGesture"]] isEqualToString:@"cancel"];
+  NSString *likeCountString = [FBSDKTypeUtility coercedToStringValue:results[@"like_count_string"]];
+  NSString *socialSentence = [FBSDKTypeUtility coercedToStringValue:results[@"social_sentence"]];
+  NSString *unlikeToken = [FBSDKTypeUtility coercedToStringValue:results[@"unlike_token"]];
+  BOOL likeStateChanged = ![[FBSDKTypeUtility coercedToStringValue:results[@"completionGesture"]] isEqualToString:@"cancel"];
 
   fbsdk_like_action_block updateBlock = [_dialogToUpdateBlockMap objectForKey:likeDialog];
   if (updateBlock != NULL) {
     // we do not need to specify values for with/without like, since we will fast-app-switch to change
     // the value
-    updateBlock(objectIsLiked,
-                likeCountString,
-                likeCountString,
-                socialSentence,
-                socialSentence,
-                unlikeToken,
-                likeStateChanged,
-                YES);
+    updateBlock(
+      objectIsLiked,
+      likeCountString,
+      likeCountString,
+      socialSentence,
+      socialSentence,
+      unlikeToken,
+      likeStateChanged,
+      YES
+    );
   }
   [self _setExecuting:NO forKey:FBSDK_LIKE_ACTION_CONTROLLER_LIKE_PROPERTY_KEY];
 }
 
 - (void)likeDialog:(FBSDKLikeDialog *)likeDialog didFailWithError:(NSError *)error
 {
+  NSString *msg = [NSString stringWithFormat:@"Like dialog error for %@(%@): %@", _objectID, NSStringFromFBSDKLikeObjectType(_objectType), error];
   [FBSDKLogger singleShotLogEntry:FBSDKLoggingBehaviorUIControlErrors
-                     formatString:@"Like dialog error for %@(%@): %@", _objectID, NSStringFromFBSDKLikeObjectType(_objectType), error];
+                         logEntry:msg];
 
   if ([error.userInfo[@"error_reason"] isEqualToString:@"dialog_disabled"]) {
     _fbsdkLikeActionControllerDisabled = YES;
 
-    [FBSDKAppEvents logImplicitEvent:FBSDKAppEventNameFBSDKLikeControlDidDisable
-                          valueToSum:nil
+    [FBSDKAppEvents logInternalEvent:FBSDKAppEventNameFBSDKLikeControlDidDisable
                           parameters:[_dialogToAnalyticsParametersMap objectForKey:likeDialog]
+                  isImplicitlyLogged:YES
                          accessToken:_accessToken];
 
     [[NSNotificationCenter defaultCenter] postNotificationName:FBSDKLikeActionControllerDidDisableNotification
@@ -432,14 +441,14 @@ static FBSDKLikeActionControllerCache *_cache = nil;
   [self _setExecuting:NO forKey:FBSDK_LIKE_ACTION_CONTROLLER_LIKE_PROPERTY_KEY];
 }
 
-#pragma mark - Helper Methods
+ #pragma mark - Helper Methods
 
 - (void)_configure
 {
   NSPointerFunctionsOptions keyOptions = (NSPointerFunctionsStrongMemory | NSPointerFunctionsObjectPersonality);
-  NSPointerFunctionsOptions valueOptions = (NSPointerFunctionsStrongMemory |
-                                            NSPointerFunctionsObjectPersonality |
-                                            NSPointerFunctionsCopyIn);
+  NSPointerFunctionsOptions valueOptions = (NSPointerFunctionsStrongMemory
+    | NSPointerFunctionsObjectPersonality
+    | NSPointerFunctionsCopyIn);
   _dialogToAnalyticsParametersMap = [[NSMapTable alloc] initWithKeyOptions:keyOptions valueOptions:valueOptions capacity:0];
   _dialogToUpdateBlockMap = [[NSMapTable alloc] initWithKeyOptions:keyOptions valueOptions:valueOptions capacity:0];
 
@@ -453,27 +462,27 @@ static void FBSDKLikeActionControllerLogError(NSString *currentAction,
                                               NSError *error)
 {
   NSDictionary *parameters = @{
-                               @"object_id": objectID,
-                               @"object_type": NSStringFromFBSDKLikeObjectType(objectType),
-                               @"current_action": currentAction,
-                               @"error": [error description] ?: @"",
-                               };
-  NSString *eventName = ([FBSDKError errorIsNetworkError:error] ?
-                         FBSDKAppEventNameFBSDKLikeControlNetworkUnavailable :
-                         FBSDKAppEventNameFBSDKLikeControlError);
-  [FBSDKAppEvents logImplicitEvent:eventName
-                        valueToSum:nil
+    @"object_id" : objectID,
+    @"object_type" : NSStringFromFBSDKLikeObjectType(objectType),
+    @"current_action" : currentAction,
+    @"error" : error.description ?: @"",
+  };
+  NSString *eventName = ([FBSDKError isNetworkError:error]
+    ? FBSDKAppEventNameFBSDKLikeControlNetworkUnavailable
+    : FBSDKAppEventNameFBSDKLikeControlError);
+  [FBSDKAppEvents logInternalEvent:eventName
                         parameters:parameters
+                isImplicitlyLogged:YES
                        accessToken:accessToken];
 }
 
-typedef void(^fbsdk_like_action_controller_get_engagement_completion_block)(BOOL success,
-                                                                            NSString *likeCountStringWithLike,
-                                                                            NSString *likeCountStringWithoutLike,
-                                                                            NSString *socialSentenceWithLike,
-                                                                            NSString *socialSentenceWithoutLike);
+typedef void (^fbsdk_like_action_controller_get_engagement_completion_block)(BOOL success,
+                                                                             NSString *likeCountStringWithLike,
+                                                                             NSString *likeCountStringWithoutLike,
+                                                                             NSString *socialSentenceWithLike,
+                                                                             NSString *socialSentenceWithoutLike);
 static void FBSDKLikeActionControllerAddGetEngagementRequest(FBSDKAccessToken *accessToken,
-                                                             FBSDKGraphRequestConnection *connection,
+                                                             id<FBSDKGraphRequestConnecting> connection,
                                                              NSString *objectID,
                                                              FBSDKLikeObjectType objectType,
                                                              fbsdk_like_action_controller_get_engagement_completion_block completionHandler)
@@ -484,46 +493,48 @@ static void FBSDKLikeActionControllerAddGetEngagementRequest(FBSDKAccessToken *a
   NSString *fields = @"engagement.fields(count_string_with_like,count_string_without_like,social_sentence_with_like,"
   @"social_sentence_without_like)";
   FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:objectID
-                                                                 parameters:@{ @"fields": fields,
-                                                                               @"locale": [NSLocale currentLocale].localeIdentifier
-                                                                               }
+                                                                 parameters:@{ @"fields" : fields,
+                                                                               @"locale" : [NSLocale currentLocale].localeIdentifier}
                                                                 tokenString:accessToken.tokenString
                                                                  HTTPMethod:@"GET"
                                                                       flags:FBSDKGraphRequestFlagDoNotInvalidateTokenOnError | FBSDKGraphRequestFlagDisableErrorRecovery];
-  [connection addRequest:request completionHandler:^(FBSDKGraphRequestConnection *innerConnection, id result, NSError *error) {
+  [connection addRequest:request completion:^(id<FBSDKGraphRequestConnecting> innerConnection, id result, NSError *error) {
     BOOL success = NO;
     NSString *likeCountStringWithLike = nil;
     NSString *likeCountStringWithoutLike = nil;
     NSString *socialSentenceWithLike = nil;
     NSString *socialSentenceWithoutLike = nil;
     if (error) {
+      NSString *msg = [NSString stringWithFormat:@"Error fetching engagement for %@ (%@): %@",
+                       objectID,
+                       NSStringFromFBSDKLikeObjectType(objectType),
+                       error];
       [FBSDKLogger singleShotLogEntry:FBSDKLoggingBehaviorUIControlErrors
-                         formatString:@"Error fetching engagement for %@ (%@): %@",
-       objectID,
-       NSStringFromFBSDKLikeObjectType(objectType),
-       error];
+                             logEntry:msg];
       FBSDKLikeActionControllerLogError(@"get_engagement", objectID, objectType, accessToken, error);
     } else {
       success = YES;
       result = [FBSDKTypeUtility dictionaryValue:result];
-      likeCountStringWithLike = [FBSDKTypeUtility stringValue:[result valueForKeyPath:@"engagement.count_string_with_like"]];
-      likeCountStringWithoutLike = [FBSDKTypeUtility stringValue:[result valueForKeyPath:@"engagement.count_string_without_like"]];
-      socialSentenceWithLike = [FBSDKTypeUtility stringValue:[result valueForKeyPath:@"engagement.social_sentence_with_like"]];
-      socialSentenceWithoutLike = [FBSDKTypeUtility stringValue:[result valueForKeyPath:@"engagement.social_sentence_without_like"]];
+      likeCountStringWithLike = [FBSDKTypeUtility coercedToStringValue:[result valueForKeyPath:@"engagement.count_string_with_like"]];
+      likeCountStringWithoutLike = [FBSDKTypeUtility coercedToStringValue:[result valueForKeyPath:@"engagement.count_string_without_like"]];
+      socialSentenceWithLike = [FBSDKTypeUtility coercedToStringValue:[result valueForKeyPath:@"engagement.social_sentence_with_like"]];
+      socialSentenceWithoutLike = [FBSDKTypeUtility coercedToStringValue:[result valueForKeyPath:@"engagement.social_sentence_without_like"]];
     }
-    completionHandler(success,
-                      likeCountStringWithLike,
-                      likeCountStringWithoutLike,
-                      socialSentenceWithLike,
-                      socialSentenceWithoutLike);
+    completionHandler(
+      success,
+      likeCountStringWithLike,
+      likeCountStringWithoutLike,
+      socialSentenceWithLike,
+      socialSentenceWithoutLike
+    );
   }];
 }
 
-typedef void(^fbsdk_like_action_controller_get_object_id_completion_block)(BOOL success,
-                                                                           NSString *verifiedObjectID,
-                                                                           BOOL objectIsPage);
+typedef void (^fbsdk_like_action_controller_get_object_id_completion_block)(BOOL success,
+                                                                            NSString *verifiedObjectID,
+                                                                            BOOL objectIsPage);
 static void FBSDKLikeActionControllerAddGetObjectIDRequest(FBSDKAccessToken *accessToken,
-                                                           FBSDKGraphRequestConnection *connection,
+                                                           id<FBSDKGraphRequestConnecting> connection,
                                                            NSString *objectID,
                                                            fbsdk_like_action_controller_get_object_id_completion_block completionHandler)
 {
@@ -532,26 +543,26 @@ static void FBSDKLikeActionControllerAddGetObjectIDRequest(FBSDKAccessToken *acc
   }
   FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@""
                                                                  parameters:@{
-                                                                              @"fields": @"id",
-                                                                              @"id": objectID,
-                                                                              @"metadata": @"1",
-                                                                              @"type": @"og",
-                                                                              @"locale": [NSLocale currentLocale].localeIdentifier
-                                                                              }
+                                  @"fields" : @"id",
+                                  @"id" : objectID,
+                                  @"metadata" : @"1",
+                                  @"type" : @"og",
+                                  @"locale" : [NSLocale currentLocale].localeIdentifier
+                                }
                                                                 tokenString:accessToken.tokenString
                                                                  HTTPMethod:@"GET"
                                                                       flags:FBSDKGraphRequestFlagDoNotInvalidateTokenOnError | FBSDKGraphRequestFlagDisableErrorRecovery];
 
-  [connection addRequest:request completionHandler:^(FBSDKGraphRequestConnection *innerConnection, id result, NSError *error) {
+  [connection addRequest:request completion:^(id<FBSDKGraphRequestConnecting> innerConnection, id result, NSError *error) {
     result = [FBSDKTypeUtility dictionaryValue:result];
-    NSString *verifiedObjectID = [FBSDKTypeUtility stringValue:result[@"id"]];
+    NSString *verifiedObjectID = [FBSDKTypeUtility coercedToStringValue:result[@"id"]];
     BOOL objectIsPage = [FBSDKTypeUtility boolValue:[result valueForKeyPath:@"metadata.type"]];
     completionHandler(verifiedObjectID != nil, verifiedObjectID, objectIsPage);
   }];
 }
 
 static void FBSDKLikeActionControllerAddGetObjectIDWithObjectURLRequest(FBSDKAccessToken *accessToken,
-                                                                        FBSDKGraphRequestConnection *connection,
+                                                                        id<FBSDKGraphRequestConnecting> connection,
                                                                         NSString *objectID,
                                                                         fbsdk_like_action_controller_get_object_id_completion_block completionHandler)
 {
@@ -560,25 +571,25 @@ static void FBSDKLikeActionControllerAddGetObjectIDWithObjectURLRequest(FBSDKAcc
   }
   FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@""
                                                                  parameters:@{
-                                                                              @"fields": @"og_object.fields(id)",
-                                                                              @"id": objectID,
-                                                                              @"locale": [NSLocale currentLocale].localeIdentifier
-                                                                              }
+                                  @"fields" : @"og_object.fields(id)",
+                                  @"id" : objectID,
+                                  @"locale" : [NSLocale currentLocale].localeIdentifier
+                                }
                                                                 tokenString:accessToken.tokenString
                                                                  HTTPMethod:@"GET"
                                                                       flags:FBSDKGraphRequestFlagDoNotInvalidateTokenOnError | FBSDKGraphRequestFlagDisableErrorRecovery];
-  [connection addRequest:request completionHandler:^(FBSDKGraphRequestConnection *innerConnection, id result, NSError *error) {
+  [connection addRequest:request completion:^(id<FBSDKGraphRequestConnecting> innerConnection, id result, NSError *error) {
     result = [FBSDKTypeUtility dictionaryValue:result];
-    NSString *verifiedObjectID = [FBSDKTypeUtility stringValue:[result valueForKeyPath:@"og_object.id"]];
+    NSString *verifiedObjectID = [FBSDKTypeUtility coercedToStringValue:[result valueForKeyPath:@"og_object.id"]];
     completionHandler(verifiedObjectID != nil, verifiedObjectID, NO);
   }];
 }
 
-typedef void(^fbsdk_like_action_controller_get_og_object_like_completion_block)(BOOL success,
-                                                                                FBSDKTriStateBOOL objectIsLiked,
-                                                                                NSString *unlikeToken);
+typedef void (^fbsdk_like_action_controller_get_og_object_like_completion_block)(BOOL success,
+                                                                                 FBSDKTriStateBOOL objectIsLiked,
+                                                                                 NSString *unlikeToken);
 static void FBSDKLikeActionControllerAddGetOGObjectLikeRequest(FBSDKAccessToken *accessToken,
-                                                               FBSDKGraphRequestConnection *connection,
+                                                               id<FBSDKGraphRequestConnecting> connection,
                                                                NSString *objectID,
                                                                FBSDKLikeObjectType objectType,
                                                                fbsdk_like_action_controller_get_og_object_like_completion_block completionHandler)
@@ -588,21 +599,22 @@ static void FBSDKLikeActionControllerAddGetOGObjectLikeRequest(FBSDKAccessToken 
   }
   FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me/og.likes"
                                                                  parameters:@{
-                                                                              @"fields": @"id,application",
-                                                                              @"object": objectID,
-                                                                              @"locale": [NSLocale currentLocale].localeIdentifier
-                                                                              }
+                                  @"fields" : @"id,application",
+                                  @"object" : objectID,
+                                  @"locale" : [NSLocale currentLocale].localeIdentifier
+                                }
                                                                 tokenString:accessToken.tokenString
                                                                  HTTPMethod:@"GET"
                                                                       flags:FBSDKGraphRequestFlagDoNotInvalidateTokenOnError | FBSDKGraphRequestFlagDisableErrorRecovery];
 
-  [connection addRequest:request completionHandler:^(FBSDKGraphRequestConnection *innerConnection, id result, NSError *error) {
+  [connection addRequest:request completion:^(id<FBSDKGraphRequestConnecting> innerConnection, id result, NSError *error) {
     BOOL success = NO;
     FBSDKTriStateBOOL objectIsLiked = FBSDKTriStateBOOLValueUnknown;
     NSString *unlikeToken = nil;
     if (error) {
+      NSString *msg = [NSString stringWithFormat:@"Error fetching like state for %@(%@): %@", objectID, NSStringFromFBSDKLikeObjectType(objectType), error];
       [FBSDKLogger singleShotLogEntry:FBSDKLoggingBehaviorUIControlErrors
-                         formatString:@"Error fetching like state for %@(%@): %@", objectID, NSStringFromFBSDKLikeObjectType(objectType), error];
+                             logEntry:msg];
       FBSDKLikeActionControllerLogError(@"get_og_object_like", objectID, objectType, accessToken, error);
     } else {
       success = YES;
@@ -610,9 +622,9 @@ static void FBSDKLikeActionControllerAddGetOGObjectLikeRequest(FBSDKAccessToken 
       NSArray *dataSet = [FBSDKTypeUtility arrayValue:result[@"data"]];
       for (NSDictionary *data in dataSet) {
         objectIsLiked = FBSDKTriStateBOOLValueYES;
-        NSString *applicationID = [FBSDKTypeUtility stringValue:[data valueForKeyPath:@"application.id"]];
+        NSString *applicationID = [FBSDKTypeUtility coercedToStringValue:[data valueForKeyPath:@"application.id"]];
         if ([accessToken.appID isEqualToString:applicationID]) {
-          unlikeToken = [FBSDKTypeUtility stringValue:data[@"id"]];
+          unlikeToken = [FBSDKTypeUtility coercedToStringValue:data[@"id"]];
           break;
         }
       }
@@ -621,31 +633,31 @@ static void FBSDKLikeActionControllerAddGetOGObjectLikeRequest(FBSDKAccessToken 
   }];
 }
 
-typedef void(^fbsdk_like_action_controller_publish_like_completion_block)(BOOL success, NSString *unlikeToken);
+typedef void (^fbsdk_like_action_controller_publish_like_completion_block)(BOOL success, NSString *unlikeToken);
 static void FBSDKLikeActionControllerAddPublishLikeRequest(FBSDKAccessToken *accessToken,
-                                                           FBSDKGraphRequestConnection *connection,
+                                                           id<FBSDKGraphRequestConnecting> connection,
                                                            NSString *objectID,
                                                            FBSDKLikeObjectType objectType,
                                                            fbsdk_like_action_controller_publish_like_completion_block completionHandler)
 {
   FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me/og.likes"
-                                                                 parameters:@{ @"object": objectID,
-                                                                               @"locale": [NSLocale currentLocale].localeIdentifier
-                                                                               }
+                                                                 parameters:@{ @"object" : objectID,
+                                                                               @"locale" : [NSLocale currentLocale].localeIdentifier}
                                                                 tokenString:accessToken.tokenString
                                                                     version:nil
                                                                  HTTPMethod:@"POST"];
-  [connection addRequest:request completionHandler:^(FBSDKGraphRequestConnection *innerConnection, id result, NSError *error) {
+  [connection addRequest:request completion:^(id<FBSDKGraphRequestConnecting> innerConnection, id result, NSError *error) {
     BOOL success = NO;
     NSString *unlikeToken = nil;
     if (error) {
+      NSString *msg = [NSString stringWithFormat:@"Error liking object %@(%@): %@", objectID, NSStringFromFBSDKLikeObjectType(objectType), error];
       [FBSDKLogger singleShotLogEntry:FBSDKLoggingBehaviorUIControlErrors
-                         formatString:@"Error liking object %@(%@): %@", objectID, NSStringFromFBSDKLikeObjectType(objectType), error];
+                             logEntry:msg];
       FBSDKLikeActionControllerLogError(@"publish_like", objectID, objectType, accessToken, error);
     } else {
       success = YES;
       result = [FBSDKTypeUtility dictionaryValue:result];
-      unlikeToken = [FBSDKTypeUtility stringValue:result[@"id"]];
+      unlikeToken = [FBSDKTypeUtility coercedToStringValue:result[@"id"]];
     }
     if (completionHandler != NULL) {
       completionHandler(success, unlikeToken);
@@ -653,23 +665,24 @@ static void FBSDKLikeActionControllerAddPublishLikeRequest(FBSDKAccessToken *acc
   }];
 }
 
-typedef void(^fbsdk_like_action_controller_publish_unlike_completion_block)(BOOL success);
+typedef void (^fbsdk_like_action_controller_publish_unlike_completion_block)(BOOL success);
 static void FBSDKLikeActionControllerAddPublishUnlikeRequest(FBSDKAccessToken *accessToken,
-                                                             FBSDKGraphRequestConnection *connection,
+                                                             id<FBSDKGraphRequestConnecting> connection,
                                                              NSString *unlikeToken,
                                                              FBSDKLikeObjectType objectType,
                                                              fbsdk_like_action_controller_publish_unlike_completion_block completionHandler)
 {
   FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:unlikeToken
-                                                                 parameters:nil
+                                                                 parameters:@{}
                                                                 tokenString:accessToken.tokenString
                                                                     version:nil
                                                                  HTTPMethod:@"DELETE"];
-  [connection addRequest:request completionHandler:^(FBSDKGraphRequestConnection *innerConnection, id result, NSError *error) {
+  [connection addRequest:request completion:^(id<FBSDKGraphRequestConnecting> innerConnection, id result, NSError *error) {
     BOOL success = NO;
     if (error) {
+      NSString *msg = [NSString stringWithFormat:@"Error unliking object with unlike token %@(%@): %@", unlikeToken, NSStringFromFBSDKLikeObjectType(objectType), error];
       [FBSDKLogger singleShotLogEntry:FBSDKLoggingBehaviorUIControlErrors
-                         formatString:@"Error unliking object with unlike token %@(%@): %@", unlikeToken, NSStringFromFBSDKLikeObjectType(objectType), error];
+                             logEntry:msg];
       FBSDKLikeActionControllerLogError(@"publish_unlike", unlikeToken, objectType, accessToken, error);
     } else {
       success = YES;
@@ -681,7 +694,7 @@ static void FBSDKLikeActionControllerAddPublishUnlikeRequest(FBSDKAccessToken *a
 }
 
 static void FBSDKLikeActionControllerAddRefreshRequests(FBSDKAccessToken *accessToken,
-                                                        FBSDKGraphRequestConnection *connection,
+                                                        id<FBSDKGraphRequestConnecting> connection,
                                                         NSString *objectID,
                                                         FBSDKLikeObjectType objectType,
                                                         fbsdk_like_action_block completionHandler)
@@ -696,15 +709,17 @@ static void FBSDKLikeActionControllerAddRefreshRequests(FBSDKAccessToken *access
   __block NSString *socialSentenceWithoutLike = nil;
   __block NSString *unlikeToken = nil;
 
-  void(^handleResults)(void) = ^{
-    completionHandler(objectIsLiked,
-                      likeCountStringWithLike,
-                      likeCountStringWithoutLike,
-                      socialSentenceWithLike,
-                      socialSentenceWithoutLike,
-                      unlikeToken,
-                      NO,
-                      NO);
+  void (^handleResults)(void) = ^{
+    completionHandler(
+      objectIsLiked,
+      likeCountStringWithLike,
+      likeCountStringWithoutLike,
+      socialSentenceWithLike,
+      socialSentenceWithoutLike,
+      unlikeToken,
+      NO,
+      NO
+    );
   };
 
   fbsdk_like_action_controller_get_og_object_like_completion_block getLikeStateCompletionBlock = ^(BOOL success,
@@ -717,11 +732,13 @@ static void FBSDKLikeActionControllerAddRefreshRequests(FBSDKAccessToken *access
       }
     }
   };
-  FBSDKLikeActionControllerAddGetOGObjectLikeRequest(accessToken,
-                                                     connection,
-                                                     objectID,
-                                                     objectType,
-                                                     getLikeStateCompletionBlock);
+  FBSDKLikeActionControllerAddGetOGObjectLikeRequest(
+    accessToken,
+    connection,
+    objectID,
+    objectType,
+    getLikeStateCompletionBlock
+  );
 
   fbsdk_like_action_controller_get_engagement_completion_block engagementCompletionBlock = ^(BOOL success,
                                                                                              NSString *innerLikeCountStringWithLike,
@@ -738,47 +755,52 @@ static void FBSDKLikeActionControllerAddRefreshRequests(FBSDKAccessToken *access
       handleResults();
     }
   };
-  FBSDKLikeActionControllerAddGetEngagementRequest(accessToken,
-                                                   connection,
-                                                   objectID,
-                                                   objectType,
-                                                   engagementCompletionBlock);
+  FBSDKLikeActionControllerAddGetEngagementRequest(
+    accessToken,
+    connection,
+    objectID,
+    objectType,
+    engagementCompletionBlock
+  );
 }
-
 
 - (void)_ensureVerifiedObjectID:(fbsdk_like_action_controller_ensure_verified_object_id_completion_block)completion
 {
   if (completion == NULL) {
     return;
   }
-  FBSDKGraphRequestConnection *connection = [[FBSDKGraphRequestConnection alloc] init];
-  [connection overrideVersionPartWith:FBSDK_LIKE_ACTION_CONTROLLER_API_VERSION];
+  FBSDKGraphRequestConnection *connection = [FBSDKGraphRequestConnection new];
+  [connection overrideGraphAPIVersion:FBSDK_LIKE_ACTION_CONTROLLER_API_VERSION];
   if ([_objectID rangeOfString:@"://"].location != NSNotFound) {
-    FBSDKLikeActionControllerAddGetObjectIDWithObjectURLRequest(_accessToken, connection, _objectID, ^(BOOL success,
-                                                                                                       NSString *innerVerifiedObjectID,
-                                                                                                       BOOL innerObjectIsPage) {
-      if (success) {
-        _verifiedObjectID = [innerVerifiedObjectID copy];
-        _objectIsPage = innerObjectIsPage;
-      }
-    });
+    FBSDKLikeActionControllerAddGetObjectIDWithObjectURLRequest(_accessToken,
+      connection,
+      _objectID, ^(BOOL success,
+                   NSString *innerVerifiedObjectID,
+                   BOOL innerObjectIsPage) {
+                     if (success) {
+                       self->_verifiedObjectID = [innerVerifiedObjectID copy];
+                       self->_objectIsPage = innerObjectIsPage;
+                     }
+                   });
   }
 
-  FBSDKLikeActionControllerAddGetObjectIDRequest(_accessToken, connection, _objectID, ^(BOOL success,
-                                                                                        NSString *innerVerifiedObjectID,
-                                                                                        BOOL innerObjectIsPage) {
-    if (success) {
-      // if this was an URL based request, then we want to use the objectID from that request - this value will just
-      // be an echo of the URL
-      if (!_verifiedObjectID) {
-        _verifiedObjectID = [innerVerifiedObjectID copy];
-      }
-      _objectIsPage = innerObjectIsPage;
-    }
-    if (_verifiedObjectID) {
-      completion(_verifiedObjectID);
-    }
-  });
+  FBSDKLikeActionControllerAddGetObjectIDRequest(_accessToken,
+    connection,
+    _objectID, ^(BOOL success,
+                 NSString *innerVerifiedObjectID,
+                 BOOL innerObjectIsPage) {
+                   if (success) {
+                     // if this was an URL based request, then we want to use the objectID from that request - this value will just
+                     // be an echo of the URL
+                     if (!self->_verifiedObjectID) {
+                       self->_verifiedObjectID = [innerVerifiedObjectID copy];
+                     }
+                     self->_objectIsPage = innerObjectIsPage;
+                   }
+                   if (self->_verifiedObjectID) {
+                     completion(self->_verifiedObjectID);
+                   }
+                 });
   [connection start];
 }
 
@@ -786,11 +808,11 @@ static void FBSDKLikeActionControllerAddRefreshRequests(FBSDKAccessToken *access
                       analyticsParameters:(NSDictionary *)analyticsParameters
                        fromViewController:(UIViewController *)fromViewController
 {
-  [FBSDKAppEvents logImplicitEvent:FBSDKAppEventNameFBSDKLikeControlDidPresentDialog
-                        valueToSum:nil
+  [FBSDKAppEvents logInternalEvent:FBSDKAppEventNameFBSDKLikeControlDidPresentDialog
                         parameters:analyticsParameters
+                isImplicitlyLogged:YES
                        accessToken:_accessToken];
-  FBSDKLikeDialog *dialog = [[FBSDKLikeDialog alloc] init];
+  FBSDKLikeDialog *dialog = [FBSDKLikeDialog new];
   dialog.objectID = _objectID;
   dialog.objectType = _objectType;
   dialog.delegate = self;
@@ -822,38 +844,42 @@ static void FBSDKLikeActionControllerAddRefreshRequests(FBSDKAccessToken *access
 {
   _objectIsLikedIsPending = YES;
   [self _ensureVerifiedObjectID:^(NSString *verifiedObjectID) {
-    FBSDKGraphRequestConnection *connection = [[FBSDKGraphRequestConnection alloc] init];
-    [connection overrideVersionPartWith:FBSDK_LIKE_ACTION_CONTROLLER_API_VERSION];
+    FBSDKGraphRequestConnection *connection = [FBSDKGraphRequestConnection new];
+    [connection overrideGraphAPIVersion:FBSDK_LIKE_ACTION_CONTROLLER_API_VERSION];
     fbsdk_like_action_controller_publish_like_completion_block completionHandler = ^(BOOL success,
                                                                                      NSString *unlikeToken) {
-      _objectIsLikedIsPending = NO;
-      if (success) {
-        [FBSDKAppEvents logImplicitEvent:FBSDKAppEventNameFBSDKLikeControlDidLike
-                              valueToSum:nil
-                              parameters:analyticsParameters
-                             accessToken:_accessToken];
-        _objectIsLikedOnServer = YES;
-        _unlikeToken = [unlikeToken copy];
-        if (updateBlock != NULL) {
-          updateBlock(FBSDKTriStateBOOLFromBOOL(self.objectIsLiked),
-                      _likeCountStringWithLike,
-                      _likeCountStringWithoutLike,
-                      _socialSentenceWithLike,
-                      _socialSentenceWithoutLike,
-                      _unlikeToken,
-                      NO,
-                      NO);
-        }
-        [self _publishIfNeededWithUpdateBlock:updateBlock analyticsParameters:analyticsParameters fromViewController:fromViewController];
-      } else {
-        [self _presentLikeDialogWithUpdateBlock:updateBlock analyticsParameters:analyticsParameters fromViewController:fromViewController];
-      }
-    };
-    FBSDKLikeActionControllerAddPublishLikeRequest(_accessToken,
-                                                   connection,
-                                                   verifiedObjectID,
-                                                   _objectType,
-                                                   completionHandler);
+                                                                                       self->_objectIsLikedIsPending = NO;
+                                                                                       if (success) {
+                                                                                         [FBSDKAppEvents logInternalEvent:FBSDKAppEventNameFBSDKLikeControlDidLike
+                                                                                                               parameters:analyticsParameters
+                                                                                                       isImplicitlyLogged:YES
+                                                                                                              accessToken:self->_accessToken];
+                                                                                         self->_objectIsLikedOnServer = YES;
+                                                                                         self->_unlikeToken = [unlikeToken copy];
+                                                                                         if (updateBlock != NULL) {
+                                                                                           updateBlock(
+                                                                                             FBSDKTriStateBOOLFromBOOL(self.objectIsLiked),
+                                                                                             self->_likeCountStringWithLike,
+                                                                                             self->_likeCountStringWithoutLike,
+                                                                                             self->_socialSentenceWithLike,
+                                                                                             self->_socialSentenceWithoutLike,
+                                                                                             self->_unlikeToken,
+                                                                                             NO,
+                                                                                             NO
+                                                                                           );
+                                                                                         }
+                                                                                         [self _publishIfNeededWithUpdateBlock:updateBlock analyticsParameters:analyticsParameters fromViewController:fromViewController];
+                                                                                       } else {
+                                                                                         [self _presentLikeDialogWithUpdateBlock:updateBlock analyticsParameters:analyticsParameters fromViewController:fromViewController];
+                                                                                       }
+                                                                                     };
+    FBSDKLikeActionControllerAddPublishLikeRequest(
+      self->_accessToken,
+      connection,
+      verifiedObjectID,
+      self->_objectType,
+      completionHandler
+    );
     [connection start];
   }];
 }
@@ -863,51 +889,55 @@ static void FBSDKLikeActionControllerAddRefreshRequests(FBSDKAccessToken *access
                    fromViewController:(UIViewController *)fromViewController
 {
   _objectIsLikedIsPending = YES;
-  FBSDKGraphRequestConnection *connection = [[FBSDKGraphRequestConnection alloc] init];
-  [connection overrideVersionPartWith:FBSDK_LIKE_ACTION_CONTROLLER_API_VERSION];
+  FBSDKGraphRequestConnection *connection = [FBSDKGraphRequestConnection new];
+  [connection overrideGraphAPIVersion:FBSDK_LIKE_ACTION_CONTROLLER_API_VERSION];
   fbsdk_like_action_controller_publish_unlike_completion_block completionHandler = ^(BOOL success) {
-    _objectIsLikedIsPending = NO;
+    self->_objectIsLikedIsPending = NO;
     if (success) {
-      [FBSDKAppEvents logImplicitEvent:FBSDKAppEventNameFBSDKLikeControlDidUnlike
-                            valueToSum:nil
+      [FBSDKAppEvents logInternalEvent:FBSDKAppEventNameFBSDKLikeControlDidUnlike
                             parameters:analyticsParameters
-                           accessToken:_accessToken];
-      _objectIsLikedOnServer = NO;
-      _unlikeToken = nil;
+                    isImplicitlyLogged:YES
+                           accessToken:self->_accessToken];
+      self->_objectIsLikedOnServer = NO;
+      self->_unlikeToken = nil;
       if (updateBlock != NULL) {
-        updateBlock(FBSDKTriStateBOOLFromBOOL(self.objectIsLiked),
-                    _likeCountStringWithLike,
-                    _likeCountStringWithoutLike,
-                    _socialSentenceWithLike,
-                    _socialSentenceWithoutLike,
-                    _unlikeToken,
-                    NO,
-                    NO);
+        updateBlock(
+          FBSDKTriStateBOOLFromBOOL(self.objectIsLiked),
+          self->_likeCountStringWithLike,
+          self->_likeCountStringWithoutLike,
+          self->_socialSentenceWithLike,
+          self->_socialSentenceWithoutLike,
+          self->_unlikeToken,
+          NO,
+          NO
+        );
       }
       [self _publishIfNeededWithUpdateBlock:updateBlock analyticsParameters:analyticsParameters fromViewController:fromViewController];
     } else {
       [self _presentLikeDialogWithUpdateBlock:updateBlock analyticsParameters:analyticsParameters fromViewController:fromViewController];
     }
   };
-  FBSDKLikeActionControllerAddPublishUnlikeRequest(_accessToken,
-                                                   connection,
-                                                   _unlikeToken,
-                                                   _objectType,
-                                                   completionHandler);
+  FBSDKLikeActionControllerAddPublishUnlikeRequest(
+    _accessToken,
+    connection,
+    _unlikeToken,
+    _objectType,
+    completionHandler
+  );
   [connection start];
 }
 
 - (void)_refreshWithMode:(FBSDKLikeActionControllerRefreshMode)mode
 {
   switch (mode) {
-    case FBSDKLikeActionControllerRefreshModeForce:{
+    case FBSDKLikeActionControllerRefreshModeForce: {
       // if we're already refreshing, skip
       if (_refreshState == FBSDKLikeActionControllerRefreshStateActive) {
         return;
       }
       break;
     }
-    case FBSDKLikeActionControllerRefreshModeInitial:{
+    case FBSDKLikeActionControllerRefreshModeInitial: {
       // if we've already started any refresh, skip this
       if (_refreshState != FBSDKLikeActionControllerRefreshStateNone) {
         return;
@@ -925,32 +955,31 @@ static void FBSDKLikeActionControllerAddRefreshRequests(FBSDKAccessToken *access
   _refreshState = FBSDKLikeActionControllerRefreshStateActive;
 
   [self _ensureVerifiedObjectID:^(NSString *verifiedObjectID) {
-    FBSDKGraphRequestConnection *connection = [[FBSDKGraphRequestConnection alloc] init];
-    [connection overrideVersionPartWith:FBSDK_LIKE_ACTION_CONTROLLER_API_VERSION];
-    FBSDKLikeActionControllerAddRefreshRequests(_accessToken,
-                                                connection,
-                                                verifiedObjectID,
-                                                _objectType,
-                                                ^(FBSDKTriStateBOOL objectIsLiked,
-                                                  NSString *likeCountStringWithLike,
-                                                  NSString *likeCountStringWithoutLike,
-                                                  NSString *socialSentenceWithLike,
-                                                  NSString *socialSentenceWithoutLike,
-                                                  NSString *unlikeToken,
-                                                  BOOL likeStateChanged,
-                                                  BOOL animated) {
-                                                  [self _updateWithObjectIsLiked:objectIsLiked
-                                                         likeCountStringWithLike:likeCountStringWithLike
-                                                      likeCountStringWithoutLike:likeCountStringWithoutLike
-                                                          socialSentenceWithLike:socialSentenceWithLike
-                                                       socialSentenceWithoutLike:socialSentenceWithoutLike
-                                                                     unlikeToken:unlikeToken
-                                                                    soundEnabled:NO
-                                                                        animated:NO
-                                                                        deferred:NO];
-                                                  [self _setExecuting:NO forKey:FBSDK_LIKE_ACTION_CONTROLLER_REFRESH_PROPERTY_KEY];
-                                                  _refreshState = FBSDKLikeActionControllerRefreshStateComplete;
-                                                });
+    FBSDKGraphRequestConnection *connection = [FBSDKGraphRequestConnection new];
+    [connection overrideGraphAPIVersion:FBSDK_LIKE_ACTION_CONTROLLER_API_VERSION];
+    FBSDKLikeActionControllerAddRefreshRequests(self->_accessToken,
+      connection,
+      verifiedObjectID,
+      self->_objectType,
+      ^(FBSDKTriStateBOOL objectIsLiked,
+        NSString *likeCountStringWithLike,
+        NSString *likeCountStringWithoutLike,
+        NSString *socialSentenceWithLike,
+        NSString *socialSentenceWithoutLike,
+        NSString *unlikeToken,
+        BOOL likeStateChanged,
+        BOOL animated) {
+          [self _updateWithObjectIsLiked:objectIsLiked
+                 likeCountStringWithLike:likeCountStringWithLike
+              likeCountStringWithoutLike:likeCountStringWithoutLike
+                  socialSentenceWithLike:socialSentenceWithLike
+               socialSentenceWithoutLike:socialSentenceWithoutLike
+                             unlikeToken:unlikeToken
+                                animated:NO
+                                deferred:NO];
+          [self _setExecuting:NO forKey:FBSDK_LIKE_ACTION_CONTROLLER_REFRESH_PROPERTY_KEY];
+          self->_refreshState = FBSDKLikeActionControllerRefreshStateComplete;
+        });
     [connection start];
   }];
 }
@@ -983,7 +1012,6 @@ static void FBSDKLikeActionControllerAddRefreshRequests(FBSDKAccessToken *access
           socialSentenceWithLike:(NSString *)socialSentenceWithLike
        socialSentenceWithoutLike:(NSString *)socialSentenceWithoutLike
                      unlikeToken:(NSString *)unlikeToken
-                    soundEnabled:(BOOL)soundEnabled
                         animated:(BOOL)animated
                         deferred:(BOOL)deferred
 {
@@ -998,48 +1026,39 @@ static void FBSDKLikeActionControllerAddRefreshRequests(FBSDKAccessToken *access
   // If the new like state is unknown, we don't consider the state to have changed.
   BOOL objectIsLikedChanged = (objectIsLikedTriState != FBSDKTriStateBOOLValueUnknown) && (self.objectIsLiked != objectIsLiked);
 
-  if (!objectIsLikedChanged &&
-      [FBSDKInternalUtility object:_likeCountStringWithLike isEqualToObject:likeCountStringWithLike] &&
-      [FBSDKInternalUtility object:_likeCountStringWithoutLike isEqualToObject:likeCountStringWithoutLike] &&
-      [FBSDKInternalUtility object:_socialSentenceWithLike isEqualToObject:socialSentenceWithLike] &&
-      [FBSDKInternalUtility object:_socialSentenceWithoutLike isEqualToObject:socialSentenceWithoutLike] &&
-      [FBSDKInternalUtility object:_unlikeToken isEqualToObject:unlikeToken]) {
+  if (!objectIsLikedChanged
+      && [FBSDKInternalUtility.sharedUtility object:_likeCountStringWithLike isEqualToObject:likeCountStringWithLike]
+      && [FBSDKInternalUtility.sharedUtility object:_likeCountStringWithoutLike isEqualToObject:likeCountStringWithoutLike]
+      && [FBSDKInternalUtility.sharedUtility object:_socialSentenceWithLike isEqualToObject:socialSentenceWithLike]
+      && [FBSDKInternalUtility.sharedUtility object:_socialSentenceWithoutLike isEqualToObject:socialSentenceWithoutLike]
+      && [FBSDKInternalUtility.sharedUtility object:_unlikeToken isEqualToObject:unlikeToken]) {
     // check if the like state changed and only animate if it did
     return;
   }
 
-  void(^updateBlock)(void) = ^{
+  void (^updateBlock)(void) = ^{
     if (objectIsLikedChanged) {
-      _objectIsLiked = objectIsLiked;
+      self->_objectIsLiked = objectIsLiked;
     }
 
     if (likeCountStringWithLike) {
-      _likeCountStringWithLike = [likeCountStringWithLike copy];
+      self->_likeCountStringWithLike = [likeCountStringWithLike copy];
     }
     if (likeCountStringWithoutLike) {
-      _likeCountStringWithoutLike = [likeCountStringWithoutLike copy];
+      self->_likeCountStringWithoutLike = [likeCountStringWithoutLike copy];
     }
     if (socialSentenceWithLike) {
-      _socialSentenceWithLike = [socialSentenceWithLike copy];
+      self->_socialSentenceWithLike = [socialSentenceWithLike copy];
     }
     if (socialSentenceWithoutLike) {
-      _socialSentenceWithoutLike = [socialSentenceWithoutLike copy];
+      self->_socialSentenceWithoutLike = [socialSentenceWithoutLike copy];
     }
     if (unlikeToken) {
-      _unlikeToken = [unlikeToken copy];
+      self->_unlikeToken = [unlikeToken copy];
     }
 
-    // if only meta data changed, don't play the sound
-    FBSDKLikeButtonPopWAV *likeSound = (objectIsLikedChanged && objectIsLiked && soundEnabled ? [FBSDKLikeButtonPopWAV sharedLoader] : nil);
-
-    void(^notificationBlock)(void) = ^{
-      if (likeSound) {
-        dispatch_time_t soundPopTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(FBSDK_LIKE_ACTION_CONTROLLER_SOUND_DELAY * NSEC_PER_SEC));
-        dispatch_after(soundPopTime, dispatch_get_main_queue(), ^(void){
-          [likeSound playSound];
-        });
-      }
-      NSDictionary *userInfo = @{FBSDKLikeActionControllerAnimatedKey: @(animated)};
+    void (^notificationBlock)(void) = ^{
+      NSDictionary *userInfo = @{FBSDKLikeActionControllerAnimatedKey : @(animated)};
       [[NSNotificationCenter defaultCenter] postNotificationName:FBSDKLikeActionControllerDidUpdateNotification
                                                           object:self
                                                         userInfo:userInfo];
@@ -1060,10 +1079,12 @@ static void FBSDKLikeActionControllerAddRefreshRequests(FBSDKAccessToken *access
 
 - (BOOL)_useOGLike
 {
-  return (_accessToken &&
-          !_objectIsPage &&
-          _verifiedObjectID &&
-          [_accessToken.permissions containsObject:@"publish_actions"]);
+  return (_accessToken
+    && !_objectIsPage
+    && _verifiedObjectID
+    && [_accessToken.permissions containsObject:@"publish_actions"]);
 }
 
 @end
+
+#endif

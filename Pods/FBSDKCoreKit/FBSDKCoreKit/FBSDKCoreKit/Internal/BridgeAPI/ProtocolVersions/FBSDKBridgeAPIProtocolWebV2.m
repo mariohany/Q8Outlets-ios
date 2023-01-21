@@ -16,58 +16,74 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "FBSDKBridgeAPIProtocolWebV2.h"
+#import "TargetConditionals.h"
 
-#import "FBSDKBridgeAPIProtocolNativeV1.h"
-#import "FBSDKDialogConfiguration.h"
-#import "FBSDKError.h"
-#import "FBSDKInternalUtility.h"
-#import "FBSDKServerConfiguration.h"
-#import "FBSDKServerConfigurationManager.h"
-#import "FBSDKUtility.h"
+#if !TARGET_OS_TV
+
+ #import "FBSDKBridgeAPIProtocolWebV2.h"
+
+ #import "FBSDKBridgeAPIProtocolNativeV1.h"
+ #import "FBSDKCoreKitBasicsImport.h"
+ #import "FBSDKDialogConfiguration.h"
+ #import "FBSDKError+Internal.h"
+ #import "FBSDKInternalUtility+Internal.h"
+ #import "FBSDKServerConfigurationManager.h"
+ #import "FBSDKServerConfigurationProviding.h"
+
+@interface FBSDKBridgeAPIProtocolWebV2 ()
+
+@property (nonatomic, readonly) Class<FBSDKServerConfigurationProviding> serverConfigurationProvider;
+@property (nonatomic, readonly) id<FBSDKBridgeAPIProtocol> nativeBridge;
+
+@end
 
 @implementation FBSDKBridgeAPIProtocolWebV2
-{
-  FBSDKBridgeAPIProtocolNativeV1 *_nativeProtocol;
-}
 
-#pragma mark - Object Lifecycle
+ #pragma mark - Object Lifecycle
 
 - (instancetype)init
 {
+  return [self initWithServerConfigurationProvider:FBSDKServerConfigurationManager.class
+                                      nativeBridge:[[FBSDKBridgeAPIProtocolNativeV1 alloc] initWithAppScheme:nil
+                                                                                                  pasteboard:nil
+                                                                                         dataLengthThreshold:0
+                                                                                              includeAppIcon:NO]];
+}
+
+- (instancetype)initWithServerConfigurationProvider:(Class<FBSDKServerConfigurationProviding>)serverConfigurationProvider
+                                       nativeBridge:(id<FBSDKBridgeAPIProtocol>)nativeBridge
+{
   if ((self = [super init])) {
-    _nativeProtocol = [[FBSDKBridgeAPIProtocolNativeV1 alloc] initWithAppScheme:nil
-                                                                     pasteboard:nil
-                                                            dataLengthThreshold:0
-                                                                 includeAppIcon:NO];
+    _serverConfigurationProvider = serverConfigurationProvider;
+    _nativeBridge = nativeBridge;
   }
   return self;
 }
 
-#pragma mark - FBSDKBridgeAPIProtocol
+ #pragma mark - FBSDKBridgeAPIProtocol
 
 - (NSURL *)_redirectURLWithActionID:(NSString *)actionID methodName:(NSString *)methodName error:(NSError **)errorRef
 {
   NSDictionary *queryParameters = nil;
   if (actionID) {
-    NSDictionary *bridgeArgs = @{ FBSDKBridgeAPIProtocolNativeV1BridgeParameterInputKeys.actionID: actionID };
-    NSString *bridgeArgsString = [FBSDKInternalUtility JSONStringForObject:bridgeArgs
-                                                                     error:NULL
-                                                      invalidObjectHandler:NULL];
-    queryParameters = @{ FBSDKBridgeAPIProtocolNativeV1InputKeys.bridgeArgs: bridgeArgsString };
+    NSDictionary *bridgeArgs = @{ FBSDKBridgeAPIProtocolNativeV1BridgeParameterInputKeys.actionID : actionID };
+    NSString *bridgeArgsString = [FBSDKBasicUtility JSONStringForObject:bridgeArgs
+                                                                  error:NULL
+                                                   invalidObjectHandler:NULL];
+    queryParameters = @{ FBSDKBridgeAPIProtocolNativeV1InputKeys.bridgeArgs : bridgeArgsString };
   }
-  return [FBSDKInternalUtility appURLWithHost:@"bridge" path:methodName queryParameters:queryParameters error:errorRef];
+  return [FBSDKInternalUtility.sharedUtility appURLWithHost:@"bridge" path:methodName queryParameters:queryParameters error:errorRef];
 }
 
 - (NSURL *)_requestURLForDialogConfiguration:(FBSDKDialogConfiguration *)dialogConfiguration error:(NSError **)errorRef
 {
   NSURL *requestURL = dialogConfiguration.URL;
   if (!requestURL.scheme) {
-    requestURL = [FBSDKInternalUtility facebookURLWithHostPrefix:@"m"
-                                                            path:requestURL.path
-                                                 queryParameters:nil
-                                                  defaultVersion:@""
-                                                           error:errorRef];
+    requestURL = [FBSDKInternalUtility.sharedUtility facebookURLWithHostPrefix:@"m"
+                                                                          path:requestURL.path
+                                                               queryParameters:@{}
+                                                                defaultVersion:@""
+                                                                         error:errorRef];
   }
   return requestURL;
 }
@@ -79,41 +95,41 @@
                        parameters:(NSDictionary *)parameters
                             error:(NSError *__autoreleasing *)errorRef
 {
-  FBSDKServerConfiguration *serverConfiguration = [FBSDKServerConfigurationManager cachedServerConfiguration];
+  FBSDKServerConfiguration *serverConfiguration = [self.serverConfigurationProvider cachedServerConfiguration];
   FBSDKDialogConfiguration *dialogConfiguration = [serverConfiguration dialogConfigurationForDialogName:methodName];
   if (!dialogConfiguration) {
     if (errorRef != NULL) {
-      *errorRef = [FBSDKError errorWithCode:FBSDKDialogUnavailableErrorCode message:nil];
+      *errorRef = [FBSDKError errorWithCode:FBSDKErrorDialogUnavailable message:nil];
     }
     return nil;
   }
 
-  NSURL *requestURL = [_nativeProtocol requestURLWithActionID:actionID
-                                                       scheme:scheme
-                                                   methodName:methodName
-                                                methodVersion:methodVersion
-                                                   parameters:parameters error:errorRef];
+  NSURL *requestURL = [_nativeBridge requestURLWithActionID:actionID
+                                                     scheme:scheme
+                                                 methodName:methodName
+                                              methodVersion:methodVersion
+                                                 parameters:parameters error:errorRef];
   if (!requestURL) {
     return nil;
   }
 
-  NSMutableDictionary *queryParameters = [[FBSDKUtility dictionaryWithQueryString:requestURL.query] mutableCopy];
-  queryParameters[@"ios_bundle_id"] = [[NSBundle mainBundle] bundleIdentifier];
+  NSMutableDictionary<NSString *, id> *queryParameters = [[FBSDKBasicUtility dictionaryWithQueryString:requestURL.query] mutableCopy];
+  [FBSDKTypeUtility dictionary:queryParameters setObject:[NSBundle mainBundle].bundleIdentifier forKey:@"ios_bundle_id"];
   NSURL *redirectURL = [self _redirectURLWithActionID:nil methodName:methodName error:errorRef];
   if (!redirectURL) {
     return nil;
   }
-  queryParameters[@"redirect_url"] = redirectURL;
+  [FBSDKTypeUtility dictionary:queryParameters setObject:redirectURL forKey:@"redirect_url"];
 
   requestURL = [self _requestURLForDialogConfiguration:dialogConfiguration error:errorRef];
   if (!requestURL) {
     return nil;
   }
-  return [FBSDKInternalUtility URLWithScheme:requestURL.scheme
-                                        host:requestURL.host
-                                        path:requestURL.path
-                             queryParameters:queryParameters
-                                       error:errorRef];
+  return [FBSDKInternalUtility.sharedUtility URLWithScheme:requestURL.scheme
+                                                      host:requestURL.host
+                                                      path:requestURL.path
+                                           queryParameters:queryParameters
+                                                     error:errorRef];
 }
 
 - (NSDictionary *)responseParametersForActionID:(NSString *)actionID
@@ -121,10 +137,12 @@
                                       cancelled:(BOOL *)cancelledRef
                                           error:(NSError *__autoreleasing *)errorRef
 {
-  return [_nativeProtocol responseParametersForActionID:actionID
-                                        queryParameters:queryParameters
-                                              cancelled:cancelledRef
-                                                  error:errorRef];
+  return [_nativeBridge responseParametersForActionID:actionID
+                                      queryParameters:queryParameters
+                                            cancelled:cancelledRef
+                                                error:errorRef];
 }
 
 @end
+
+#endif

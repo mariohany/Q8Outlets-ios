@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Google Inc. All rights reserved.
+ * Copyright 2016 Google LLC. All rights reserved.
  *
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
@@ -13,15 +13,11 @@
  * permissions and limitations under the License.
  */
 
-#if !defined(__has_feature) || !__has_feature(objc_arc)
-#error "This file requires ARC support."
-#endif
-
 #import "GoogleMapsDemos/Samples/SnapshotReadyViewController.h"
 
 #import <GoogleMaps/GoogleMaps.h>
 
-@interface SnapshotReadyViewController ()<GMSMapViewDelegate>
+@interface SnapshotReadyViewController () <GMSMapViewDelegate>
 @end
 
 @implementation SnapshotReadyViewController {
@@ -33,8 +29,9 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  GMSCameraPosition *camera =
-      [GMSCameraPosition cameraWithLatitude:-33.868 longitude:151.2086 zoom:6];
+  GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.868
+                                                          longitude:151.2086
+                                                               zoom:6];
   _mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
   _mapView.delegate = self;
   self.view = _mapView;
@@ -70,10 +67,10 @@
   _statusLabel.alpha = 0.8f;
   _statusLabel.text = @"Snapshot Ready";
   // Remove status label after 1 second.
-  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC),
-                 dispatch_get_main_queue(), ^{
-                   _statusLabel.alpha = 0.0f;
-                 });
+  UILabel *statusLabel = _statusLabel;
+  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+    statusLabel.alpha = 0.0f;
+  });
 }
 
 #pragma mark Private

@@ -16,21 +16,68 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "FBSDKAccessTokenCache.h"
-#import "FBSDKSettings.h"
+#if SWIFT_PACKAGE
+#import "FBSDKAdvertisingTrackingStatus.h"
+ #import "FBSDKSettings.h"
+#else
+#import <FBSDKCoreKit/FBSDKAdvertisingTrackingStatus.h>
+ #import <FBSDKCoreKit/FBSDKSettings.h>
+#endif
 
-@interface FBSDKSettings(Internal)
+#define DATA_PROCESSING_OPTIONS         @"data_processing_options"
+#define DATA_PROCESSING_OPTIONS_COUNTRY @"data_processing_options_country"
+#define DATA_PROCESSING_OPTIONS_STATE   @"data_processing_options_state"
 
-+ (FBSDKAccessTokenCache *)accessTokenCache;
+@protocol FBSDKTokenCaching;
+@protocol FBSDKDataPersisting;
+@protocol FBSDKAppEventsConfigurationProviding;
+@protocol FBSDKInfoDictionaryProviding;
+@protocol FBSDKEventLogging;
 
-- (void)setAccessTokenCache;
+@interface FBSDKSettings (Internal)
 
-+ (NSString *)graphAPIDebugParamValue;
-
-+ (BOOL)isGraphErrorRecoveryDisabled;
-
+@property (class, nullable, nonatomic, readonly, copy) NSString *graphAPIDebugParamValue;
 // used by Unity.
-+ (NSString *)userAgentSuffix;
-+ (void)setUserAgentSuffix:(NSString *)suffix;
+@property (class, nullable, nonatomic, copy) NSString *userAgentSuffix;
+@property (class, nonnull, readonly) FBSDKSettings *sharedSettings;
+
+@property (nonatomic) BOOL shouldUseTokenOptimizations;
+@property (nonatomic, copy, null_resettable) NSString *graphAPIVersion;
+@property (nonatomic, nonatomic, readonly) BOOL graphErrorRecoveryEnabled;
+
++ (void)configureWithStore:(nonnull id<FBSDKDataPersisting>)store
+appEventsConfigurationProvider:(nonnull Class<FBSDKAppEventsConfigurationProviding>)provider
+    infoDictionaryProvider:(nonnull id<FBSDKInfoDictionaryProviding>)infoDictionaryProvider
+               eventLogger:(nonnull id<FBSDKEventLogging>)eventLogger
+NS_SWIFT_NAME(configure(store:appEventsConfigurationProvider:infoDictionaryProvider:eventLogger:));
+
++ (nullable NSObject<FBSDKTokenCaching> *)tokenCache;
+
++ (void)setTokenCache:(nullable NSObject<FBSDKTokenCaching> *)tokenCache;
+
++ (FBSDKAdvertisingTrackingStatus)advertisingTrackingStatus;
+
++ (void)setAdvertiserTrackingStatus:(FBSDKAdvertisingTrackingStatus)status;
+
++ (nullable NSDictionary<NSString *, id> *)dataProcessingOptions;
+
++ (BOOL)isDataProcessingRestricted;
+
+
++ (void)recordSetAdvertiserTrackingEnabled;
+
++ (BOOL)isEventDelayTimerExpired;
+
++ (BOOL)isSetATETimeExceedsInstallTime;
+
++ (NSDate *_Nullable)getInstallTimestamp;
+
++ (NSDate *_Nullable)getSetAdvertiserTrackingEnabledTimestamp;
+
+- (void)recordInstall;
+
+- (void)logWarnings;
+
+- (void)logIfSDKSettingsChanged;
 
 @end

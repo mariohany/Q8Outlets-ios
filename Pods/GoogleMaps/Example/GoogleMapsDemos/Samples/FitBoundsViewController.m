@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Google Inc. All rights reserved.
+ * Copyright 2016 Google LLC. All rights reserved.
  *
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
@@ -12,10 +12,6 @@
  * ANY KIND, either express or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-
-#if !defined(__has_feature) || !__has_feature(objc_arc)
-#error "This file requires ARC support."
-#endif
 
 #import "GoogleMapsDemos/Samples/FitBoundsViewController.h"
 
@@ -68,8 +64,8 @@
 - (void)didTapFitBounds {
   if (_markers.count == 0) return;
   CLLocationCoordinate2D firstPos = ((GMSMarker *)_markers.firstObject).position;
-  GMSCoordinateBounds *bounds =
-      [[GMSCoordinateBounds alloc] initWithCoordinate:firstPos coordinate:firstPos];
+  GMSCoordinateBounds *bounds = [[GMSCoordinateBounds alloc] initWithCoordinate:firstPos
+                                                                     coordinate:firstPos];
   for (GMSMarker *marker in _markers) {
     bounds = [bounds includingCoordinate:marker.position];
   }
@@ -79,11 +75,10 @@
 
 #pragma mark - GMSMapViewDelegate
 
-- (void)mapView:(GMSMapView *)mapView
-    didLongPressAtCoordinate:(CLLocationCoordinate2D)coordinate {
+- (void)mapView:(GMSMapView *)mapView didLongPressAtCoordinate:(CLLocationCoordinate2D)coordinate {
   GMSMarker *marker = [[GMSMarker alloc] init];
-  marker.title = [NSString stringWithFormat:@"Marker at: %.2f,%.2f",
-                  coordinate.latitude, coordinate.longitude];
+  marker.title = [NSString
+      stringWithFormat:@"Marker at: %.2f,%.2f", coordinate.latitude, coordinate.longitude];
   marker.position = coordinate;
   marker.appearAnimation = kGMSMarkerAnimationPop;
   marker.map = _mapView;

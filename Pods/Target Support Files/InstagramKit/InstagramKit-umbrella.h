@@ -10,9 +10,9 @@
 #endif
 #endif
 
+#import "InstagramEngine.h"
 #import "InstagramKit.h"
 #import "InstagramKitConstants.h"
-#import "InstagramEngine.h"
 #import "InstagramComment.h"
 #import "InstagramLocation.h"
 #import "InstagramMedia.h"

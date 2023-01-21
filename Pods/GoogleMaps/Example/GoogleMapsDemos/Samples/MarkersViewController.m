@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Google Inc. All rights reserved.
+ * Copyright 2016 Google LLC. All rights reserved.
  *
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
@@ -13,10 +13,6 @@
  * permissions and limitations under the License.
  */
 
-#if !defined(__has_feature) || !__has_feature(objc_arc)
-#error "This file requires ARC support."
-#endif
-
 #import "GoogleMapsDemos/Samples/MarkersViewController.h"
 
 #import <GoogleMaps/GoogleMaps.h>
@@ -24,6 +20,7 @@
 @implementation MarkersViewController {
   GMSMarker *_sydneyMarker;
   GMSMarker *_melbourneMarker;
+  GMSMarker *_fadeInMarker;
 }
 
 - (void)viewDidLoad {
@@ -43,7 +40,7 @@
 
   GMSMarker *australiaMarker = [[GMSMarker alloc] init];
   australiaMarker.title = @"Australia";
-  australiaMarker.position = CLLocationCoordinate2DMake(-27.994401,140.07019);
+  australiaMarker.position = CLLocationCoordinate2DMake(-27.994401, 140.07019);
   australiaMarker.appearAnimation = kGMSMarkerAnimationPop;
   australiaMarker.flat = YES;
   australiaMarker.draggable = YES;
@@ -51,17 +48,26 @@
   australiaMarker.icon = [UIImage imageNamed:@"australia"];
   australiaMarker.map = mapView;
 
+  _fadeInMarker = [[GMSMarker alloc] init];
+  _fadeInMarker.title = @"Australia";
+  _fadeInMarker.position = CLLocationCoordinate2DMake(-29.9959, 145.0719);
+  _fadeInMarker.appearAnimation = kGMSMarkerAnimationFadeIn;
+  _fadeInMarker.icon = [UIImage imageNamed:@"australia"];
+
   // Set the marker in Sydney to be selected
   mapView.selectedMarker = _sydneyMarker;
 
   self.view = mapView;
-  self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(didTapAdd)];
+  self.navigationItem.rightBarButtonItem =
+      [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                    target:self
+                                                    action:@selector(didTapAdd)];
 }
 
 - (void)didTapAdd {
   if (_sydneyMarker.map == nil) {
     _sydneyMarker.map = (GMSMapView *)self.view;
-//    _sydneyMarker.rotation += 45.0;
+    //    _sydneyMarker.rotation += 45.0;
   } else {
     _sydneyMarker.map = nil;
   }
@@ -72,7 +78,12 @@
   _melbourneMarker.snippet = @"Population: 4,169,103";
   _melbourneMarker.position = CLLocationCoordinate2DMake(-37.81969, 144.966085);
   _melbourneMarker.map = (GMSMapView *)self.view;
-}
 
+  if (_fadeInMarker.map) {
+    _fadeInMarker.map = nil;
+  } else {
+    _fadeInMarker.map = (GMSMapView *)self.view;
+  }
+}
 
 @end

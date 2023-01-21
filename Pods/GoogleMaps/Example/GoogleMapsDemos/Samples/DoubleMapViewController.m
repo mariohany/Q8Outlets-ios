@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Google Inc. All rights reserved.
+ * Copyright 2016 Google LLC. All rights reserved.
  *
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
@@ -12,10 +12,6 @@
  * ANY KIND, either express or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-
-#if !defined(__has_feature) || !__has_feature(objc_arc)
-#error "This file requires ARC support."
-#endif
 
 #import "GoogleMapsDemos/Samples/DoubleMapViewController.h"
 
@@ -30,9 +26,7 @@
 }
 
 + (GMSCameraPosition *)defaultCamera {
-  return [GMSCameraPosition cameraWithLatitude:37.7847
-                                     longitude:-122.41
-                                          zoom:5];
+  return [GMSCameraPosition cameraWithLatitude:37.7847 longitude:-122.41 zoom:5];
 }
 
 - (void)viewDidLoad {
@@ -42,8 +36,7 @@
   CGRect frame = self.view.bounds;
   frame.size.height = frame.size.height / 2;
   _mapView = [GMSMapView mapWithFrame:frame camera:[DoubleMapViewController defaultCamera]];
-  _mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth |
-                              UIViewAutoresizingFlexibleHeight |
+  _mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight |
                               UIViewAutoresizingFlexibleBottomMargin;
 
   _mapView.delegate = self;
@@ -52,8 +45,7 @@
   frame = self.view.bounds;
   frame.size.height = frame.size.height / 2;
   frame.origin.y = frame.size.height;
-  _boundMapView =
-      [GMSMapView mapWithFrame:frame camera:[DoubleMapViewController defaultCamera]];
+  _boundMapView = [GMSMapView mapWithFrame:frame camera:[DoubleMapViewController defaultCamera]];
   _boundMapView.autoresizingMask = UIViewAutoresizingFlexibleWidth |
                                    UIViewAutoresizingFlexibleHeight |
                                    UIViewAutoresizingFlexibleTopMargin;
@@ -62,8 +54,9 @@
   [self.view addSubview:_boundMapView];
 }
 
-- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
-                                         duration:(NSTimeInterval)duration {
+- (void)viewWillTransitionToSize:(CGSize)size
+       withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+  [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
   CGRect frame = self.view.bounds;
   frame.size.height = frame.size.height / 2;
   _mapView.frame = frame;

@@ -1,1 +1,0 @@
-../../../WLHelpers/WLHelpers/Classes/WLStrokedOutsideLabel.h

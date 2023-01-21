@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Google Inc. All rights reserved.
+ * Copyright 2016 Google LLC. All rights reserved.
  *
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
@@ -13,15 +13,11 @@
  * permissions and limitations under the License.
  */
 
-#if !defined(__has_feature) || !__has_feature(objc_arc)
-#error "This file requires ARC support."
-#endif
-
 #import "GoogleMapsDemos/Samples/MarkerEventsViewController.h"
 
-#import <GoogleMaps/GoogleMaps.h>
-
 #import <QuartzCore/QuartzCore.h>
+
+#import <GoogleMaps/GoogleMaps.h>
 
 @implementation MarkerEventsViewController {
   GMSMapView *_mapView;
@@ -62,19 +58,17 @@
   [CATransaction begin];
   [CATransaction setAnimationDuration:3.f];  // 3 second animation
 
-  GMSCameraPosition *camera =
-      [[GMSCameraPosition alloc] initWithTarget:marker.position
-                                           zoom:8
-                                        bearing:50
-                                   viewingAngle:60];
+  GMSCameraPosition *camera = [[GMSCameraPosition alloc] initWithTarget:marker.position
+                                                                   zoom:8
+                                                                bearing:50
+                                                           viewingAngle:60];
   [mapView animateToCameraPosition:camera];
   [CATransaction commit];
 
   // Melbourne marker has a InfoWindow so return NO to allow markerInfoWindow to
   // fire. Also check that the marker isn't already selected so that the
   // InfoWindow doesn't close.
-  if (marker == _melbourneMarker &&
-      mapView.selectedMarker != _melbourneMarker) {
+  if (marker == _melbourneMarker && mapView.selectedMarker != _melbourneMarker) {
     return NO;
   }
 

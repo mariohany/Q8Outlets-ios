@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Google Inc. All rights reserved.
+ * Copyright 2016 Google LLC. All rights reserved.
  *
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
@@ -12,10 +12,6 @@
  * ANY KIND, either express or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-
-#if !defined(__has_feature) || !__has_feature(objc_arc)
-#error "This file requires ARC support."
-#endif
 
 #import "GoogleMapsDemos/Samples/PanoramaViewController.h"
 
@@ -36,8 +32,7 @@ static CLLocationCoordinate2D kMarkerAt = {40.761455, -73.977814};
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  _view = [GMSPanoramaView panoramaWithFrame:CGRectZero
-                              nearCoordinate:kPanoramaNear];
+  _view = [GMSPanoramaView panoramaWithFrame:CGRectZero nearCoordinate:kPanoramaNear];
   _view.backgroundColor = [UIColor grayColor];
   _view.delegate = self;
   self.view = _view;
@@ -55,22 +50,18 @@ static CLLocationCoordinate2D kMarkerAt = {40.761455, -73.977814};
 
 #pragma mark - GMSPanoramaDelegate
 
-- (void)panoramaView:(GMSPanoramaView *)panoramaView
-       didMoveCamera:(GMSPanoramaCamera *)camera {
-  NSLog(@"Camera: (%f,%f,%f)",
-        camera.orientation.heading, camera.orientation.pitch, camera.zoom);
+- (void)panoramaView:(GMSPanoramaView *)panoramaView didMoveCamera:(GMSPanoramaCamera *)camera {
+  NSLog(@"Camera: (%f,%f,%f)", camera.orientation.heading, camera.orientation.pitch, camera.zoom);
 }
 
-- (void)panoramaView:(GMSPanoramaView *)view
-   didMoveToPanorama:(GMSPanorama *)panorama {
+- (void)panoramaView:(GMSPanoramaView *)view didMoveToPanorama:(GMSPanorama *)panorama {
   if (!_configured) {
     GMSMarker *marker = [GMSMarker markerWithPosition:kMarkerAt];
     marker.icon = [GMSMarker markerImageWithColor:[UIColor purpleColor]];
     marker.panoramaView = _view;
 
     CLLocationDegrees heading = GMSGeometryHeading(kPanoramaNear, kMarkerAt);
-    _view.camera =
-        [GMSPanoramaCamera cameraWithHeading:heading pitch:0 zoom:1];
+    _view.camera = [GMSPanoramaCamera cameraWithHeading:heading pitch:0 zoom:1];
 
     _configured = YES;
   }

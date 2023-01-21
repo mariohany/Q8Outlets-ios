@@ -18,9 +18,16 @@
 
 #import <UIKit/UIKit.h>
 
+#import "FBSDKImpressionTrackingButton.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
 /**
   A base class for common SDK buttons.
  */
-@interface FBSDKButton : UIButton
+NS_SWIFT_NAME(FBButton)
+@interface FBSDKButton : FBSDKImpressionTrackingButton
 
 @end
+
+NS_ASSUME_NONNULL_END
