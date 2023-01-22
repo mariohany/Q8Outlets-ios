@@ -159,11 +159,11 @@
         }
         
         [UIView animateWithDuration:0.2 animations:^{
-            self.descriptionLabel.alpha = descriptionExpanded ? 1.0f : 0.0f;
-            self.skipDescriptionConstraint.priority = descriptionExpanded ? 100 : 990;
+            self.descriptionLabel.alpha = self->descriptionExpanded ? 1.0f : 0.0f;
+            self.skipDescriptionConstraint.priority = self->descriptionExpanded ? 100 : 990;
             [self.descriptionLabel.superview.superview layoutIfNeeded];
         } completion:^(BOOL finished) {
-            if (!descriptionExpanded) {
+            if (!self->descriptionExpanded) {
                 self.descriptionLabel.hidden = YES;
             }
         }];
@@ -338,10 +338,10 @@
         [Q8ActivityIndicator hideHUDForView:self.view animated:YES];
         if (success) {
             strongify(self);
-            appliedCoupon = coupon;
+            self->appliedCoupon = coupon;
             [Q8NotificationHelper postOfferCouponCountChangeNotification:self.offer couponApplied:YES];
             
-            descriptionExpanded = NO;
+            self->descriptionExpanded = NO;
             [self reloadDescriptionRepresentation];
         }
     } sender:self];

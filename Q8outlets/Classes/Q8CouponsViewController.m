@@ -300,11 +300,11 @@
             strongify(self)
             [self showActivityIndicator:NO];
             if (newCouponList) {
-                [allCoupons removeAllObjects];
+                [self->allCoupons removeAllObjects];
             }
-            [allCoupons addObjectsFromArray:couponArray];
-            couponsTotalCount = couponsByCategoryCount;
-            couponsCount = couponCounts;
+            [self->allCoupons addObjectsFromArray:couponArray];
+            self->couponsTotalCount = couponsByCategoryCount;
+            self->couponsCount = couponCounts;
             [self reloadTableView];
         }        
     } sender:self];
@@ -318,9 +318,9 @@
         [Q8ActivityIndicator hideHUDForView:self.view animated:YES];
         if (success) {
             strongify(self);
-            [allCoupons removeObject:coupon];
-            couponsTotalCount--;
-            selectedFilter == Q8CouponStatusActive ? couponsCount.activeCount-- : couponsCount.archivedCount--;
+            [self->allCoupons removeObject:coupon];
+            self->couponsTotalCount--;
+            self->selectedFilter == Q8CouponStatusActive ? self->couponsCount.activeCount-- : self->couponsCount.archivedCount--;
             [self reloadTableView];
         }
     } sender:self];
@@ -342,10 +342,10 @@
         [Q8ActivityIndicator hideHUDForView:self.view animated:YES];
         if (success) {
             strongify(self);
-            [allCoupons removeObject:coupon];
-            couponsTotalCount--;
-            couponsCount.archivedCount = archive ? couponsCount.archivedCount + 1 : couponsCount.archivedCount - 1;
-            couponsCount.activeCount = archive ? couponsCount.activeCount - 1 : couponsCount.activeCount + 1;
+            [self->allCoupons removeObject:coupon];
+            self->couponsTotalCount--;
+            self->couponsCount.archivedCount = archive ? self->couponsCount.archivedCount + 1 : self->couponsCount.archivedCount - 1;
+            self->couponsCount.activeCount = archive ? self->couponsCount.activeCount - 1 : self->couponsCount.activeCount + 1;
             [self reloadTableView];
         }
     } sender:self];

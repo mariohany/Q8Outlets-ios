@@ -184,7 +184,7 @@ typedef enum {
     self.offersTabButton.userInteractionEnabled = (currentTab != Q8SearchTabOffers);
     
     [UIView animateWithDuration:0.2f animations:^{
-        self.centerActiveTabOnMerchantsConstraint.priority = currentTab == Q8SearchTabMerchants ? 990 : 100;
+        self.centerActiveTabOnMerchantsConstraint.priority = self->currentTab == Q8SearchTabMerchants ? 990 : 100;
         [self.activeTabBottomView.superview layoutIfNeeded];
     }];
     
@@ -511,10 +511,10 @@ typedef enum {
         [[Q8ServerAPIHelper sharedHelper] getMerchantsByCategoryID:categoryID text:self.searchTextField.text latitude:latitude longtitude:longtitude page:merchantCurrentPage searchByfollow:NO onCompletion:^(BOOL success, NSArray <Q8Merchant *> *merchantsArray, NSInteger merchantCount, NSString *searchText) {
             if ([searchText isEqualToString:self.searchTextField.text]) {
                 if (isNeedUpdateList) {
-                    [allMerchants removeAllObjects];
+                    [self->allMerchants removeAllObjects];
                 }
-                [allMerchants addObjectsFromArray:merchantsArray];
-                merchantsTotalCount = merchantCount;
+                [self->allMerchants addObjectsFromArray:merchantsArray];
+                self->merchantsTotalCount = merchantCount;
                 strongify(self);
                 [self showActivityIndicator:NO];
                 [self reloadTableView];
@@ -526,10 +526,10 @@ typedef enum {
         [[Q8ServerAPIHelper sharedHelper] getOffersByCategoryID:categoryID businessID:@"" text:self.searchTextField.text latitude:latitude longtitude:longtitude page:offerCurrentPage searchByfollow:NO onCompletion:^(BOOL success, NSArray <Q8Offer *> *offersArray, NSInteger offersCount, NSString *searchText) {
             if ([searchText isEqualToString:self.searchTextField.text]) {
                 if (isNeedUpdateList) {
-                    [allOffers removeAllObjects];
+                    [self->allOffers removeAllObjects];
                 }
-                [allOffers addObjectsFromArray:offersArray];
-                offersTotalCount = offersCount;
+                [self->allOffers addObjectsFromArray:offersArray];
+                self->offersTotalCount = offersCount;
                 strongify(self);
                 [self showActivityIndicator:NO];
                 [self reloadTableView];

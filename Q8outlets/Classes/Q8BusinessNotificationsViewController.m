@@ -134,8 +134,8 @@ enum {
     weakify(self);
     [[Q8ServerAPIHelper sharedHelper] getOfferNotification:currentNotificationPage onCompletions:^(BOOL success, NSArray<Q8BusinessNotification *> *notificationArray, NSInteger notificationCount) {
         strongify(self);
-        notificationTotalCount = notificationCount;
-        [notifications addObjectsFromArray:notificationArray];
+        self->notificationTotalCount = notificationCount;
+        [self->notifications addObjectsFromArray:notificationArray];
         [self reloadTableView];
     } sender:self];
 }

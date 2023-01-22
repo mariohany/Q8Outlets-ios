@@ -180,7 +180,7 @@
     
     // Cancel action
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:cancelTitle style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        showingAlert = NO;
+        self->showingAlert = NO;
         if (delegate && [delegate respondsToSelector:@selector(didUseCancelActionOfAlertController:)]) {
             [delegate didUseCancelActionOfAlertController:reason];
         }
@@ -190,7 +190,7 @@
     // Destructive action, if any
     if (deleteTitle.length) {
         UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:deleteTitle style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-            showingAlert = NO;
+            self->showingAlert = NO;
             if (delegate && [delegate respondsToSelector:@selector(didUseDestructiveActionOfAlertController:)]) {
                 [delegate didUseDestructiveActionOfAlertController:reason];
             }
@@ -202,7 +202,7 @@
     // Action titles, if any
     for (NSString *actionTitle in actionTitles) {
         UIAlertAction *actionAction = [UIAlertAction actionWithTitle:actionTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            showingAlert = NO;
+            self->showingAlert = NO;
             if (delegate && [delegate respondsToSelector:@selector(didUseActionAtIndex:ofAlertController:withReason:)]) {
                 [delegate didUseActionAtIndex:[actionTitles indexOfObject:actionTitle] ofAlertController:alertController withReason:reason];
             }

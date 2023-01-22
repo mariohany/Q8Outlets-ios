@@ -100,14 +100,14 @@
         [Q8ActivityIndicator hideHUDForView:self.view animated:YES];
         self.view.userInteractionEnabled = YES;
         
-        userSettings = endUserSettings;
+        self->userSettings = endUserSettings;
         
-        offerEmails = userSettings.isOfferEmailsEnabled;
-        offerPushes = userSettings.isOfferPushesEnabled;
-        merchantEmails = userSettings.isMerchantEmailsEnabled;
-        merchantPushes = userSettings.isMerchantPushesEnabled;
-        couponsEmails = userSettings.isCouponsEmailsEnabled;
-        couponsPushes = userSettings.isCouponsPushesEnabled;
+        self->offerEmails = self->userSettings.isOfferEmailsEnabled;
+        self->offerPushes = self->userSettings.isOfferPushesEnabled;
+        self->merchantEmails = self->userSettings.isMerchantEmailsEnabled;
+        self->merchantPushes = self->userSettings.isMerchantPushesEnabled;
+        self->couponsEmails = self->userSettings.isCouponsEmailsEnabled;
+        self->couponsPushes = self->userSettings.isCouponsPushesEnabled;
         
         // Populate checkboxes
         [self populateCurrentSettingsRepresentation];

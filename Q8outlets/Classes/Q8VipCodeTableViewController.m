@@ -111,7 +111,7 @@
                 [self.navigationController popViewControllerAnimated:YES];
             }
         } else if (codeIsInvalid) {
-            invalidCode = YES;
+            self->invalidCode = YES;
             [self reloadFilledFieldsRepresentation];
         }
     } sender:self];

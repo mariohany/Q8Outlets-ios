@@ -103,8 +103,8 @@
     [self showActivityIndicator:YES];
     weakify(self);
     [[Q8ServerAPIHelper sharedHelper] getActiveOffersForBusiness:@"" page:currentOfferPage onCompletions:^(BOOL success, NSArray<Q8Offer *> *offersArray, NSInteger offersCount) {
-        [offers addObjectsFromArray:offersArray];
-        offersTotalCount = offersCount;
+        [self->offers addObjectsFromArray:offersArray];
+        self->offersTotalCount = offersCount;
         strongify(self);
         [self showActivityIndicator:NO];
         [self reloadTableView];

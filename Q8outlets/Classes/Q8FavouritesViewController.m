@@ -117,7 +117,7 @@ typedef enum {
     self.offersTabButton.userInteractionEnabled = (currentTab != Q8FavTabOffers);
     
     [UIView animateWithDuration:0.2f animations:^{
-        self.centerActiveTabOnMerchantsConstraint.priority = currentTab == Q8FavTabMerchants ? 990 : 100;
+        self.centerActiveTabOnMerchantsConstraint.priority = self->currentTab == Q8FavTabMerchants ? 990 : 100;
         [self.activeTabBottomView.superview layoutIfNeeded];
     }];
     
@@ -194,7 +194,7 @@ typedef enum {
     NSString *deleteActionWidthModifier = @"            ";
     UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:deleteActionWidthModifier handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
         // Delete this merchant from favs
-        Q8Merchant *merchant = [favMerchants objectAtIndex:indexPath.row];
+        Q8Merchant *merchant = [self->favMerchants objectAtIndex:indexPath.row];
         [self unfollowMerchantOnServer:merchant];
     }];
     
@@ -433,8 +433,8 @@ typedef enum {
             merchantCurrentPage = 1;
         }
         [[Q8ServerAPIHelper sharedHelper] getMerchantsByCategoryID:@"" text:@"" latitude:@"" longtitude:@"" page:merchantCurrentPage searchByfollow:YES onCompletion:^(BOOL success, NSArray <Q8Merchant *> *merchantsArray, NSInteger merchantCount, NSString *searchText) {
-            [favMerchants addObjectsFromArray:merchantsArray];
-            merchantsTotalCount = merchantCount;
+            [self->favMerchants addObjectsFromArray:merchantsArray];
+            self->merchantsTotalCount = merchantCount;
             strongify(self);
             [self showActivityIndicator:NO];
             [self reloadTableView];
@@ -445,8 +445,8 @@ typedef enum {
             offerCurrentPage = 1;
         }
         [[Q8ServerAPIHelper sharedHelper] getOffersByCategoryID:@"" businessID:@"" text:@"" latitude:@"" longtitude:@"" page:offerCurrentPage searchByfollow:YES onCompletion:^(BOOL success, NSArray <Q8Offer *> *offersArray, NSInteger offersCount, NSString *searchText) {
-            [favOffers addObjectsFromArray:offersArray];
-            offersTotalCount = offersCount;
+            [self->favOffers addObjectsFromArray:offersArray];
+            self->offersTotalCount = offersCount;
             strongify(self);
             [self showActivityIndicator:NO];
             [self reloadTableView];

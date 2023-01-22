@@ -129,8 +129,8 @@
          [Q8ActivityIndicator hideHUDForView:self.view animated:YES];
          
          strongify(self);
-         [allLocations addObjectsFromArray:locations];
-         locationsTotalCount = locationsCount;
+        [self->allLocations addObjectsFromArray:locations];
+        self->locationsTotalCount = locationsCount;
          [self reloadTableView];
         
     } sender:self];

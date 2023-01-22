@@ -167,7 +167,7 @@
     [[Q8ServerAPIHelper sharedHelper] getMerchantsByLocation:latitude longtitude:longtitude searchtext:self.searchTextField.text onCompletion:^(BOOL success, NSArray<Q8Merchant *> *mershantsArray, NSString *searchText) {
         strongify(self);
         if ([searchText isEqualToString:self.searchTextField.text]) {
-            allMerchants = mershantsArray;
+            self->allMerchants = mershantsArray;
             [self reloadMapAnnotationsAndZoom:mershantsArray.count ? YES : NO];
             if (!mershantsArray.count) {
                 [WLAlertHelper createAlertControllerForReason:[Q8AlertHelper convertToString:Q8ReasonSearchNoResults] titleArguments:nil bodyArguments:nil delegate:nil];
@@ -183,8 +183,8 @@
         strongify(self);
         if (success) {
             self.activityIndicator.hidden = YES;
-            merchant.currentLocation = selectedMerchant.currentLocation;
-            selectedMerchant = merchant;
+            merchant.currentLocation = self->selectedMerchant.currentLocation;
+            self->selectedMerchant = merchant;
             [self populateMerchantDetails];
         }
     } sender:self];

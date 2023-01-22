@@ -203,7 +203,7 @@ enum {
         if (success) {
             [Q8CurrentUser saveUserName:self.nameTextField.text];
             [Q8CurrentUser saveUserEmail:self.emailTextField.text];
-            isEditing = NO;
+            self->isEditing = NO;
             [self reloadEditingRepresentation];
         }
     } sender:self];

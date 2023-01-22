@@ -427,8 +427,8 @@
     weakify(self);
     [[Q8ServerAPIHelper sharedHelper] getOffersByCategoryID:@"" businessID:self.merchant.merchantId text:@"" latitude:@"" longtitude:@"" page:offerCurrentPage searchByfollow:NO onCompletion:^(BOOL success, NSArray <Q8Offer *> *offersArray, NSInteger offersCount, NSString *searchText) {
         strongify(self);
-        offersTotalCount = offersCount;
-        [offers addObjectsFromArray:offersArray];
+        self->offersTotalCount = offersCount;
+        [self->offers addObjectsFromArray:offersArray];
         [self reloadTableView];
     } sender:self];
 }
