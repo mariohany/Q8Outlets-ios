@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <AuthenticationServices/AuthenticationServices.h>
 
 static NSString * const Q8AuthorizationControllerIdentifier = @"Q8Authorization";
 
-@interface Q8AuthorizationTableViewController : UITableViewController <UITextFieldDelegate,ASAuthorizationControllerDelegate,ASAuthorizationControllerPresentationContextProviding>
+@interface Q8AuthorizationTableViewController : UITableViewController <UITextFieldDelegate>
 
 @property (nonatomic, assign) BOOL isRegistration;
 @property (nonatomic, assign) Q8UserRole authorizationRole; // For b-user or client

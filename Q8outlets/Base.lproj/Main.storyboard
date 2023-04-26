@@ -238,7 +238,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_photo_tall" translatesAutoresizingMaskIntoConstraints="NO" id="UWI-rb-u4o">
-                                <rect key="frame" x="0.0" y="-20" width="320" height="588"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q8Outlets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cp-3Z-l3F">
                                 <rect key="frame" x="89.5" y="50" width="141" height="35"/>
@@ -624,40 +624,6 @@
                                                 <constraint firstAttribute="trailing" secondItem="Uco-st-CTQ" secondAttribute="trailing" constant="40" id="cT8-Nf-Vg1"/>
                                                 <constraint firstItem="Uco-st-CTQ" firstAttribute="leading" secondItem="Qas-E9-LlX" secondAttribute="leading" constant="40" id="iFn-PQ-fKd"/>
                                                 <constraint firstAttribute="bottom" secondItem="Uco-st-CTQ" secondAttribute="bottom" id="xNM-Mh-xVg"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="64" id="Xrx-Ig-wzE">
-                                        <rect key="frame" x="0.0" y="556" width="414" height="64"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xrx-Ig-wzE" id="6RU-OK-Xtp">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ub-qg-0Xg">
-                                                    <rect key="frame" x="40" y="14" width="334" height="50"/>
-                                                    <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IgR-ON-Kuy">
-                                                            <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
-                                                            <connections>
-                                                                <action selector="instagramButtonAction:" destination="fjQ-TK-fXY" eventType="touchUpInside" id="6KB-xF-pRV"/>
-                                                            </connections>
-                                                        </button>
-                                                    </subviews>
-                                                    <color key="backgroundColor" red="0.95692899210000004" green="0.95692899210000004" blue="0.95692899210000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="IgR-ON-Kuy" secondAttribute="trailing" id="3ie-Ye-uL5"/>
-                                                        <constraint firstItem="IgR-ON-Kuy" firstAttribute="top" secondItem="2Ub-qg-0Xg" secondAttribute="top" id="BKG-8v-FAo"/>
-                                                        <constraint firstItem="IgR-ON-Kuy" firstAttribute="leading" secondItem="2Ub-qg-0Xg" secondAttribute="leading" id="NQn-Ui-1tE"/>
-                                                        <constraint firstAttribute="bottom" secondItem="IgR-ON-Kuy" secondAttribute="bottom" id="STp-Sc-rgP"/>
-                                                        <constraint firstAttribute="height" constant="50" id="wiw-AN-nhr"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="2Ub-qg-0Xg" secondAttribute="bottom" id="XVi-9f-CoQ"/>
-                                                <constraint firstAttribute="trailing" secondItem="2Ub-qg-0Xg" secondAttribute="trailing" constant="40" id="j0j-bR-tNe"/>
-                                                <constraint firstItem="2Ub-qg-0Xg" firstAttribute="leading" secondItem="6RU-OK-Xtp" secondAttribute="leading" constant="40" id="wtw-Ze-kNz"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>

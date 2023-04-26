@@ -21,6 +21,7 @@
 		215EE3331E6E9AD8001922B5 /* Q8ShareHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 215EE3321E6E9AD8001922B5 /* Q8ShareHelper.m */; };
 		217151311E57175B008C0289 /* Q8LoadingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2171512F1E57175B008C0289 /* Q8LoadingTableViewCell.m */; };
 		217151321E57175B008C0289 /* Q8LoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 217151301E57175B008C0289 /* Q8LoadingTableViewCell.xib */; };
+		21741DF01E8A4A2E00F60935 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21741DEF1E8A4A2E00F60935 /* GoogleService-Info.plist */; };
 		21741DF31E8A7C7500F60935 /* Q8DynamicLinkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 21741DF21E8A7C7500F60935 /* Q8DynamicLinkHelper.m */; };
 		217B84291E69B573003CBEE1 /* Q8EndUserSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 217B84281E69B573003CBEE1 /* Q8EndUserSetting.m */; };
 		218A6DBA1E83BC5B0088BF67 /* Q8MerchantLocationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 218A6DB91E83BC5B0088BF67 /* Q8MerchantLocationTableViewCell.m */; };
@@ -124,9 +125,6 @@
 		58FA310E1E4B7778004D46D8 /* Q8InstagramLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FA310C1E4B7778004D46D8 /* Q8InstagramLoginViewController.m */; };
 		58FA310F1E4B7778004D46D8 /* Q8InstagramLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58FA310D1E4B7778004D46D8 /* Q8InstagramLoginViewController.xib */; };
 		FD41C9E38EBE9E4AB165D062 /* Pods_Q8outlets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 204283428B1CB7B3F9588064 /* Pods_Q8outlets.framework */; };
-		90BA8EB2C98C02D0D79BB9D7 /* libPods-Q8outlets.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE803D8AAC4A1DBA57796C60 /* libPods-Q8outlets.a */; };
-		D826D05729DF8393009FCD78 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D826D05629DF8393009FCD78 /* GoogleService-Info.plist */; };
-		D8DD681B29E392740063DC4E /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8DD681A29E392740063DC4E /* AuthenticationServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,6 +173,7 @@
 		2171512E1E57175B008C0289 /* Q8LoadingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Q8LoadingTableViewCell.h; sourceTree = "<group>"; };
 		2171512F1E57175B008C0289 /* Q8LoadingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Q8LoadingTableViewCell.m; sourceTree = "<group>"; };
 		217151301E57175B008C0289 /* Q8LoadingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Q8LoadingTableViewCell.xib; sourceTree = "<group>"; };
+		21741DEF1E8A4A2E00F60935 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		21741DF11E8A7C7500F60935 /* Q8DynamicLinkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Q8DynamicLinkHelper.h; sourceTree = "<group>"; };
 		21741DF21E8A7C7500F60935 /* Q8DynamicLinkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Q8DynamicLinkHelper.m; sourceTree = "<group>"; };
 		217B84271E69B573003CBEE1 /* Q8EndUserSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Q8EndUserSetting.h; sourceTree = "<group>"; };
@@ -358,9 +357,6 @@
 		58FA310D1E4B7778004D46D8 /* Q8InstagramLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Q8InstagramLoginViewController.xib; sourceTree = "<group>"; };
 		6F457BA28B8999937335D468 /* Pods-Q8outlets.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Q8outlets.release.xcconfig"; path = "Pods/Target Support Files/Pods-Q8outlets/Pods-Q8outlets.release.xcconfig"; sourceTree = "<group>"; };
 		8BCFFC9DC4BA73A2E8C56E68 /* Pods-Q8outlets.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Q8outlets.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Q8outlets/Pods-Q8outlets.debug.xcconfig"; sourceTree = "<group>"; };
-		BE803D8AAC4A1DBA57796C60 /* libPods-Q8outlets.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Q8outlets.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D826D05629DF8393009FCD78 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		D8DD681A29E392740063DC4E /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -369,8 +365,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD41C9E38EBE9E4AB165D062 /* Pods_Q8outlets.framework in Frameworks */,
-				D8DD681B29E392740063DC4E /* AuthenticationServices.framework in Frameworks */,
-				90BA8EB2C98C02D0D79BB9D7 /* libPods-Q8outlets.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -719,12 +713,12 @@
 		58C9437D1E4092E600851C20 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D826D05629DF8393009FCD78 /* GoogleService-Info.plist */,
 				2F525E561F43252E00C1BEB0 /* Localizable.strings */,
 				58E350AE1E4099410023E24A /* Images */,
 				58E350B11E40994C0023E24A /* Fonts */,
 				58C9437F1E4092E600851C20 /* Info.plist */,
 				58C943801E4092E600851C20 /* main.m */,
+				21741DEF1E8A4A2E00F60935 /* GoogleService-Info.plist */,
 				58E350A21E4094330023E24A /* Q8PrefixHeader.pch */,
 				58E350A31E4094670023E24A /* Alerts.json */,
 			);
@@ -966,8 +960,6 @@
 			isa = PBXGroup;
 			children = (
 				204283428B1CB7B3F9588064 /* Pods_Q8outlets.framework */,
-				D8DD681A29E392740063DC4E /* AuthenticationServices.framework */,
-				BE803D8AAC4A1DBA57796C60 /* libPods-Q8outlets.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1103,12 +1095,12 @@
 				58E350D51E40995D0023E24A /* Raleway-Medium.ttf in Resources */,
 				58E350CC1E40995D0023E24A /* Raleway-Bold.ttf in Resources */,
 				58E350D41E40995D0023E24A /* Raleway-LightItalic.ttf in Resources */,
+				21741DF01E8A4A2E00F60935 /* GoogleService-Info.plist in Resources */,
 				58E350DF1E40995D0023E24A /* RobotoSlab-Thin_0.ttf in Resources */,
 				58BA97071E422A1000B7842D /* Q8ClientOfferTableViewCell.xib in Resources */,
 				58E350D91E40995D0023E24A /* Raleway-SemiBoldItalic.ttf in Resources */,
 				58E350DA1E40995D0023E24A /* Raleway-Thin.ttf in Resources */,
 				2F525E691F43324C00C1BEB0 /* Q8ReportPopupView.xib in Resources */,
-				D826D05729DF8393009FCD78 /* GoogleService-Info.plist in Resources */,
 				58C9435A1E40929900851C20 /* LaunchScreen.storyboard in Resources */,
 				58E350D31E40995D0023E24A /* Raleway-Light.ttf in Resources */,
 				58E350A41E4094670023E24A /* Alerts.json in Resources */,
@@ -1572,17 +1564,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = T5GA7DTMUP;
 				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				INFOPLIST_FILE = "$(SRCROOT)/Q8outlets/Supporting Files/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Q8outlets;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0.4;
-				PRODUCT_BUNDLE_IDENTIFIER = com.greenetworks.q8outlets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.esraa.q8outlets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1602,16 +1590,12 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = T5GA7DTMUP;
 				INFOPLIST_FILE = "$(SRCROOT)/Q8outlets/Supporting Files/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Q8outlets;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0.4;
-				PRODUCT_BUNDLE_IDENTIFIER = com.greenetworks.q8outlets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.esraa.q8outlets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

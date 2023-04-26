@@ -15,7 +15,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.4</string>
+	<string>1.0.3</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -94,11 +94,11 @@
 	<key>NSContactsUsageDescription</key>
 	<string>To see friends who are also using Carefully, please grant this app access to Address Book.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>To get offers near you, please grant this app access to location services</string>
+	<string>To use location features, please grant this app access to location services</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>To get offers near you, please grant this app access to location services</string>
+	<string>To use location features, please grant this app access to location services</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>To get offers near you, please grant this app access to location services</string>
+	<string>To use location features, please grant this app access to location services</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>To use video features, please grant this app access to microphone.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
