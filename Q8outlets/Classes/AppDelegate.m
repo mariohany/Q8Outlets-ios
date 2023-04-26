@@ -180,8 +180,8 @@ forRemoteNotification:(NSDictionary *)notification
         return YES;
     }
 	// handle deep links
-	else if ([[url absoluteString] containsString:@"frontend.q8outlets.com/site/reset-password?"]) {
-		NSRange range = [[url absoluteString] rangeOfString:@"frontend.q8outlets.com/site/reset-password?"];
+	else if ([[url absoluteString] containsString:@"app.q8outlets.com/site/reset-password?"]) {
+		NSRange range = [[url absoluteString] rangeOfString:@"app.q8outlets.com/site/reset-password?"];
 		NSString *tokenString = [[url absoluteString] substringFromIndex:(range.location + range.length)].stringByRemovingPercentEncoding;
 		[Q8DynamicLinkHelper handleDynamicLinkQuery:tokenString];
 		return YES;
