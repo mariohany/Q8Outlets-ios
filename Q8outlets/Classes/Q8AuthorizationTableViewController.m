@@ -67,6 +67,12 @@ enum {
     [self reloadTermsRepresentation];
     
     [self reloadRegistrationModeRepresentation];
+    
+    if (@available(iOS 13.0, *)) {
+        [self observeAppleSignInState];
+        [self setupUI];
+    }
+
 }
 
 #pragma mark - Controller logic
@@ -371,32 +377,32 @@ enum {
 }
 
 
-//- (void)setupUI {
-//
-//    // Sign In With Apple
-//    appleIDLoginInfoTextView = [[UITextView alloc] initWithFrame:CGRectMake(.0, 40.0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame) * 0.4) textContainer:nil];
-//    appleIDLoginInfoTextView.font = [UIFont systemFontOfSize:32.0];
-//    [self.view addSubview:appleIDLoginInfoTextView];
-//
-//
-//    if (@available(iOS 13.0, *)) {
-//    // Sign In With Apple Button
-//    ASAuthorizationAppleIDButton *appleIDButton = [ASAuthorizationAppleIDButton new];
-//
-//    appleIDButton.frame =  CGRectMake(.0, .0, CGRectGetWidth(self.view.frame) - 40.0, 100.0);
-//    CGPoint origin = CGPointMake(20.0, CGRectGetMidY(self.view.frame));
-//    CGRect frame = appleIDButton.frame;
-//    frame.origin = origin;
-//    appleIDButton.frame = frame;
-//    appleIDButton.cornerRadius = CGRectGetHeight(appleIDButton.frame) * 0.25;
-//    [self.view addSubview:appleIDButton];
-//    [appleIDButton addTarget:self action:@selector(handleAuthrization:) forControlEvents:UIControlEventTouchUpInside];
-//    }
-//
+- (void)setupUI {
+
+    // Sign In With Apple
+//    _appleIDLoginInfoTextView = [[UITextView alloc] initWithFrame:CGRectMake(.0, 40.0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame) * 0.4) textContainer:nil];
+//    _appleIDLoginInfoTextView.font = [UIFont systemFontOfSize:32.0];
+//    [self.view addSubview:_appleIDLoginInfoTextView];
+
+
+    if (@available(iOS 13.0, *)) {
+    // Sign In With Apple Button
+        ASAuthorizationAppleIDButton *appleIDButton = [ASAuthorizationAppleIDButton new];
+
+        appleIDButton.frame =  CGRectMake(.0, .0, CGRectGetWidth(self.view.frame) - 40.0, 100.0);
+        CGPoint origin = CGPointMake(20.0, CGRectGetMidY(self.view.frame));
+        CGRect frame = appleIDButton.frame;
+        frame.origin = origin;
+        appleIDButton.frame = frame;
+        appleIDButton.cornerRadius = CGRectGetHeight(appleIDButton.frame) * 0.25;
+        [self.appleLoginView addSubview:appleIDButton];
+        [appleIDButton addTarget:self action:@selector(handleAuthrization:) forControlEvents:UIControlEventTouchUpInside];
+    }
+
 //    NSMutableString *mStr = [NSMutableString string];
 //    [mStr appendString:@"Sign In With Apple \n"];
-//    appleIDLoginInfoTextView.text = [mStr copy];
-//}
+//    _appleIDLoginInfoTextView.text = [mStr copy];
+}
 
 
 - (void)handleAuthrization:(UIButton *)sender {
@@ -434,13 +440,13 @@ enum {
     NSLog(@"authorization.credential：%@", authorization.credential);
 
     NSMutableString *mStr = [NSMutableString string];
-    mStr = [appleIDLoginInfoTextView.text mutableCopy];
+//    mStr = [_appleIDLoginInfoTextView.text mutableCopy];
 
     if ([authorization.credential isKindOfClass:[ASAuthorizationAppleIDCredential class]]) {
         // ASAuthorizationAppleIDCredential
         ASAuthorizationAppleIDCredential *appleIDCredential = authorization.credential;
         NSString *user = appleIDCredential.user;
-        [[NSUserDefaults standardUserDefaults] setValue:user forKey:setCurrentIdentifier];
+//        [[NSUserDefaults standardUserDefaults] setValue:user forKey:setCurrentIdentifier];
         [mStr appendString:user?:@""];
         NSString *familyName = appleIDCredential.fullName.familyName;
         [mStr appendString:familyName?:@""];
@@ -450,7 +456,7 @@ enum {
         [mStr appendString:email?:@""];
         NSLog(@"mStr：%@", mStr);
         [mStr appendString:@"\n"];
-        appleIDLoginInfoTextView.text = mStr;
+//        _appleIDLoginInfoTextView.text = mStr;
 
     } else if ([authorization.credential isKindOfClass:[ASPasswordCredential class]]) {
         ASPasswordCredential *passwordCredential = authorization.credential;
@@ -460,10 +466,10 @@ enum {
         [mStr appendString:password?:@""];
         [mStr appendString:@"\n"];
         NSLog(@"mStr：%@", mStr);
-        appleIDLoginInfoTextView.text = mStr;
+//        _appleIDLoginInfoTextView.text = mStr;
     } else {
          mStr = [@"check" mutableCopy];
-        appleIDLoginInfoTextView.text = mStr;
+//        _appleIDLoginInfoTextView.text = mStr;
     }
 }
 
@@ -491,20 +497,20 @@ enum {
             break;
     }
 
-    NSMutableString *mStr = [appleIDLoginInfoTextView.text mutableCopy];
-    [mStr appendString:errorMsg];
-    [mStr appendString:@"\n"];
-    appleIDLoginInfoTextView.text = [mStr copy];
+//    NSMutableString *mStr = [_appleIDLoginInfoTextView.text mutableCopy];
+//    [mStr appendString:errorMsg];
+//    [mStr appendString:@"\n"];
+//    _appleIDLoginInfoTextView.text = [mStr copy];
 
     if (errorMsg) {
         return;
     }
 
     if (error.localizedDescription) {
-        NSMutableString *mStr = [appleIDLoginInfoTextView.text mutableCopy];
-        [mStr appendString:error.localizedDescription];
-        [mStr appendString:@"\n"];
-        appleIDLoginInfoTextView.text = [mStr copy];
+//        NSMutableString *mStr = [_appleIDLoginInfoTextView.text mutableCopy];
+//        [mStr appendString:error.localizedDescription];
+//        [mStr appendString:@"\n"];
+//        _appleIDLoginInfoTextView.text = [mStr copy];
     }
     NSLog(@"controller requests：%@", controller.authorizationRequests);
     /*

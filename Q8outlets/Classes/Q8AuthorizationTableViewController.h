@@ -34,6 +34,7 @@ static NSString * const Q8AuthorizationControllerIdentifier = @"Q8Authorization"
 @property (weak, nonatomic) IBOutlet UILabel *twitterLabel;
 @property (weak, nonatomic) IBOutlet UILabel *googleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *instagramLabel;
+@property (strong, nonatomic) IBOutlet UIView *appleLoginView;
 
 - (IBAction)facebookButtonAction:(id)sender;
 - (IBAction)twitterButtonAction:(id)sender;
