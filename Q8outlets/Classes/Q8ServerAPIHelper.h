@@ -13,7 +13,7 @@
 #import "Q8BusinessNotification.h"
 #import "Q8EndUserSetting.h"
 
-#define SERVER_MAIN_URL_BASE @"https://api.q8outlets.com/"
+#define SERVER_MAIN_URL_BASE @"https://api.q8outlets.com/v1/"
 //#define SERVER_MAIN_URL_BASE @"http://api.q8outlets.wlab.tech/"
 
 #define SERVER_MAIN_URL [NSString stringWithFormat:@"%@v1", SERVER_MAIN_URL_BASE]
